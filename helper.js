@@ -252,4 +252,5 @@ let images = {
 function preload() {
 	images["Pikachew"] = loadImage("/assets/pikachu.gif");
 	images["Vapoureon"] = loadImage("/assets/vaporeon.gif");
+  images["Eevee"] = loadImage("/assets/eevee.gif");
 }

@@ -5,7 +5,7 @@ function setup() {
 
 let player = new Trainer({
 	name: "sire",
-	team: [new Pikachew(50), new Pikachew(2), new Pikachew(61), new Pikachew(42), new Pikachew(64), new Pikachew(32)],
+	team: [new Eevee(50), new Pikachew(2), new Pikachew(61), new Pikachew(42), new Pikachew(64), new Pikachew(32)],
 	img: "191.PNG"
 });
 

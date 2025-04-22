@@ -86,3 +86,37 @@ class HydroPump extends Move {
 		});
 	}
 }
+
+class Bite extends Move {
+	constructor() {
+		super({
+			name: "Bite", 
+			type: "Dark",
+			power: 60,
+			special: false
+		});
+	}
+}
+
+class BabyDollEyes extends Move {
+	constructor() {
+		super({
+			name: "Baby-Doll Eyes", 
+			type: "Fairy",
+			power: 0,
+			special: true
+		});
+	}
+}
+
+class DoubleEdge extends Move {
+	constructor() {
+		super({
+			name: "Double-Edge", 
+			type: "Normal",
+			power: 120,
+			special: false
+		});
+	}
+}
+

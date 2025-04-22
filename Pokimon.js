@@ -91,3 +91,22 @@ class Vapoureon extends Pokimon {
 		// this.learnMove(new HydroPump());
 	}
 }
+
+class Eevee extends Pokimon {
+	constructor(level=1) {
+		super({
+			name: "Eevee",
+			level: level, 
+			type1: "Normal"
+		});
+		this.setBaseStats({hp: 55, atk: 55, spAtk: 45, def: 50, spDef: 65, spd: 55});
+		this.setRandomIvs();
+		this.learnMove(new QuickAttack());
+		this.learnMove(new Bite());
+		this.learnMove(new BabyDollEyes());
+		this.learnMove(new DoubleEdge());
+		// this.learnMove(new AuroraBeam());
+		// this.learnMove(new WaterPulse());
+		// this.learnMove(new HydroPump());
+	}
+}

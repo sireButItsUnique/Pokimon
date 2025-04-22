@@ -110,3 +110,23 @@ class Eevee extends Pokimon {
 		// this.learnMove(new HydroPump());
 	}
 }
+
+class Bulbasaur extends Pokimon {
+	constructor(level=1) {
+		super({
+			name: "Bulbasaur",
+			level: level, 
+			type1: "Grass",
+			type2: "Poison"
+		});
+		this.setBaseStats({hp: 45, atk: 49, spAtk: 65, def: 49, spDef: 65, spd: 45});
+		this.setRandomIvs();
+		this.learnMove(new VineWhip());
+		this.learnMove(new SolarBeam());
+		this.learnMove(new SweetScent());
+		this.learnMove(new PoisonPowder());
+		// this.learnMove(new AuroraBeam());
+		// this.learnMove(new WaterPulse());
+		// this.learnMove(new HydroPump());
+	}
+}

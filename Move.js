@@ -131,3 +131,79 @@ class Pound extends Move {
     }
 }
 
+class WaterGun extends Move {
+    constructor() {
+        super({
+            name: "Water Gun", 
+            type: "Water",
+            power: 40,
+            special: true
+        });
+    }
+}
+
+class Lick extends Move {
+    constructor() {
+        super({
+            name: "Lick", 
+            type: "Ghost",
+            power: 30,
+            special: false
+        });
+    }
+}
+
+class Bounce extends Move {
+    constructor() {
+        super({
+            name: "Bounce", 
+            type: "Flying",
+            power: 85,
+            special: false
+        });
+    }
+}
+
+class VineWhip extends Move {
+    constructor() {
+        super({
+            name: "Vine Whip", 
+            type: "Grass",
+            power: 45,
+            special: false
+        });
+    }
+}
+
+class SolarBeam extends Move {
+    constructor() {
+        super({
+            name: "Solar Beam", 
+            type: "Grass",
+            power: 120,
+            special: true
+        });
+    }
+}
+
+class SweetScent extends Move {
+    constructor() {
+        super({
+            name: "Sweet Scent", 
+            type: "Normal",
+            power: 0,
+            special: true
+        });
+    }
+}
+
+class PoisonPowder extends Move {
+    constructor() {
+        super({
+            name: "Poison Powder", 
+            type: "Poison",
+            power: 0,
+            special: true
+        });
+    }
+}

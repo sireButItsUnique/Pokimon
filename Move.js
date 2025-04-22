@@ -120,3 +120,14 @@ class DoubleEdge extends Move {
 	}
 }
 
+class Pound extends Move {
+    constructor() {
+        super({
+            name: "Pound", 
+            type: "Normal",
+            power: 40,
+            special: false
+        });
+    }
+}
+

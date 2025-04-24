@@ -278,6 +278,10 @@ class Battle {
 		}
 	}
 	
+	/**
+	 * Render the battle screen.
+	 * @description This function renders the battle screen, including the player's and opponent's Pokemon, their health bars, and the GUI for moves and actions.
+	 */
 	render() {
 		let { state, plrActive, oppActive, plrTeam, oppTeam, plrIdx, oppIdx } = this;
 		

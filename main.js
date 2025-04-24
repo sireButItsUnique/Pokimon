@@ -20,8 +20,11 @@ let battle = new Battle({
 	opp: opp
 })
 
+let map = new Map();
+
 function draw() {
-	battle.render();
+	// battle.render();
+	map.render();
 }
 
 function mouseClicked() {

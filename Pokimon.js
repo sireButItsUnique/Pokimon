@@ -159,3 +159,25 @@ class Ivysaur extends Pokimon {
 	
 	}
 }
+
+
+class Venusaur extends Pokimon {
+	/**
+	 * @param {*} level 
+	 */
+	constructor(level=1) {
+		super({
+			name: "Venusaur",
+			level: level, 
+			type1: "Grass",
+			type2: "Poison"
+		});
+		this.setBaseStats({hp: 80, atk: 82, spAtk: 100, def: 83, spDef: 100, spd: 80});
+		this.setRandomIvs();
+		this.learnMove(new VineWhip());	
+		this.learnMove(new SweetScent());
+		this.learnMove(new PetalDance());
+		this.learnMove(new PowerWhip());
+	
+	}
+}

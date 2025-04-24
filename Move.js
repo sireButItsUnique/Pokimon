@@ -218,3 +218,15 @@ class PowerWhip extends Move {
         });
     }
 }
+
+
+class PetalDance extends Move {
+    constructor() {
+        super({
+            name: "Petal Dance", 
+            type: "Grass",
+            power: 120,
+            special: true
+        });
+    }
+}

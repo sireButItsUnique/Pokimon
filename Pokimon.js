@@ -181,3 +181,24 @@ class Venusaur extends Pokimon {
 	
 	}
 }
+
+
+class Charmander extends Pokimon {
+	/**
+	 * @param {*} level 
+	 */
+	constructor(level=1) {
+		super({
+			name: "Charmander",
+			level: level, 
+			type1: "Fire",
+		});
+		this.setBaseStats({hp: 39, atk: 52, spAtk: 60, def: 43, spDef: 50, spd: 65});
+		this.setRandomIvs();
+		this.learnMove(new Ember());	
+		this.learnMove(new DragonBreath());
+		this.learnMove(new Flamethrower());
+		this.learnMove(new Inferno());
+	
+	}
+}

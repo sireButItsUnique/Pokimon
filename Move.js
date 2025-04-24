@@ -230,3 +230,50 @@ class PetalDance extends Move {
         });
     }
 }
+
+class Ember extends Move {
+    constructor() {
+        super({
+            name: "Ember", 
+            type: "Fire",
+            power: 40,
+            special: true
+        });
+    }
+}
+
+
+class DragonBreath extends Move {
+    constructor() {
+        super({
+            name: "Dragon Breath", 
+            type: "Dragon",
+            power: 60,
+            special: true
+        });
+    }
+}
+
+
+class Inferno extends Move {
+    constructor() {
+        super({
+            name: "Inferno", 
+            type: "Fire",
+            power: 100,
+            special: true
+        });
+    }
+}
+
+class Flamethrower extends Move {
+    constructor() {
+        super({
+            name: "Flamethrower", 
+            type: "Fire",
+            power: 90,
+            special: true
+        });
+    }
+}
+

@@ -299,3 +299,16 @@ class FlareBlitz extends Move {
     }
 }
 
+class HeatWave extends Move {
+    constructor() {
+        super({
+            name: "Heat Wave", 
+            type: "95",
+            power: 120,
+            special: true
+        });
+    }
+}
+
+
+

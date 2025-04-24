@@ -114,9 +114,7 @@ class Eevee extends Pokimon {
 		this.learnMove(new Bite());
 		this.learnMove(new BabyDollEyes());
 		this.learnMove(new DoubleEdge());
-		// this.learnMove(new AuroraBeam());
-		// this.learnMove(new WaterPulse());
-		// this.learnMove(new HydroPump());
+		
 	}
 }
 
@@ -137,8 +135,91 @@ class Bulbasaur extends Pokimon {
 		this.learnMove(new SolarBeam());
 		this.learnMove(new SweetScent());
 		this.learnMove(new PoisonPowder());
-		// this.learnMove(new AuroraBeam());
-		// this.learnMove(new WaterPulse());
-		// this.learnMove(new HydroPump());
+	
+	}
+}
+
+class Ivysaur extends Pokimon {
+	/**
+	 * @param {*} level 
+	 */
+	constructor(level=1) {
+		super({
+			name: "Ivysaur",
+			level: level, 
+			type1: "Grass",
+			type2: "Poison"
+		});
+		this.setBaseStats({hp: 60, atk: 62, spAtk: 80, def: 63, spDef: 80, spd: 60});
+		this.setRandomIvs();
+		this.learnMove(new VineWhip());
+		this.learnMove(new SweetScent());
+		this.learnMove(new PoisonPowder());
+		this.learnMove(new PowerWhip());
+	
+	}
+}
+
+
+class Venusaur extends Pokimon {
+	/**
+	 * @param {*} level 
+	 */
+	constructor(level=1) {
+		super({
+			name: "Venusaur",
+			level: level, 
+			type1: "Grass",
+			type2: "Poison"
+		});
+		this.setBaseStats({hp: 80, atk: 82, spAtk: 100, def: 83, spDef: 100, spd: 80});
+		this.setRandomIvs();
+		this.learnMove(new VineWhip());	
+		this.learnMove(new SweetScent());
+		this.learnMove(new PetalDance());
+		this.learnMove(new PowerWhip());
+	
+	}
+}
+
+
+class Charmander extends Pokimon {
+	/**
+	 * @param {*} level 
+	 */
+	constructor(level=1) {
+		super({
+			name: "Charmander",
+			level: level, 
+			type1: "Fire",
+		});
+		this.setBaseStats({hp: 39, atk: 52, spAtk: 60, def: 43, spDef: 50, spd: 65});
+		this.setRandomIvs();
+		this.learnMove(new Ember());	
+		this.learnMove(new DragonBreath());
+		this.learnMove(new Flamethrower());
+		this.learnMove(new Inferno());
+	
+	}
+}
+
+
+class Charmeleon extends Pokimon {
+	/**
+	 * @param {*} level 
+	 */
+	constructor(level=1) {
+		super({
+			name: "Charmeleon",
+			level: level, 
+			type1: "Fire",
+		});
+		this.setBaseStats({hp: 58, atk: 64, spAtk: 80, def: 58, spDef: 65, spd: 80});
+		this.setRandomIvs();
+		this.learnMove(new Ember());	
+		this.learnMove(new DragonBreath());
+		this.learnMove(new FlareBlitz());
+		this.learnMove(new FireFang());
+	
 	}
 }

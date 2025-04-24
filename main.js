@@ -29,6 +29,7 @@ function draw() {
 
 function mouseClicked() {
 	if (battle.state == "move") battle.listenForMove();
+	if (battle.state == "switch") battle.listenForSwitch();
 	if (battle.state == "turn") battle.listenForTurn();
 	if (battle.state != "turn") battle.listenForMenu();
 }

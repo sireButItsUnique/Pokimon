@@ -277,3 +277,25 @@ class Flamethrower extends Move {
     }
 }
 
+class FireFang extends Move {
+    constructor() {
+        super({
+            name: "Fire Fang", 
+            type: "Fire",
+            power: 65,
+            special: false
+        });
+    }
+}
+
+class FlareBlitz extends Move {
+    constructor() {
+        super({
+            name: "Flare Blitz", 
+            type: "Fire",
+            power: 120,
+            special: false
+        });
+    }
+}
+

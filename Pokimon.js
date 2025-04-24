@@ -202,3 +202,24 @@ class Charmander extends Pokimon {
 	
 	}
 }
+
+
+class Charmeleon extends Pokimon {
+	/**
+	 * @param {*} level 
+	 */
+	constructor(level=1) {
+		super({
+			name: "Charmeleon",
+			level: level, 
+			type1: "Fire",
+		});
+		this.setBaseStats({hp: 58, atk: 64, spAtk: 80, def: 58, spDef: 65, spd: 80});
+		this.setRandomIvs();
+		this.learnMove(new Ember());	
+		this.learnMove(new DragonBreath());
+		this.learnMove(new FlareBlitz());
+		this.learnMove(new FireFang());
+	
+	}
+}

@@ -61,6 +61,9 @@ class Pokimon {
 
 // Pokimons
 class Pikachew extends Pokimon {
+	/**
+	 * @param {*} level 
+	 */
 	constructor(level=1) {
 		super({
 			name: "Pikachew",
@@ -77,6 +80,9 @@ class Pikachew extends Pokimon {
 }
 
 class Vapoureon extends Pokimon {
+	/**
+	 * @param {*} level 
+	 */
 	constructor(level=1) {
 		super({
 			name: "Vapoureon",
@@ -86,13 +92,16 @@ class Vapoureon extends Pokimon {
 		this.setBaseStats({hp: 130, atk: 65, spAtk: 110, def: 60, spDef: 95, spd: 65});
 		this.setRandomIvs();
 		this.learnMove(new QuickAttack());
-		// this.learnMove(new AuroraBeam());
-		// this.learnMove(new WaterPulse());
-		// this.learnMove(new HydroPump());
+		this.learnMove(new AuroraBeam());
+		this.learnMove(new WaterPulse());
+		this.learnMove(new HydroPump());
 	}
 }
 
 class Eevee extends Pokimon {
+	/**
+	 * @param {*} level 
+	 */
 	constructor(level=1) {
 		super({
 			name: "Eevee",
@@ -112,6 +121,9 @@ class Eevee extends Pokimon {
 }
 
 class Bulbasaur extends Pokimon {
+	/**
+	 * @param {*} level 
+	 */
 	constructor(level=1) {
 		super({
 			name: "Bulbasaur",

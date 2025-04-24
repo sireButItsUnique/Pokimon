@@ -245,13 +245,15 @@ function getDmg(move, attacking, defending) {
   return dmg;
 }
 
-let images = {
-
-}
+let images = {};
+const wallMaterial = [];
 
 function preload() {
   images["Pikachew"] = loadImage("/assets/pikachu.gif");
   images["Vapoureon"] = loadImage("/assets/vaporeon.gif");
   images["Eevee"] = loadImage("/assets/eevee.gif");
   images["Bulbasaur"] = loadImage("/assets/bulbasaur.gif");
+  wallMaterial.push(loadImage("assets/texture_stone.png"));
+  wallMaterial.push(loadImage("assets/texture_wood.avif"));
+  wallMaterial.push(loadImage("assets/texture_grass.png"));
 }

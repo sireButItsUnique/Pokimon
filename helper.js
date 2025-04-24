@@ -254,4 +254,5 @@ function preload() {
 	images["Vapoureon"] = loadImage("/assets/vaporeon.gif");
   images["Eevee"] = loadImage("/assets/eevee.gif");
   images["Bulbasaur"] = loadImage("/assets/bulbasaur.gif");
+  images["Ivysaur"] = loadImage("/assets/ivysaur.gif");
 }

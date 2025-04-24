@@ -207,3 +207,14 @@ class PoisonPowder extends Move {
         });
     }
 }
+
+class PowerWhip extends Move {
+    constructor() {
+        super({
+            name: "Power Whip", 
+            type: "Grass",
+            power: 120,
+            special: false
+        });
+    }
+}

@@ -1,5 +1,5 @@
 function randInt(min, max) {
-	return Math.floor(Math.random() * (max - min + 1)) + min;
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 function imageBounded(img, x, y, boxW, boxH) {
@@ -228,28 +228,30 @@ function getTypeEffectiveness(attacking, defending) {
 }
 
 function getDmg(move, attacking, defending) {
-		let dmg = 0.4 * attacking.level + 2;
-		dmg *= move.power;
-		
-		let {atk, spAtk} = attacking.getStats();
-		let {def, spDef} = defending.getStats();
-		if (move.special) dmg *= (spAtk / spDef);
-		else dmg *= (atk / def);
-		
-		dmg /= 50;
-		dmg + 2;
-		dmg = Math.floor(dmg);
-		
-		dmg *= getTypeEffectiveness(move.type, defending.type1);
-		dmg *= getTypeEffectiveness(move.type, defending.type2);
-		return dmg;
-	}
+  let dmg = 0.4 * attacking.level + 2;
+  dmg *= move.power;
+
+  let { atk, spAtk } = attacking.getStats();
+  let { def, spDef } = defending.getStats();
+  if (move.special) dmg *= (spAtk / spDef);
+  else dmg *= (atk / def);
+
+  dmg /= 50;
+  dmg + 2;
+  dmg = Math.floor(dmg);
+
+  dmg *= getTypeEffectiveness(move.type, defending.type1);
+  dmg *= getTypeEffectiveness(move.type, defending.type2);
+  return dmg;
+}
 
 let images = {
-	
+
 }
 
 function preload() {
-	images["Pikachew"] = loadImage("/assets/pikachu.gif");
-	images["Vapoureon"] = loadImage("/assets/vaporeon.gif");
+  images["Pikachew"] = loadImage("/assets/pikachu.gif");
+  images["Vapoureon"] = loadImage("/assets/vaporeon.gif");
+  images["Eevee"] = loadImage("/assets/eevee.gif");
+  images["Bulbasaur"] = loadImage("/assets/bulbasaur.gif");
 }

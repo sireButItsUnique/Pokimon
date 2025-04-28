@@ -332,6 +332,16 @@ class AquaTail extends Move {
     }
 }
 
+class RapidSpin extends Move {
+    constructor() {
+        super({
+            name: "Rapid Spin", 
+            type: "Normal",
+            power: 50,
+            special: false
+        });
+    }
+}
 
 
 

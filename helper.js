@@ -255,11 +255,13 @@ function preload() {
   images["Bulbasaur"] = loadImage("/assets/bulbasaur.gif");
   wallMaterial.push(loadImage("assets/texture_stone.png"));
   wallMaterial.push(loadImage("assets/texture_wood.avif"));
-  wallMaterial.push(loadImage("assets/texture_grass.png"));
+  wallMaterial.push(loadImage("assets/texture_grass.jpg"));
   images["Ivysaur"] = loadImage("/assets/ivysaur.gif");
   images["Venusaur"] = loadImage("/assets/venusaur.gif");
   images["Charmander"] = loadImage("/assets/charmander.gif");
   images["Charmeleon"] = loadImage("/assets/charmeleon.gif");
   images["Charizard"] = loadImage("/assets/charizard.gif");
+  images["Squirtle"] = loadImage("/assets/squirtle.gif");
+  images["Wartortle"] = loadImage("/assets/wartortle.gif");
 
 }

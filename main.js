@@ -20,11 +20,12 @@ let battle = new Battle({
 	opp: opp
 })
 
-// let gameMap = new GameMap();
-// let map = new Map();
-
+let gameMap = new GameMap();
+let map = new Map();
+let state = "battle";
 function draw() {
-	battle.render();
+	if (state == "battle") battle.render();
+	if (state == "map") map.render();
 }
 
 function mouseClicked() {
@@ -32,4 +33,10 @@ function mouseClicked() {
 	if (battle.state == "switch") battle.listenForSwitch();
 	if (battle.state == "turn") battle.listenForTurn();
 	if (battle.state != "turn") battle.listenForMenu();
+}
+
+// switch between battle and map
+function keyPressed() {
+	if (keyCode == 66) state = "battle";
+	if (keyCode == 77) state = "map";
 }

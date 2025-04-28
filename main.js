@@ -1,5 +1,5 @@
 function setup() {
-	createCanvas(1200, 800, WEBGL);
+	createCanvas(1200, 800);
 	background(255);
 }
 
@@ -20,15 +20,11 @@ let battle = new Battle({
 	opp: opp
 })
 
-let gameMap = new GameMap();
-
-let map = new Map();
+// let gameMap = new GameMap();
+// let map = new Map();
 
 function draw() {
-	// battle.render();
-	gameMap.render();
 	battle.render();
-	// map.render();
 }
 
 function mouseClicked() {

@@ -390,7 +390,7 @@ class Battle {
 			textAlign(LEFT, BOTTOM);
 		}
 	}
-	
+
 	listenForMove() {
 		for (let i = 0; i < this.plrActive.moves.length; i++) {
 			let x = 145 + 230 * i;

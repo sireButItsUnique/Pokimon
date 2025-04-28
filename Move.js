@@ -207,3 +207,108 @@ class PoisonPowder extends Move {
 		});
 	}
 }
+
+class PowerWhip extends Move {
+    constructor() {
+        super({
+            name: "Power Whip", 
+            type: "Grass",
+            power: 120,
+            special: false
+        });
+    }
+}
+
+
+class PetalDance extends Move {
+    constructor() {
+        super({
+            name: "Petal Dance", 
+            type: "Grass",
+            power: 120,
+            special: true
+        });
+    }
+}
+
+class Ember extends Move {
+    constructor() {
+        super({
+            name: "Ember", 
+            type: "Fire",
+            power: 40,
+            special: true
+        });
+    }
+}
+
+
+class DragonBreath extends Move {
+    constructor() {
+        super({
+            name: "Dragon Breath", 
+            type: "Dragon",
+            power: 60,
+            special: true
+        });
+    }
+}
+
+
+class Inferno extends Move {
+    constructor() {
+        super({
+            name: "Inferno", 
+            type: "Fire",
+            power: 100,
+            special: true
+        });
+    }
+}
+
+class Flamethrower extends Move {
+    constructor() {
+        super({
+            name: "Flamethrower", 
+            type: "Fire",
+            power: 90,
+            special: true
+        });
+    }
+}
+
+class FireFang extends Move {
+    constructor() {
+        super({
+            name: "Fire Fang", 
+            type: "Fire",
+            power: 65,
+            special: false
+        });
+    }
+}
+
+class FlareBlitz extends Move {
+    constructor() {
+        super({
+            name: "Flare Blitz", 
+            type: "Fire",
+            power: 120,
+            special: false
+        });
+    }
+}
+
+class HeatWave extends Move {
+    constructor() {
+        super({
+            name: "Heat Wave", 
+            type: "95",
+            power: 120,
+            special: true
+        });
+    }
+}
+
+
+

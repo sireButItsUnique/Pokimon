@@ -49,8 +49,14 @@ class Battle {
 		if (this.actionQueue.length <= 0) return;
 		
 		let {plrActive, oppActive, plrIdx, oppIdx} = this;
-		let {pokimon, move, type} = this.actionQueue[0];
+		let {pokimon, move, type, newIdx} = this.actionQueue[0];
 		
+		if (type == "switch") {
+			this.plrActive = this.plrTeam[newIdx];
+			this.plrIdx = newIdx;
+			return;
+		}
+
 		if (type == "move") {
 			// animations
 			this.actions = [];
@@ -60,6 +66,7 @@ class Battle {
 			// damage
 			if (pokimon == plrActive) this.oppTeam[oppIdx].curHp -= getDmg(move, plrActive, oppActive);
 			else this.plrTeam[plrIdx].curHp -= getDmg(move, oppActive, plrActive);
+			return;
 		}
 	}
 	
@@ -171,6 +178,38 @@ class Battle {
 			this.state = "turn";
 		}, 100);
 	}
+
+	makeSwitch(idx) {
+		let { plrActive, oppActive, plrTeam, oppTeam } = this;	
+		
+		// switching
+		this.actionQueue.push({
+			type: "text",
+			txt: `Come back, ${plrActive.name}!`
+		});
+		this.actionQueue.push({
+			type: "switch",
+			txt: `Go ${plrTeam[idx].name}!`,
+			newIdx: idx
+		});
+
+		// opp move
+		let oppMove = randInt(0, oppActive.moves.length - 1);
+		this.pushAttack(oppActive, plrTeam[idx], oppActive.moves[oppMove]);
+			
+		// fainted
+		if (getDmg(oppActive.moves[oppMove], oppActive, plrTeam[idx]) >= this.plrTeam[idx].curHp) {
+			this.actionQueue.push({
+				type: "text",
+				txt: `${plrTeam[idx].name} has fainted!`
+			});
+		}
+		this.runAction();
+
+		setTimeout(() => {
+			this.state = "turn";
+		}, 100);
+	}
 	
 	renderMove() {
 		
@@ -278,6 +317,10 @@ class Battle {
 		}
 	}
 	
+	/**
+	 * Render the battle screen.
+	 * @description This function renders the battle screen, including the player's and opponent's Pokemon, their health bars, and the GUI for moves and actions.
+	 */
 	render() {
 		let { state, plrActive, oppActive, plrTeam, oppTeam, plrIdx, oppIdx } = this;
 		
@@ -361,6 +404,18 @@ class Battle {
 		this.runAction();
 	}
 	
+	listenForSwitch() {
+		let {plrTeam} = this;
+		for (let i = 0; i < plrTeam.length; i++) {
+			let x1 = 135 + (i % 2) * 480;
+			let y1 = 120 + floor(i / 2) * 120;
+			if (mouseX > x1 && mouseX < x1 + 450 && mouseY > y1 && mouseY < y1 + 100) {
+				this.makeSwitch(i);
+				return;
+			}
+		}
+	}
+
 	listenForMenu() {
 		let labels = ["move", "switch", "info", "run"];
 		for (let i = 0; i < 4; i++) {

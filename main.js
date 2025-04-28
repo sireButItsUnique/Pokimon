@@ -5,13 +5,13 @@ function setup() {
 
 let player = new Trainer({
 	name: "sire",
-	team: [new Eevee(50), new Pikachew(2), new Pikachew(61), new Pikachew(42), new Pikachew(64), new Pikachew(32)],
+	team: [new Charmeleon(50), new Pikachew(2), new Pikachew(61), new Pikachew(42), new Pikachew(64), new Pikachew(32)],
 	img: "191.PNG"
 });
 
 let opp = new Trainer({
 	name: "Opponent",
-	team: [new Vapoureon(30)],
+	team: [new Pikachew(30)],
 	img: "191.PNG"
 })
 
@@ -22,13 +22,18 @@ let battle = new Battle({
 
 let gameMap = new GameMap();
 
+let map = new Map();
+
 function draw() {
 	// battle.render();
 	gameMap.render();
+	battle.render();
+	// map.render();
 }
 
 function mouseClicked() {
 	if (battle.state == "move") battle.listenForMove();
+	if (battle.state == "switch") battle.listenForSwitch();
 	if (battle.state == "turn") battle.listenForTurn();
 	if (battle.state != "turn") battle.listenForMenu();
 }

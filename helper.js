@@ -270,4 +270,5 @@ function preload() {
   images["Lickitung"] = loadImage("/assets/lickitung.gif");
   images["Jolteon"] = loadImage("/assets/jolteon.gif");
   images["Flareon"] = loadImage("/assets/flareon.gif");
+  images["Espeon"] = loadImage("/assets/espeon.gif");
 }

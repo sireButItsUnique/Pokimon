@@ -504,6 +504,29 @@ class Smog extends Move {
     }
 }
 
+class Psychic extends Move {
+    constructor() {
+        super({
+            name: "Psychic", 
+            type: "Psychic",
+            power: 90,
+            special: true
+        });
+    }
+}
+
+
+class Psybeam extends Move {
+    constructor() {
+        super({
+            name: "Psybeam", 
+            type: "Psychic",
+            power: 65,
+            special: true
+        });
+    }
+}
+
 
 
 

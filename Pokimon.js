@@ -420,3 +420,24 @@ class Flareon extends Pokimon {
 	}
 }
 
+
+class Espeon extends Pokimon {
+	/**
+	 * @param {*} level 
+	 */
+	constructor(level=1) {
+		super({
+			name: "Espeon",
+			level: level, 
+			type1: "Psychic",
+		});
+		this.setBaseStats({hp: 65, atk: 65, spAtk: 130, def: 60, spDef: 95, spd: 110});
+		this.setRandomIvs();
+		this.learnMove(new LastResort());	
+		this.learnMove(new Psychic());
+		this.learnMove(new Psybeam());
+		this.learnMove(new Bite());
+	
+	}
+}
+

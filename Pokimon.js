@@ -276,3 +276,65 @@ class Wartortle extends Pokimon {
 	
 	}
 }
+
+class Blastoise extends Pokimon {
+	/**
+	 * @param {*} level 
+	 */
+	constructor(level=1) {
+		super({
+			name: "Blastoise",
+			level: level, 
+			type1: "Water",
+		});
+		this.setBaseStats({hp: 79, atk: 83, spAtk: 85, def: 100, spDef: 105, spd: 78});
+		this.setRandomIvs();
+		this.learnMove(new WaterPulse());	
+		this.learnMove(new WaveCrash());
+		this.learnMove(new Tackle());
+		this.learnMove(new Bite());
+	
+	}
+}
+
+
+class Raichu extends Pokimon {
+	/**
+	 * @param {*} level 
+	 */
+	constructor(level=1) {
+		super({
+			name: "Raichu",
+			level: level, 
+			type1: "Electric",
+		});
+		this.setBaseStats({hp: 60, atk: 90, spAtk: 90, def: 55, spDef: 80, spd: 110});
+		this.setRandomIvs();
+		this.learnMove(new Discharge());	
+		this.learnMove(new ThunderBolt());
+		this.learnMove(new IronTail());
+		this.learnMove(new ThunderShock());
+	
+	}
+}
+
+class Jigglypuff extends Pokimon {
+	/**
+	 * @param {*} level 
+	 */
+	constructor(level=1) {
+		super({
+			name: "Jigglypuff",
+			level: level, 
+			type1: "Normal",
+			type2: "Fairy",
+		});
+		this.setBaseStats({hp: 115, atk: 45, spAtk: 45, def: 20, spDef: 25, spd: 20});
+		this.setRandomIvs();
+		this.learnMove(new DisarmingVoice());	
+		this.learnMove(new DoubleEdge());
+		this.learnMove(new HyperVoice());
+		this.learnMove(new Pound());
+	
+	}
+}

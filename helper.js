@@ -249,13 +249,14 @@ let images = {};
 const wallMaterial = [];
 
 function preload() {
+  wallMaterial.push(loadImage("assets/texture_rock.jpg"));
+  wallMaterial.push(loadImage("assets/texture_wood.png"));
+  wallMaterial.push(loadImage("assets/texture_grass.jpg"));
+
   images["Pikachew"] = loadImage("/assets/pikachu.gif");
   images["Vapoureon"] = loadImage("/assets/vaporeon.gif");
   images["Eevee"] = loadImage("/assets/eevee.gif");
   images["Bulbasaur"] = loadImage("/assets/bulbasaur.gif");
-  wallMaterial.push(loadImage("assets/texture_stone.png"));
-  wallMaterial.push(loadImage("assets/texture_wood.avif"));
-  wallMaterial.push(loadImage("assets/texture_grass.jpg"));
   images["Ivysaur"] = loadImage("/assets/ivysaur.gif");
   images["Venusaur"] = loadImage("/assets/venusaur.gif");
   images["Charmander"] = loadImage("/assets/charmander.gif");
@@ -263,5 +264,7 @@ function preload() {
   images["Charizard"] = loadImage("/assets/charizard.gif");
   images["Squirtle"] = loadImage("/assets/squirtle.gif");
   images["Wartortle"] = loadImage("/assets/wartortle.gif");
-
+  images["Blastoise"] = loadImage("/assets/blastoise.gif");
+  images["Raichu"] = loadImage("/assets/raichu.gif");
+  images["Jigglypuff"] = loadImage("/assets/jigglypuff.gif");
 }

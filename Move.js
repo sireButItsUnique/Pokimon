@@ -343,5 +343,77 @@ class RapidSpin extends Move {
     }
 }
 
+class Tackle extends Move {
+    constructor() {
+        super({
+            name: "Tackle", 
+            type: "Normal",
+            power: 40,
+            special: false
+        });
+    }
+}
+
+class Discharge extends Move {
+    constructor() {
+        super({
+            name: "Discharge", 
+            type: "Normal",
+            power: 80,
+            special: true
+        });
+    }
+}
+
+class IronTail extends Move {
+    constructor() {
+        super({
+            name: "Iron Tail", 
+            type: "Steel",
+            power: 100,
+            special: false
+        });
+    }
+}
+
+
+class DisarmingVoice extends Move {
+    constructor() {
+        super({
+            name: "Disarming Voice", 
+            type: "Fairy",
+            power: 40,
+            special: true
+        });
+    }
+}
+
+
+class HyperVoice extends Move {
+    constructor() {
+        super({
+            name: "Hyper Voice", 
+            type: "Normal",
+            power: 90,
+            special: true
+        });
+    }
+}
+
+class BodySlam extends Move {
+    constructor() {
+        super({
+            name: "Body Slam", 
+            type: "Normal",
+            power: 85,
+            special: false
+        });
+    }
+}
+
+
+
+
+
 
 

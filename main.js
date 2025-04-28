@@ -22,13 +22,8 @@ let battle = new Battle({
 
 let gameMap = new GameMap();
 
-let map = new Map();
-
 function draw() {
-	// battle.render();
 	gameMap.render();
-	battle.render();
-	// map.render();
 }
 
 function mouseClicked() {

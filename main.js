@@ -21,11 +21,10 @@ let battle = new Battle({
 })
 
 let gameMap = new GameMap();
-let map = new Map();
 let state = "battle";
 function draw() {
-	if (state == "battle") 
-	if (state == "map") map.render();
+	if (state == "battle") battle.render();
+	if (state == "map") gameMap.render();
 }
 
 function mouseClicked() {

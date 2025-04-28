@@ -412,6 +412,99 @@ class BodySlam extends Move {
 }
 
 
+class PlayRough extends Move {
+    constructor() {
+        super({
+            name: "Play Rough", 
+            type: "Fairy",
+            power: 90,
+            special: false
+        });
+    }
+}
+
+
+class Stomp extends Move {
+    constructor() {
+        super({
+            name: "Stomp", 
+            type: "Normal",
+            power: 65,
+            special: false
+        });
+    }
+}
+
+class Rollout extends Move {
+    constructor() {
+        super({
+            name: "Rollout", 
+            type: "Rock",
+            power: 30,
+            special: false
+        });
+    }
+}
+
+
+class Swift extends Move {
+    constructor() {
+        super({
+            name: "Swift", 
+            type: "Normal",
+            power: 60,
+            special: true
+        });
+    }
+}
+
+
+class ThunderFang extends Move {
+    constructor() {
+        super({
+            name: "Thunder Fang", 
+            type: "Electric",
+            power: 65,
+            special: false
+        });
+    }
+}
+
+
+class FireBlitz extends Move {
+    constructor() {
+        super({
+            name: "Fire Blitz", 
+            type: "Fire",
+            power: 120,
+            special: false
+        });
+    }
+}
+
+class LastResort extends Move {
+    constructor() {
+        super({
+            name: "Last Resort", 
+            type: "Normal",
+            power: 140,
+            special: false
+        });
+    }
+}
+
+class Smog extends Move {
+    constructor() {
+        super({
+            name: "Smog", 
+            type: "Poison",
+            power: 30,
+            special: true
+        });
+    }
+}
+
+
 
 
 

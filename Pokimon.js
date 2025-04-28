@@ -338,3 +338,85 @@ class Jigglypuff extends Pokimon {
 	
 	}
 }
+
+class Wigglytuff extends Pokimon {
+	/**
+	 * @param {*} level 
+	 */
+	constructor(level=1) {
+		super({
+			name: "Wigglytuff",
+			level: level, 
+			type1: "Normal",
+			type2: "Fairy",
+		});
+		this.setBaseStats({hp: 140, atk: 70, spAtk: 85, def: 45, spDef: 50, spd: 45});
+		this.setRandomIvs();
+		this.learnMove(new DisarmingVoice());	
+		this.learnMove(new DoubleEdge());
+		this.learnMove(new PlayRough());
+		this.learnMove(new BodySlam());
+	
+	}
+}
+
+class Lickitung extends Pokimon {
+	/**
+	 * @param {*} level 
+	 */
+	constructor(level=1) {
+		super({
+			name: "Lickitung",
+			level: level, 
+			type1: "Normal",
+		});
+		this.setBaseStats({hp: 90, atk: 55, spAtk: 60, def: 75, spDef: 75, spd: 30});
+		this.setRandomIvs();
+		this.learnMove(new Lick());	
+		this.learnMove(new PowerWhip());
+		this.learnMove(new Stomp());
+		this.learnMove(new Rollout());
+	
+	}
+}
+
+class Jolteon extends Pokimon {
+	/**
+	 * @param {*} level 
+	 */
+	constructor(level=1) {
+		super({
+			name: "Jolteon",
+			level: level, 
+			type1: "Electric",
+		});
+		this.setBaseStats({hp: 65, atk: 65, spAtk: 110, def: 60, spDef: 95, spd: 130});
+		this.setRandomIvs();
+		this.learnMove(new Swift());	
+		this.learnMove(new ThunderFang());
+		this.learnMove(new QuickAttack());
+		this.learnMove(new Bite());
+	
+	}
+}
+
+class Flareon extends Pokimon {
+	/**
+	 * @param {*} level 
+	 */
+	constructor(level=1) {
+		super({
+			name: "Flareon",
+			level: level, 
+			type1: "Fire",
+		});
+		this.setBaseStats({hp: 65, atk: 130, spAtk: 95, def: 60, spDef: 110, spd: 65});
+		this.setRandomIvs();
+		this.learnMove(new LastResort());	
+		this.learnMove(new FireBlitz());
+		this.learnMove(new Smog());
+		this.learnMove(new Bite());
+	
+	}
+}
+

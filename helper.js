@@ -266,4 +266,8 @@ function preload() {
   images["Blastoise"] = loadImage("/assets/blastoise.gif");
   images["Raichu"] = loadImage("/assets/raichu.gif");
   images["Jigglypuff"] = loadImage("/assets/jigglypuff.gif");
+  images["Wigglytuff"] = loadImage("/assets/wigglytuff.gif");
+  images["Lickitung"] = loadImage("/assets/lickitung.gif");
+  images["Jolteon"] = loadImage("/assets/jolteon.gif");
+  images["Flareon"] = loadImage("/assets/flareon.gif");
 }

@@ -17,6 +17,10 @@ class Wall {
         this.h = h;
         this.ghostThrough = ghostThrough;
         this.type = type;
+
+        for (let i = 0; i < w; i++) {
+            
+        }
     }
 
     display() {

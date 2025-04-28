@@ -234,3 +234,45 @@ class Charizard extends Pokimon {
 	
 	}
 }
+
+
+class Squirtle extends Pokimon {
+	/**
+	 * @param {*} level 
+	 */
+	constructor(level=1) {
+		super({
+			name: "Squirtle",
+			level: level, 
+			type1: "Water",
+		});
+		this.setBaseStats({hp: 44, atk: 48, spAtk: 50, def: 65, spDef: 64, spd: 43});
+		this.setRandomIvs();
+		this.learnMove(new AquaTail());	
+		this.learnMove(new WaveCrash());
+		this.learnMove(new HydroPump());
+		this.learnMove(new Bite());
+	
+	}
+}
+
+
+class Wartortle extends Pokimon {
+	/**
+	 * @param {*} level 
+	 */
+	constructor(level=1) {
+		super({
+			name: "Wartortle",
+			level: level, 
+			type1: "Water",
+		});
+		this.setBaseStats({hp: 59, atk: 63, spAtk: 65, def: 80, spDef: 80, spd: 58});
+		this.setRandomIvs();
+		this.learnMove(new WaterPulse());	
+		this.learnMove(new WaveCrash());
+		this.learnMove(new RapidSpin());
+		this.learnMove(new Bite());
+	
+	}
+}

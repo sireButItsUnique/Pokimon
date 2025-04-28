@@ -303,12 +303,35 @@ class HeatWave extends Move {
     constructor() {
         super({
             name: "Heat Wave", 
-            type: "95",
-            power: 120,
+            type: "Fire",
+            power: 95,
             special: true
         });
     }
 }
+
+class WaveCrash extends Move {
+    constructor() {
+        super({
+            name: "Wave Crash", 
+            type: "Water",
+            power: 120,
+            special: false
+        });
+    }
+}
+
+class AquaTail extends Move {
+    constructor() {
+        super({
+            name: "Aqua Tail", 
+            type: "Water",
+            power: 90,
+            special: false
+        });
+    }
+}
+
 
 
 

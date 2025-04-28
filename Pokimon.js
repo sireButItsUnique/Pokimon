@@ -255,3 +255,24 @@ class Squirtle extends Pokimon {
 	
 	}
 }
+
+
+class Wartortle extends Pokimon {
+	/**
+	 * @param {*} level 
+	 */
+	constructor(level=1) {
+		super({
+			name: "Wartortle",
+			level: level, 
+			type1: "Water",
+		});
+		this.setBaseStats({hp: 59, atk: 63, spAtk: 65, def: 80, spDef: 80, spd: 58});
+		this.setRandomIvs();
+		this.learnMove(new WaterPulse());	
+		this.learnMove(new WaveCrash());
+		this.learnMove(new RapidSpin());
+		this.learnMove(new Bite());
+	
+	}
+}

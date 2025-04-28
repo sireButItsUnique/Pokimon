@@ -261,5 +261,7 @@ function preload() {
   images["Charmander"] = loadImage("/assets/charmander.gif");
   images["Charmeleon"] = loadImage("/assets/charmeleon.gif");
   images["Charizard"] = loadImage("/assets/charizard.gif");
+  images["Squirtle"] = loadImage("/assets/squirtle.gif");
+  images["Wartortle"] = loadImage("/assets/wartortle.gif");
 
 }

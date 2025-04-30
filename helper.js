@@ -246,12 +246,12 @@ function getDmg(move, attacking, defending) {
 }
 
 let images = {};
-const wallMaterial = [];
+const texture = [];
 
 function preload() {
-  wallMaterial.push(loadImage("assets/texture_rock.jpg"));
-  wallMaterial.push(loadImage("assets/texture_wood.png"));
-  wallMaterial.push(loadImage("assets/texture_grass.jpg"));
+  texture.push(loadImage("assets/texture_rock.jpg"));
+  texture.push(loadImage("assets/texture_wood.png"));
+  texture.push(loadImage("assets/texture_grass.jpg"));
 
   images["Pikachew"] = loadImage("/assets/pikachu.gif");
   images["Vapoureon"] = loadImage("/assets/vaporeon.gif");

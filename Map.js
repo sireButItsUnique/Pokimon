@@ -1,18 +1,16 @@
-let walls = [];
+let blocks = []; // Block feature
 
-class Wall {
+class Block {
     /**
-     * @description Create a wall in the game map
-     * @param x X-position of top left of wall 
-     * @param y Y-position of top left of wall
-     * @param w Width of wall (multiple of 10)
-     * @param h Height of wall (multiple of 10)
-     * @param ghostThrough Ghost through wall (boolean)
-     * @param type Material of wall (0: stone, 1: wood, 2: grass) 
+     * @description Create a block in the game map
+     * @param x X-position of top left of block 
+     * @param y Y-position of top left of block
+     * @param w Width of block (multiple of 10)
+     * @param h Height of block (multiple of 10)
+     * @param ghostThrough Ghost through block (boolean)
+     * @param type Material of block (0: rock, 1: wood, 2: grass) 
      */
     constructor(x, y, w, h, ghostThrough, type) {
-        if (w % 10 || h % 10) return;
-
         this.x = x;
         this.y = y;
         this.w = w;
@@ -21,29 +19,42 @@ class Wall {
         this.type = type;
     }
 
-    setup() {
-        for (let i = 0; i < Math.max(this.w, this.h); i += 10) {
-            walls.push(new Wall(Math.min(this.x + i, this.x), Math.min(this.y + i, this.y), 10, 10));
-        }
-    }
-
     display() {
         noStroke();
-        texture(wallMaterial[this.type]);
-        rectMode(CORNER);
-        rect(this.x, this.y, this.w, this.h);
+        image(texture[this.type], this.x, this.y, this.w, this.h);
     }
 }
 
 class GameMap {
     constructor() { }
 
+    /**
+     * @description Split a large block into multiple blocks in multiples of 20px
+     * @param x Top left corner x-position
+     * @param y Top left corner y-position
+     * @param xBlocks Number of blocks in the x-axis
+     * @param yBlocks Number of blocks in the y-axis
+     * @param ghostThrough Ghost thruogh block (boolean)
+     * @param type Material of block (0: rock, 1: wood, 2: grass)
+     */
+    splitBlocks(x, y, xBlocks, yBlocks, ghostThrough, type) {
+        rectMode(CORNER);
+
+        for (let i = 0; i < xBlocks; i++) {
+            blocks.push(new Block(x + i * 20, y, 20, 20, ghostThrough, type));
+        }
+
+        for (let i = 0; i < yBlocks; i++) {
+            blocks.push(new Block(x, y + i * 20, 20, 20, ghostThrough, type));
+        }
+    }
+
     render() {
         background(base_0);
-        new Wall(0, 0, 500, 500, true, 2).setup();
+        this.splitBlocks(0, 0, 10, 10, true, 2);
 
-        for (let i = 0; i < walls.length; i++) {
-            walls[i].display();
+        for (let i = 0; i < blocks.length; i++) {
+            blocks[i].display();
         }
     }
 }

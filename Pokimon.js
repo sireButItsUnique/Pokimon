@@ -585,3 +585,178 @@ class Sandslash extends Pokimon {
 }
 
 
+class Clefairy extends Pokimon {
+	/**
+	 * @param {*} level 
+	 */
+	constructor(level=1) {
+		super({
+			name: "Clefairy",
+			level: level, 
+			type1: "Fairy",
+		});
+		this.setBaseStats({hp: 70, atk: 45, spAtk: 60, def: 48, spDef: 65, spd: 35});
+		this.setRandomIvs();
+		this.learnMove(new StoredPower());	
+		this.learnMove(new MeteorMash());
+		this.learnMove(new MoonBlast());
+		this.learnMove(new Pound());
+	
+	}
+}
+
+
+class Clefable  extends Pokimon {
+	/**
+	 * @param {*} level 
+	 */
+	constructor(level=1) {
+		super({
+			name: "Clefable",
+			level: level, 
+			type1: "Fairy",
+		});
+		this.setBaseStats({hp: 95, atk: 70, spAtk: 95, def: 73, spDef: 90, spd: 60});
+		this.setRandomIvs();
+		this.learnMove(new DisarmingVoice());	
+		this.learnMove(new Charm());
+		this.learnMove(new StoredPower());
+		this.learnMove(new Pound());
+	
+	}
+}
+
+
+class Geodude extends Pokimon {
+	/**
+	 * @param {*} level 
+	 */
+	constructor(level=1) {
+		super({
+			name: "Geodude",
+			level: level, 
+			type1: "Rock",
+			type1: "Ground"
+		});
+		this.setBaseStats({hp: 40, atk: 80, spAtk: 30, def: 100, spDef: 30, spd: 20});
+		this.setRandomIvs();
+		this.learnMove(new Bulldoze());	
+		this.learnMove(new Tackle());
+		this.learnMove(new StoneEdge());
+		this.learnMove(new SmackDown());
+	
+	}
+}
+
+
+class Graveler extends Pokimon {
+	/**
+	 * @param {*} level 
+	 */
+	constructor(level=1) {
+		super({
+			name: "Graveler",
+			level: level, 
+			type1: "Rock",
+			type1: "Ground"
+		});
+		this.setBaseStats({hp: 55, atk: 95, spAtk: 45, def: 115, spDef: 45, spd: 35});
+		this.setRandomIvs();
+		this.learnMove(new RockThrow());	
+		this.learnMove(new Tackle());
+		this.learnMove(new StoneEdge());
+		this.learnMove(new SmackDown());
+	
+	}
+}
+
+
+class Golem extends Pokimon {
+	/**
+	 * @param {*} level 
+	 */
+	constructor(level=1) {
+		super({
+			name: "Graveler",
+			level: level, 
+			type1: "Rock",
+			type1: "Ground"
+		});
+		this.setBaseStats({hp: 80, atk: 120, spAtk: 55, def: 130, spDef: 65, spd: 45});
+		this.setRandomIvs();
+		this.learnMove(new RockBlast());	
+		this.learnMove(new Tackle());
+		this.learnMove(new StoneEdge());
+		this.learnMove(new SmackDown());
+	
+	}
+}
+
+
+class Pidgey extends Pokimon {
+	/**
+	 * @param {*} level 
+	 */
+	constructor(level=1) {
+		super({
+			name: "Pidgey",
+			level: level, 
+			type1: "Normal",
+			type1: "Flying"
+		});
+		this.setBaseStats({hp: 40, atk: 45, spAtk: 35, def: 40, spDef: 35, spd: 56});
+		this.setRandomIvs();
+		this.learnMove(new Gust());	
+		this.learnMove(new Tackle());
+		this.learnMove(new WingAttack());
+		this.learnMove(new AerialAce());
+	
+	}
+}
+
+
+class Pidgeotto extends Pokimon {
+	/**
+	 * @param {*} level 
+	 */
+	constructor(level=1) {
+		super({
+			name: "Pidgeotto",
+			level: level, 
+			type1: "Normal",
+			type1: "Flying"
+		});
+		this.setBaseStats({hp: 63, atk: 60, spAtk: 50, def: 55, spDef: 50, spd: 71});
+		this.setRandomIvs();
+		this.learnMove(new AirSlash());	
+		this.learnMove(new Tackle());
+		this.learnMove(new WingAttack());
+		this.learnMove(new AerialAce());
+	
+	}
+}
+
+
+class Pidgeot extends Pokimon {
+	/**
+	 * @param {*} level 
+	 */
+	constructor(level=1) {
+		super({
+			name: "Pidgeot",
+			level: level, 
+			type1: "Normal",
+			type1: "Flying"
+		});
+		this.setBaseStats({hp: 83, atk: 80, spAtk: 70, def: 75, spDef: 70, spd: 101});
+		this.setRandomIvs();
+		this.learnMove(new AirSlash());	
+		this.learnMove(new Tackle());
+		this.learnMove(new Twister());
+		this.learnMove(new AerialAce());
+	
+	}
+}
+
+
+

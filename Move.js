@@ -760,6 +760,132 @@ class CrushClaw extends Move {
 }
 
 
+class StoredPower extends Move {
+    constructor() {
+        super({
+            name: "Stored Power", 
+            type: "Psychic",
+            power: 20,
+            special: true
+        });
+    }
+}
+
+class MeteorMash extends Move {
+    constructor() {
+        super({
+            name: "Meteor Mash",
+            type: "Steel",
+            power: 90,
+            special: false
+        });
+    }
+}
+
+
+class StoneEdge extends Move {
+    constructor() {
+        super({
+            name: "Stone Edge",
+            type: "Rock",
+            power: 100,
+            special: false
+        });
+    }
+}
+
+class SmackDown extends Move {
+    constructor() {
+        super({
+            name: "Smack Down",
+            type: "Rock",
+            power: 50,
+            special: false
+        });
+    }
+}
+
+
+class RockThrow extends Move {
+    constructor() {
+        super({
+            name: "Rock Throw",
+            type: "Rock",
+            power: 50,
+            special: false
+        });
+    }
+}
+
+
+class RockBlast extends Move {
+    constructor() {
+        super({
+            name: "Rock Blast",
+            type: "Rock",
+            power: 25,
+            special: false
+        });
+    }
+}
+
+class Gust extends Move {
+    constructor() {
+        super({
+            name: "Gust",
+            type: "Flying",
+            power: 40,
+            special: true
+        });
+    }
+}
+
+
+class WingAttack extends Move {
+    constructor() {
+        super({
+            name: "Wing Attack",
+            type: "Flying",
+            power: 60,
+            special: false
+        });
+    }
+}
+
+
+class AerialAce extends Move {
+    constructor() {
+        super({
+            name: "Aerial Ace",
+            type: "Flying",
+            power: 60,
+            special: false
+        });
+    }
+}
+
+
+class AirSlash extends Move {
+    constructor() {
+        super({
+            name: "Air slash",
+            type: "Flying",
+            power: 75,
+            special: true
+        });
+    }
+}
+
+class Twister extends Move {
+    constructor() {
+        super({
+            name: "Twister",
+            type: "Dragon",
+            power: 40,
+            special: true
+        });
+    }
+}
 
 
 

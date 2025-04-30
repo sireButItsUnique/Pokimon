@@ -441,3 +441,147 @@ class Espeon extends Pokimon {
 	}
 }
 
+class Umbreon extends Pokimon {
+	/**
+	 * @param {*} level 
+	 */
+	constructor(level=1) {
+		super({
+			name: "Umbreon",
+			level: level, 
+			type1: "Dark",
+		});
+		this.setBaseStats({hp: 95, atk: 65, spAtk: 60, def: 110, spDef: 130, spd: 65});
+		this.setRandomIvs();
+		this.learnMove(new DarkPulse());	
+		this.learnMove(new LastResort());
+		this.learnMove(new Swift());
+		this.learnMove(new Bite());
+	
+	}
+}
+
+class Leafeon extends Pokimon {
+	/**
+	 * @param {*} level 
+	 */
+	constructor(level=1) {
+		super({
+			name: "Leafeon",
+			level: level, 
+			type1: "Grass",
+		});
+		this.setBaseStats({hp: 65, atk: 110, spAtk: 60, def: 130, spDef: 65, spd: 95});
+		this.setRandomIvs();
+		this.learnMove(new LeafBlade());	
+		this.learnMove(new LastResort());
+		this.learnMove(new QuickAttack());
+		this.learnMove(new DoubleEdge());
+	
+	}
+}
+
+
+class Glaceon extends Pokimon {
+	/**
+	 * @param {*} level 
+	 */
+	constructor(level=1) {
+		super({
+			name: "Glaceon",
+			level: level, 
+			type1: "Ice",
+		});
+		this.setBaseStats({hp: 65, atk: 60, spAtk: 130, def: 60, spDef: 95, spd: 65});
+		this.setRandomIvs();
+		this.learnMove(new IceFang());	
+		this.learnMove(new FreezeDry());
+		this.learnMove(new Blizzard());
+		this.learnMove(new DoubleEdge());
+	
+	}
+}
+
+
+class Pichu extends Pokimon {
+	/**
+	 * @param {*} level 
+	 */
+	constructor(level=1) {
+		super({
+			name: "Pichu",
+			level: level, 
+			type1: "Electric",
+		});
+		this.setBaseStats({hp: 20, atk: 40, spAtk: 35, def: 15, spDef: 35, spd: 60});
+		this.setRandomIvs();
+		this.learnMove(new SweetKiss());	
+		this.learnMove(new Nuzzle());
+		this.learnMove(new ThunderShock());
+		this.learnMove(new TailWhip());
+	
+	}
+}
+
+
+class Wobbuffet extends Pokimon {
+	/**
+	 * @param {*} level 
+	 */
+	constructor(level=1) {
+		super({
+			name: "Wobbuffet",
+			level: level, 
+			type1: "Psychic",
+		});
+		this.setBaseStats({hp: 190, atk: 33, spAtk: 33, def: 58, spDef: 58, spd: 33});
+		this.setRandomIvs();
+		this.learnMove(new Amnesia());	
+		this.learnMove(new Charm());
+		this.learnMove(new Counter());
+		this.learnMove(new DestinyBond());
+	
+	}
+}
+
+class Sandshrew extends Pokimon {
+	/**
+	 * @param {*} level 
+	 */
+	constructor(level=1) {
+		super({
+			name: "Sandshrew",
+			level: level, 
+			type1: "Ground",
+		});
+		this.setBaseStats({hp: 50, atk: 75, spAtk: 20, def: 85, spDef: 30, spd: 40});
+		this.setRandomIvs();
+		this.learnMove(new Earthquake());	
+		this.learnMove(new Swift());
+		this.learnMove(new Dig());
+		this.learnMove(new Scratch());
+	
+	}
+}
+
+class Sandslash extends Pokimon {
+	/**
+	 * @param {*} level 
+	 */
+	constructor(level=1) {
+		super({
+			name: "Sandslash",
+			level: level, 
+			type1: "Ground",
+		});
+		this.setBaseStats({hp: 75, atk: 100, spAtk: 45, def: 110, spDef: 55, spd: 65});
+		this.setRandomIvs();
+		this.learnMove(new Slash());	
+		this.learnMove(new Bulldoze());
+		this.learnMove(new CrushClaw());
+		this.learnMove(new Scratch());
+	
+	}
+}
+
+

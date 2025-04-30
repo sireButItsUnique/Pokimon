@@ -271,4 +271,11 @@ function preload() {
   images["Jolteon"] = loadImage("/assets/jolteon.gif");
   images["Flareon"] = loadImage("/assets/flareon.gif");
   images["Espeon"] = loadImage("/assets/espeon.gif");
+  images["Umbreon"] = loadImage("/assets/umbreon.gif");
+  images["Leafeon"] = loadImage("/assets/leafeon.gif");
+  images["Glaceon"] = loadImage("/assets/glaceon.gif");
+  images["Pichu"] = loadImage("/assets/pichu.gif");
+  images["Wobbuffet"] = loadImage("/assets/wobbuffet.gif");
+  images["Sandshrew"] = loadImage("/assets/sandshrew.gif");
+  images["Sandslash"] = loadImage("/assets/sandslash.gif");
 }

@@ -528,6 +528,236 @@ class Psybeam extends Move {
 }
 
 
+class DarkPulse extends Move {
+    constructor() {
+        super({
+            name: "Dark Pulse", 
+            type: "Dark",
+            power: 80,
+            special: true
+        });
+    }
+}
+
+
+class LeafBlade extends Move {
+    constructor() {
+        super({
+            name: "Leaf Blade", 
+            type: "Grass",
+            power: 90,
+            special: false
+        });
+    }
+}
+
+
+class IceFang extends Move {
+    constructor() {
+        super({
+            name: "Ice Fang", 
+            type: "Ice",
+            power: 65,
+            special: false
+        });
+    }
+}
+
+
+class FreezeDry extends Move {
+    constructor() {
+        super({
+            name: "Freeze Dry", 
+            type: "Ice",
+            power: 70,
+            special: true
+        });
+    }
+}
+
+class Blizzard extends Move {
+    constructor() {
+        super({
+            name: "Blizzard", 
+            type: "Ice",
+            power: 110,
+            special: true
+        });
+    }
+}
+
+
+class MoonBlast extends Move {
+    constructor() {
+        super({
+            name: "Moonblast", 
+            type: "fairy",
+            power:  95,
+            special: true
+        });
+    }
+}
+
+class DrainingKiss extends Move {
+    constructor() {
+        super({
+            name: "Draining Kiss", 
+            type: "Fairy",
+            power: 50,
+            special: true
+        });
+    }
+}
+
+
+class SweetKiss extends Move {
+    constructor() {
+        super({
+            name: "Sweet Kiss", 
+            type: "Fairy",
+            power: 0,
+            special: true
+        });
+    }
+}
+
+class Nuzzle extends Move {
+    constructor() {
+        super({
+            name: "Nuzzle", 
+            type: "Electric",
+            power: 20,
+            special: false
+        });
+    }
+}
+
+
+class TailWhip extends Move {
+    constructor() {
+        super({
+            name: "Tail Whip", 
+            type: "Normal",
+            power: 0,
+            special: true
+        });
+    }
+}
+
+
+class Amnesia extends Move {
+    constructor() {
+        super({
+            name: "Amnesia", 
+            type: "Psychic",
+            power: 0,
+            special: true
+        });
+    }
+}
+
+class Charm extends Move {
+    constructor() {
+        super({
+            name: "Charm", 
+            type: "Fairy",
+            power: 0,
+            special: true
+        });
+    }
+}
+
+
+class Counter extends Move {
+    constructor() {
+        super({
+            name: "Counter", 
+            type: "Fighting",
+            power: 0,
+            special: false
+        });
+    }
+}
+
+class DestinyBond extends Move {
+    constructor() {
+        super({
+            name: "Destiny Bond", 
+            type: "Ghost",
+            power: 0,
+            special: true
+        });
+    }
+}
+
+class Earthquake extends Move {
+    constructor() {
+        super({
+            name: "Earthquake", 
+            type: "Ground",
+            power: 100,
+            special: false
+        });
+    }
+}
+
+class Dig extends Move {
+    constructor() {
+        super({
+            name: "Dig", 
+            type: "Ground",
+            power: 80,
+            special: false
+        });
+    }
+}
+
+
+class Scratch extends Move {
+    constructor() {
+        super({
+            name: "Scratch", 
+            type: "Normal",
+            power: 40,
+            special: false
+        });
+    }
+}
+
+
+class Slash extends Move {
+    constructor() {
+        super({
+            name: "Slash", 
+            type: "Normal",
+            power: 70,
+            special: false
+        });
+    }
+}
+
+
+class Bulldoze extends Move {
+    constructor() {
+        super({
+            name: "Bulldoze", 
+            type: "Ground",
+            power: 60,
+            special: false
+        });
+    }
+}
+
+class CrushClaw extends Move {
+    constructor() {
+        super({
+            name: "Crush Claw", 
+            type: "Normal",
+            power: 75,
+            special: false
+        });
+    }
+}
 
 
 

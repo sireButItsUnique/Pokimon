@@ -11,7 +11,7 @@ let player = new Trainer({
 
 let opp = new Trainer({
 	name: "Opponent",
-	team: [new Pikachew(30)],
+	team: [new Pikachew(30), new Charizard(50)],
 	img: "191.PNG"
 })
 

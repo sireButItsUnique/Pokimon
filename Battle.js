@@ -57,6 +57,12 @@ class Battle {
 			return;
 		}
 
+		if (type == "sub") {
+			this.oppIdx = newIdx;
+			this.oppActive = this.oppTeam[this.oppIdx];
+			return;
+		}
+
 		if (type == "move") {
 			// animations
 			this.actions = [];
@@ -68,6 +74,18 @@ class Battle {
 			else this.plrTeam[plrIdx].curHp -= getDmg(move, oppActive, plrActive);
 			return;
 		}
+	}
+
+	pushOppSub() {
+		let { plrActive, oppActive, plrIdx, oppIdx } = this;
+		let { plrTeam, oppTeam } = this;
+		
+		// switch
+		this.actionQueue.push({
+			type: "sub",
+			txt: `Go ${oppTeam[oppIdx + 1].name}!`,
+			newIdx: oppIdx + 1
+		});
 	}
 	
 	pushAttack(attacking, defending, move) {
@@ -108,6 +126,7 @@ class Battle {
 					type: "text",
 					txt: `${oppActive.name} has fainted!`
 				});
+				this.pushOppSub();
 				this.runAction();
 				return;
 			}
@@ -149,6 +168,7 @@ class Battle {
 					type: "text",
 					txt: `${oppActive.name} has fainted!`
 				});
+				this.pushOppSub();
 				this.runAction();
 				return;
 			}
@@ -157,7 +177,7 @@ class Battle {
 		// start thing
 		this.runAction();
 	}
-	
+
 	makeMove(idx) {
 		let { plrActive, oppActive, plrTeam, oppTeam } = this;
 		let plrStats = plrActive.getStats();
@@ -213,6 +233,12 @@ class Battle {
 	
 	renderMove() {
 		
+		// force switch if fainted
+		if (this.plrActive.curHp <= 0) {
+			this.state = "switch";
+			return;
+		}
+
 		// draw moves
 		for (let i = 0; i < this.plrActive.moves.length; i++) {
 			let move = this.plrActive.moves[i];
@@ -305,15 +331,19 @@ class Battle {
 			if (mouseX > x1 && mouseX < x1 + 450 && mouseY > y1 && mouseY < y1 + 100) stroke(highlight_2);
 			rect(x1, y1, 450, 100, 10);
 			
+			if (plrTeam[i].curHp <= 0) tint(255, 100);
 			imageBounded(images[plrTeam[i].name], x1 + 10, y1 + 10, 80, 80);
+			tint(255, 255);
+			
 			strokeWeight(0)
 			fill(255);
 			textAlign(LEFT, TOP);
-			text(`${plrTeam[i].name} - Lvl ${plrTeam[i].level}`, x1 + 100, y1 + 20);
+			if (plrTeam[i].curHp <= 0) text(`${plrTeam[i].name} - Fainted`, x1 + 100, y1 + 20);
+			else text(`${plrTeam[i].name} - Lvl ${plrTeam[i].level}`, x1 + 100, y1 + 20);
 			fill(base_2);
 			rect(x1 + 100, y1 + 50, 300, 25, 15);
 			fill(highlight_2);
-			rect(x1 + 102.5, y1 + 52.5, 295 * (plrTeam[i].curHp / plrTeam[i].maxHp), 20, 15);
+			if (plrTeam[i].curHp > 0) rect(x1 + 102.5, y1 + 52.5, 295 * (plrTeam[i].curHp / plrTeam[i].maxHp), 20, 15);
 		}
 	}
 	
@@ -344,7 +374,13 @@ class Battle {
 			fill(255);
 			textAlign(LEFT, CENTER);
 			textSize(20)
-			text(`${plrActive.name} - Lvl ${plrActive.level}`, 100, 200, 1500, 25)
+			text(`${plrActive.name} - Lvl ${plrActive.level}`, 100, 200, 1500, 25);
+
+			for (let i = 0; i < plrTeam.length; i++) {
+				if (plrTeam[i].curHp <= 0) tint(255, 128);
+				imageBounded(images["Pokeball"], 100 + i * 50, 150, 40, 40);
+				tint(255, 255);
+			}
 		}
 		
 		
@@ -360,7 +396,13 @@ class Battle {
 			fill(255);
 			textAlign(RIGHT, CENTER);
 			textSize(20)
-			text(`${oppActive.name} - Lvl ${oppActive.level}`, 1200 - 100 - 1500, 200, 1500, 25)
+			text(`${oppActive.name} - Lvl ${oppActive.level}`, 1200 - 100 - 1500, 200, 1500, 25);
+
+			for (let i = 0; i < oppTeam.length; i++) {
+				if (oppTeam[i].curHp <= 0) tint(255, 128);
+				imageBounded(images["Pokeball"], 700 + i * 50, 150, 40, 40);
+				tint(255, 255);
+			}
 		}
 		
 		// draw gui
@@ -409,6 +451,7 @@ class Battle {
 		for (let i = 0; i < plrTeam.length; i++) {
 			let x1 = 135 + (i % 2) * 480;
 			let y1 = 120 + floor(i / 2) * 120;
+			if (plrTeam[i].curHp <= 0) continue;
 			if (mouseX > x1 && mouseX < x1 + 450 && mouseY > y1 && mouseY < y1 + 100) {
 				this.makeSwitch(i);
 				return;

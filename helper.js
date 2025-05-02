@@ -298,4 +298,14 @@ function preload() {
   images["Slowpoke"] = loadImage("/assets/slowpoke.gif");
   images["Magnemite"] = loadImage("/assets/magnemite.gif");
   images["Magneton"] = loadImage("/assets/magneton.gif");
+  images["Haunter"] = loadImage("/assets/haunter.gif");
+  images["Gastly"] = loadImage("/assets/gastly.gif");
+  images["Gengar"] = loadImage("/assets/gengar.gif");
+  images["Onix"] = loadImage("/assets/onix.gif");
+  images["Steelix"] = loadImage("/assets/steelix.gif");
+  images["Drowzee"] = loadImage("/assets/drowzee.gif");
+  images["Hypno"] = loadImage("/assets/hypno.gif");
+  images["Voltorb"] = loadImage("/assets/voltorb.gif");
+  images["Electrode"] = loadImage("/assets/electrode.gif");
+
 }

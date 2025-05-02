@@ -1038,6 +1038,92 @@ class ZapCannon extends Move {
 }
 
 
+class ShadowBall extends Move {
+    constructor() {
+        super({
+            name: "Shadow Ball",
+            type: "Ghost",
+            power: 80,
+            special: true
+        });
+    }
+}
+
+
+class SuckerPunch extends Move {
+    constructor() {
+        super({
+            name: "Sucker Punch",
+            type: "Dark",
+            power: 70,
+            special: false
+        });
+    }
+}
+
+class Payback extends Move {
+    constructor() {
+        super({
+            name: "Payback",
+            type: "Dark",
+            power: 50,
+            special: false
+        });
+    }
+}
+
+
+class RockSlide extends Move {
+    constructor() {
+        super({
+            name: "Rock Slide",
+            type: "Rock",
+            power: 75,
+            special: false
+        });
+    }
+}
+
+class Slam extends Move {
+    constructor() {
+        super({
+            name: "Slam",
+            type: "Normal",
+            power: 80,
+            special: false
+        });
+    }
+}
+
+
+class Headbutt extends Move {
+    constructor() {
+        super({
+            name: "Headbutt",
+            type: "Normal",
+            power: 70,
+            special: false
+        });
+    }
+}
+
+
+class ChargeBeam extends Move {
+    constructor() {
+        super({
+            name: "Charge Beam",
+            type: "Electric",
+            power: 50,
+            special: true
+        });
+    }
+}
+
+
+
+
+
+
 
 
 

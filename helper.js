@@ -286,4 +286,16 @@ function preload() {
   images["Pidgey"] = loadImage("/assets/pidgey.gif");
   images["Pidgeotto"] = loadImage("/assets/pidgeotto.gif");
   images["Pidgeot"] = loadImage("/assets/pidgeot.gif");
+  images["Meowth"] = loadImage("/assets/meowth.gif");
+  images["Persian"] = loadImage("/assets/persian.gif");
+  images["Psyduck"] = loadImage("/assets/psyduck.gif");
+  images["Golduck"] = loadImage("/assets/golduck.gif");
+  images["Bellsprout"] = loadImage("/assets/bellsprout.gif");
+  images["Weepinbell"] = loadImage("/assets/weepinbell.gif");
+  images["Victreebel"] = loadImage("/assets/victreebel.gif");
+  images["Tentacool"] = loadImage("/assets/tentacool.gif");
+  images["Tentacruel"] = loadImage("/assets/tentacruel.gif");
+  images["Slowpoke"] = loadImage("/assets/slowpoke.gif");
+  images["Magnemite"] = loadImage("/assets/magnemite.gif");
+  images["Magneton"] = loadImage("/assets/magneton.gif");
 }

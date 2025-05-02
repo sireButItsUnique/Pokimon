@@ -888,4 +888,157 @@ class Twister extends Move {
 }
 
 
+class Assurance extends Move {
+    constructor() {
+        super({
+            name: "Assurance",
+            type: "Dark",
+            power: 60,
+            special: false
+        });
+    }
+}
+
+class ZenHeadbutt extends Move {
+    constructor() {
+        super({
+            name: "Zen Headbutt",
+            type: "Psychic",
+            power: 80,
+            special: false
+        });
+    }
+}
+
+
+class AquaJet extends Move {
+    constructor() {
+        super({
+            name: "Aqua Jet",
+            type: "Water",
+            power: 40,
+            special: false
+        });
+    }
+}
+
+class Wrap extends Move {
+    constructor() {
+        super({
+            name: "Wrap",
+            type: "Normal",
+            power: 15,
+            special: false
+        });
+    }
+}
+
+
+class PoisonJab extends Move {
+    constructor() {
+        super({
+            name: "Poison Jab",
+            type: "Poison",
+            power: 80,
+            special: false
+        });
+    }
+}
+
+class KnockOff extends Move {
+    constructor() {
+        super({
+            name: "Knock Off",
+            type: "Dark",
+            power: 65,
+            special: false
+        });
+    }
+}
+
+
+class RazorLeaf extends Move {
+    constructor() {
+        super({
+            name: "Razor Leaf",
+            type: "Grass",
+            power: 55,
+            special: false
+        });
+    }
+}
+
+class BubbleBeam extends Move {
+    constructor() {
+        super({
+            name: "Bubble Beam",
+            type: "Water",
+            power: 65,
+            special: true
+        });
+    }
+}
+
+
+class Surf extends Move {
+    constructor() {
+        super({
+            name: "Surf",
+            type: "Water",
+            power: 90,
+            special: true
+        });
+    }
+}
+
+
+class PoisonSting extends Move {
+    constructor() {
+        super({
+            name: "Poison Sting",
+            type: "Poison",
+            power: 15,
+            special: false
+        });
+    }
+}
+
+
+class Confusion extends Move {
+    constructor() {
+        super({
+            name: "Confusion",
+            type: "Psychic",
+            power: 50,
+            special: true
+        });
+    }
+}
+
+class Spark extends Move {
+    constructor() {
+        super({
+            name: "Spark",
+            type: "Electric",
+            power: 65,
+            special: false
+        });
+    }
+}
+
+class ZapCannon extends Move {
+    constructor() {
+        super({
+            name: "Zap Cannon",
+            type: "Electric",
+            power: 120,
+            special: true
+        });
+    }
+}
+
+
+
+
+
 

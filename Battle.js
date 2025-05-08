@@ -81,6 +81,10 @@ class Battle {
 		let { plrTeam, oppTeam } = this;
 		
 		// switch
+		if (oppIdx >= oppTeam.length - 1) {
+			state = "won";
+			return;
+		}
 		this.actionQueue.push({
 			type: "sub",
 			txt: `Go ${oppTeam[oppIdx + 1].name}!`,

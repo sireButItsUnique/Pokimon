@@ -1,6 +1,9 @@
+let gameMap;
+
 function setup() {
 	createCanvas(1200, 800);
 	background(255);
+	gameMap = new GameMap();
 }
 
 let player = new Trainer({
@@ -20,11 +23,12 @@ let battle = new Battle({
 	opp: opp
 })
 
-let gameMap = new GameMap();
-let state = "battle";
+
+let state = "map";
 function draw() {
 	if (state == "battle") battle.render();
 	if (state == "map") gameMap.render();
+	if (state == "map") gameMap.listenMove();
 }
 
 function mouseClicked() {

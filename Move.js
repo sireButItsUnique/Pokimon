@@ -1119,6 +1119,227 @@ class ChargeBeam extends Move {
     }
 }
 
+class MudShot extends Move {
+    constructor() {
+        super({
+            name: "Mud Shot",
+            type: "Ground",
+            power: 55,
+            special: true
+        });
+    }
+}
+
+class CircleThrow extends Move {
+    constructor() {
+        super({
+            name: "Circle Throw",
+            type: "Fighting",
+            power: 60,
+            special: false
+        });
+    }
+}
+
+
+class ThunderPunch extends Move {
+    constructor() {
+        super({
+            name: "Thunder Punch",
+            type: "Electric",
+            power: 75,
+            special: false
+        });
+    }
+}
+
+
+class FirePunch extends Move {
+    constructor() {
+        super({
+            name: "Fire Punch",
+            type: "Fire",
+            power: 75,
+            special: false
+        });
+    }
+}
+
+class IcePunch extends Move {
+    constructor() {
+        super({
+            name: "Ice Punch",
+            type: "Ice",
+            power: 75,
+            special: false
+        });
+    }
+}
+
+
+class PsychoCut extends Move {
+    constructor() {
+        super({
+            name: "Psycho Cut",
+            type: "Psychic",
+            power: 70,
+            special: false
+        });
+    }
+}
+
+
+class StringShot extends Move {
+    constructor() {
+        super({
+            name: "String Shot",
+            type: "Bug",
+            power: 0,
+            special: true
+        });
+    }
+}
+
+
+class BugBite extends Move {
+    constructor() {
+        super({
+            name: "Bug Bite",
+            type: "Bug",
+            power: 60,
+            special: false
+        });
+    }
+}
+
+
+class Harden extends Move {
+    constructor() {
+        super({
+            name: "Harden",
+            type: "Normal",
+            power: 0,
+            special: true
+        });
+    }
+}
+
+
+class FuryCutter extends Move {
+    constructor() {
+        super({
+            name: "Fury Cutter",
+            type: "Bug",
+            power: 40,
+            special: false
+        });
+    }
+}
+
+
+class PinMissle extends Move {
+    constructor() {
+        super({
+            name: "Pin Missle",
+            type: "Bug",
+            power: 25,
+            special: false
+        });
+    }
+}
+
+
+class Crunch extends Move {
+    constructor() {
+        super({
+            name: "Crunch",
+            type: "Dark",
+            power: 80,
+            special: false
+        });
+    }
+}
+
+
+
+class Peck extends Move {
+    constructor() {
+        super({
+            name: "Peck",
+            type: "Flying",
+            power: 35,
+            special: false
+        });
+    }
+}
+
+
+class FuryAttack extends Move {
+    constructor() {
+        super({
+            name: "Fury Attack",
+            type: "Normal",
+            power: 15,
+            special: false
+        });
+    }
+}
+
+
+
+class DrillRun extends Move {
+    constructor() {
+        super({
+            name: "Drill Run",
+            type: "Ground",
+            power: 80,
+            special: false
+        });
+    }
+}
+
+
+class Acid extends Move {
+    constructor() {
+        super({
+            name: "Acid",
+            type: "Poison",
+            power: 40,
+            special: true
+        });
+    }
+}
+
+class FurySwipes extends Move {
+    constructor() {
+        super({
+            name: "Fury Swipes",
+            type: "Normal",
+            power: 18,
+            special: false
+        });
+    }
+}
+
+
+class EarthPower extends Move {
+    constructor() {
+        super({
+            name: "EarthPower",
+            type: "Ground",
+            power: 90,
+            special: true
+        });
+    }
+}
+
+
+
+
+
+
+
+
 
 
 

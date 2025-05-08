@@ -249,13 +249,7 @@ let images = {};
 const wallMaterial = [];
 
 function preload() {
-  images["Pikachew"] = loadImage("/assets/pikachu.gif");
-  images["Vapoureon"] = loadImage("/assets/vaporeon.gif");
-  images["Eevee"] = loadImage("/assets/eevee.gif");
   images["Bulbasaur"] = loadImage("/assets/bulbasaur.gif");
-  wallMaterial.push(loadImage("assets/texture_stone.png"));
-  wallMaterial.push(loadImage("assets/texture_wood.avif"));
-  wallMaterial.push(loadImage("assets/texture_grass.jpg"));
   images["Ivysaur"] = loadImage("/assets/ivysaur.gif");
   images["Venusaur"] = loadImage("/assets/venusaur.gif");
   images["Charmander"] = loadImage("/assets/charmander.gif");
@@ -264,7 +258,44 @@ function preload() {
   images["Squirtle"] = loadImage("/assets/squirtle.gif");
   images["Wartortle"] = loadImage("/assets/wartortle.gif");
   images["Blastoise"] = loadImage("/assets/blastoise.gif");
+  images["Caterpie"] = loadImage("/assets/caterpie.gif");
+  images["Metapod"] = loadImage("/assets/metapod.gif");
+  images["Butterfree"] = loadImage("/assets/butterfree.gif");
+  images["Weedle"] = loadImage("/assets/weedle.gif");
+  images["Kakuna"] = loadImage("/assets/kakuna.gif");
+  images["Beedrill"] = loadImage("/assets/beedrill.gif");
+  images["Pidgey"] = loadImage("/assets/pidgey.gif");
+  images["Pidgeotto"] = loadImage("/assets/pidgeotto.gif");
+  images["Pidgeot"] = loadImage("/assets/pidgeot.gif");
+  images["Rattata"] = loadImage("/assets/rattata.gif");
+  images["Raticate"] = loadImage("/assets/raticate.gif");
+  images["Spearow"] = loadImage("/assets/spearow.gif");
+  images["Fearow"] = loadImage("/assets/fearow.gif");
+  images["Ekans"] = loadImage("/assets/ekans.gif");
+  images["Arbok"] = loadImage("/assets/arbok.gif");
+  images["Pikachu"] = loadImage("/assets/pikachu.gif");
   images["Raichu"] = loadImage("/assets/raichu.gif");
+  images["Sandshrew"] = loadImage("/assets/sandshrew.gif");
+  images["Sandslash"] = loadImage("/assets/sandslash.gif");
+  images["Nidoran"] = loadImage("/assets/nidoran-f.gif");
+  images["Nidorina"] = loadImage("/assets/nidorina.gif");
+  images["Nidoqueen"] = loadImage("/assets/nidoqueen.gif");
+
+
+
+
+
+
+
+
+  
+  images["Vapoureon"] = loadImage("/assets/vaporeon.gif");
+  images["Eevee"] = loadImage("/assets/eevee.gif");
+  
+  
+  
+  
+ 
   images["Jigglypuff"] = loadImage("/assets/jigglypuff.gif");
   images["Wigglytuff"] = loadImage("/assets/wigglytuff.gif");
   images["Lickitung"] = loadImage("/assets/lickitung.gif");
@@ -276,16 +307,13 @@ function preload() {
   images["Glaceon"] = loadImage("/assets/glaceon.gif");
   images["Pichu"] = loadImage("/assets/pichu.gif");
   images["Wobbuffet"] = loadImage("/assets/wobbuffet.gif");
-  images["Sandshrew"] = loadImage("/assets/sandshrew.gif");
-  images["Sandslash"] = loadImage("/assets/sandslash.gif");
+ 
   images["Clefairy"] = loadImage("/assets/clefairy.gif");
   images["Clefable"] = loadImage("/assets/clefable.gif");
   images["Geodude"] = loadImage("/assets/geodude.gif");
   images["Graveler"] = loadImage("/assets/graveler.gif");
   images["Golem"] = loadImage("/assets/golem.gif");
-  images["Pidgey"] = loadImage("/assets/pidgey.gif");
-  images["Pidgeotto"] = loadImage("/assets/pidgeotto.gif");
-  images["Pidgeot"] = loadImage("/assets/pidgeot.gif");
+  
   images["Meowth"] = loadImage("/assets/meowth.gif");
   images["Persian"] = loadImage("/assets/persian.gif");
   images["Psyduck"] = loadImage("/assets/psyduck.gif");
@@ -307,5 +335,12 @@ function preload() {
   images["Hypno"] = loadImage("/assets/hypno.gif");
   images["Voltorb"] = loadImage("/assets/voltorb.gif");
   images["Electrode"] = loadImage("/assets/electrode.gif");
+  images["Poliwag"] = loadImage("/assets/poliwag.gif");
+  images["Poliwhirl"] = loadImage("/assets/poliwhirl.gif");
+  images["Poliwrath"] = loadImage("/assets/poliwrath.gif");
+  images["Abra"] = loadImage("/assets/abra.gif");
+  images["Kadabra"] = loadImage("/assets/kadabra.gif");
+  images["Alakazam"] = loadImage("/assets/alakazam.gif");
+  
 
 }

@@ -294,6 +294,43 @@ function preload() {
   images["Oddish"] = loadImage("/assets/oddish.gif");
   images["Gloom"] = loadImage("/assets/gloom.gif");
   images["Vileplume"] = loadImage("/assets/vileplume.gif");
+  images["Paras"] = loadImage("/assets/paras.gif");
+  images["Parasect"] = loadImage("/assets/parasect.gif");
+  images["Venonat"] = loadImage("/assets/venonat.gif");
+  images["Venomoth"] = loadImage("/assets/venomoth.gif");
+  images["Diglett"] = loadImage("/assets/diglett.gif");
+  images["Dugtrio"] = loadImage("/assets/dugtrio.gif");
+  images["Meowth"] = loadImage("/assets/meowth.gif");
+  images["Persian"] = loadImage("/assets/persian.gif");
+  images["Psyduck"] = loadImage("/assets/psyduck.gif");
+  images["Golduck"] = loadImage("/assets/golduck.gif");
+  images["Mankey"] = loadImage("/assets/mankey.gif");
+  images["Primeape"] = loadImage("/assets/primeape.gif");
+  images["Growlithe"] = loadImage("/assets/growlithe.gif");
+  images["Arcanine"] = loadImage("/assets/arcanine.gif");
+  images["Poliwag"] = loadImage("/assets/poliwag.gif");
+  images["Poliwhirl"] = loadImage("/assets/poliwhirl.gif");
+  images["Poliwrath"] = loadImage("/assets/poliwrath.gif");
+  images["Abra"] = loadImage("/assets/abra.gif");
+  images["Kadabra"] = loadImage("/assets/kadabra.gif");
+  images["Alakazam"] = loadImage("/assets/alakazam.gif");
+  images["Machop"] = loadImage("/assets/Machop.gif");
+  images["Machamp"] = loadImage("/assets/Machamp.gif");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -332,10 +369,7 @@ function preload() {
   images["Graveler"] = loadImage("/assets/graveler.gif");
   images["Golem"] = loadImage("/assets/golem.gif");
   
-  images["Meowth"] = loadImage("/assets/meowth.gif");
-  images["Persian"] = loadImage("/assets/persian.gif");
-  images["Psyduck"] = loadImage("/assets/psyduck.gif");
-  images["Golduck"] = loadImage("/assets/golduck.gif");
+ 
   images["Bellsprout"] = loadImage("/assets/bellsprout.gif");
   images["Weepinbell"] = loadImage("/assets/weepinbell.gif");
   images["Victreebel"] = loadImage("/assets/victreebel.gif");
@@ -353,12 +387,7 @@ function preload() {
   images["Hypno"] = loadImage("/assets/hypno.gif");
   images["Voltorb"] = loadImage("/assets/voltorb.gif");
   images["Electrode"] = loadImage("/assets/electrode.gif");
-  images["Poliwag"] = loadImage("/assets/poliwag.gif");
-  images["Poliwhirl"] = loadImage("/assets/poliwhirl.gif");
-  images["Poliwrath"] = loadImage("/assets/poliwrath.gif");
-  images["Abra"] = loadImage("/assets/abra.gif");
-  images["Kadabra"] = loadImage("/assets/kadabra.gif");
-  images["Alakazam"] = loadImage("/assets/alakazam.gif");
+ 
   
 
 }

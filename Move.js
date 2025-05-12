@@ -1392,6 +1392,69 @@ class PoisonFang extends Move {
 }
 
 
+class Thrash extends Move {
+    constructor() {
+        super({
+            name: "Thrash",
+            type: "Normal",
+            power: 120,
+            special: false
+        });
+    }
+}
+
+
+
+class CloseCombat extends Move {
+    constructor() {
+        super({
+            name: "Close Combat",
+            type: "Fighting",
+            power: 120,
+            special: false
+        });
+    }
+}
+
+
+
+class Revenge extends Move {
+    constructor() {
+        super({
+            name: "Revenge",
+            type: "Fighting",
+            power: 60,
+            special: false
+        });
+    }
+}
+
+
+class DynamicPunch extends Move {
+    constructor() {
+        super({
+            name: "Dynamic Punch",
+            type: "Fighting",
+            power: 100,
+            special: false
+        });
+    }
+}
+
+
+
+class LowSweep extends Move {
+    constructor() {
+        super({
+            name: "Low Sweep",
+            type: "Fighting",
+            power: 65,
+            special: false
+        });
+    }
+}
+
+
 
 
 

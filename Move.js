@@ -1334,6 +1334,66 @@ class EarthPower extends Move {
 }
 
 
+class DoubleKick extends Move {
+    constructor() {
+        super({
+            name: "Double Kick",
+            type: "Fighting",
+            power: 30,
+            special: false
+        });
+    }
+}
+
+
+class HornAttack extends Move {
+    constructor() {
+        super({
+            name: "Horn Attack",
+            type: "Normal",
+            power: 65,
+            special: false
+        });
+    }
+}
+
+class Astonish extends Move {
+    constructor() {
+        super({
+            name: "Astonish",
+            type: "Ghost",
+            power: 30,
+            special: false
+        });
+    }
+}
+
+class Absorb extends Move {
+    constructor() {
+        super({
+            name: "Absorb",
+            type: "Grass",
+            power: 20,
+            special: true
+        });
+    }
+}
+
+
+class PoisonFang extends Move {
+    constructor() {
+        super({
+            name: "Poison Fang",
+            type: "Poison",
+            power: 50,
+            special: false
+        });
+    }
+}
+
+
+
+
 
 
 

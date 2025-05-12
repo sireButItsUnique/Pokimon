@@ -652,13 +652,13 @@ class Sandslash extends Pokimon {
 
 
 
-class Nidoran extends Pokimon {
+class NidoranF extends Pokimon {
 	/**
 	 * @param {*} level 
 	 */
 	constructor(level=1) {
 		super({
-			name: "Nidoran",
+			name: "Nidoran (Female)",
 			level: level, 
 			type1: "Poison",
 		});
@@ -703,6 +703,7 @@ class Nidoqueen extends Pokimon {
 			name: "Nidoqueen",
 			level: level, 
 			type1: "Poison",
+			type2: "Ground",
 		});
 		this.setBaseStats({hp: 90, atk: 92, spAtk: 75, def: 87, spDef: 85, spd: 76});
 		this.setRandomIvs();
@@ -713,6 +714,330 @@ class Nidoqueen extends Pokimon {
 	
 	}
 }
+
+
+
+class NidoranM extends Pokimon {
+	/**
+	 * @param {*} level 
+	 */
+	constructor(level=1) {
+		super({
+			name: "Nidoran (Male)",
+			level: level, 
+			type1: "Poison",
+		});
+		this.setBaseStats({hp: 46, atk: 57, spAtk: 40, def: 40, spDef: 40, spd: 50});
+		this.setRandomIvs();
+		this.learnMove(new PoisonSting());	
+		this.learnMove(new Peck());
+		this.learnMove(new FuryAttack());
+		this.learnMove(new PoisonJab());
+	
+	}
+}
+
+
+class Nidorino extends Pokimon {
+	/**
+	 * @param {*} level 
+	 */
+	constructor(level=1) {
+		super({
+			name: "Nidorino",
+			level: level, 
+			type1: "Poison",
+		});
+		this.setBaseStats({hp: 61, atk: 72, spAtk: 55, def: 57, spDef: 55, spd: 65});
+		this.setRandomIvs();
+		this.learnMove(new DoubleKick());	
+		this.learnMove(new Peck());
+		this.learnMove(new FuryAttack());
+		this.learnMove(new PoisonJab());
+	
+	}
+}
+
+
+
+class Nidoking extends Pokimon {
+	/**
+	 * @param {*} level 
+	 */
+	constructor(level=1) {
+		super({
+			name: "Nidoking",
+			level: level, 
+			type1: "Poison",
+			type2: "Ground"
+		});
+		this.setBaseStats({hp: 81, atk: 102, spAtk: 85, def: 77, spDef: 75, spd: 85});
+		this.setRandomIvs();
+		this.learnMove(new HornAttack());	
+		this.learnMove(new Peck());
+		this.learnMove(new FuryAttack());
+		this.learnMove(new PoisonJab());
+	
+	}
+}
+
+class Clefairy extends Pokimon {
+	/**
+	 * @param {*} level 
+	 */
+	constructor(level=1) {
+		super({
+			name: "Clefairy",
+			level: level, 
+			type1: "Fairy",
+		});
+		this.setBaseStats({hp: 70, atk: 45, spAtk: 60, def: 48, spDef: 65, spd: 35});
+		this.setRandomIvs();
+		this.learnMove(new StoredPower());	
+		this.learnMove(new MeteorMash());
+		this.learnMove(new MoonBlast());
+		this.learnMove(new Pound());
+	
+	}
+}
+
+
+class Clefable  extends Pokimon {
+	/**
+	 * @param {*} level 
+	 */
+	constructor(level=1) {
+		super({
+			name: "Clefable",
+			level: level, 
+			type1: "Fairy",
+		});
+		this.setBaseStats({hp: 95, atk: 70, spAtk: 95, def: 73, spDef: 90, spd: 60});
+		this.setRandomIvs();
+		this.learnMove(new DisarmingVoice());	
+		this.learnMove(new Charm());
+		this.learnMove(new StoredPower());
+		this.learnMove(new Pound());
+	
+	}
+}
+
+
+
+class Vulpix  extends Pokimon {
+	/**
+	 * @param {*} level 
+	 */
+	constructor(level=1) {
+		super({
+			name: "Vulpix",
+			level: level, 
+			type1: "Fire",
+		});
+		this.setBaseStats({hp: 38, atk: 41, spAtk: 50, def: 40, spDef: 65, spd: 65});
+		this.setRandomIvs();
+		this.learnMove(new Ember());	
+		this.learnMove(new QuickAttack());
+		this.learnMove(new Inferno());
+		this.learnMove(new TailWhip());
+	
+	}
+}
+
+
+
+class Ninetales  extends Pokimon {
+	/**
+	 * @param {*} level 
+	 */
+	constructor(level=1) {
+		super({
+			name: "Ninetales",
+			level: level, 
+			type1: "Fire",
+		});
+		this.setBaseStats({hp: 73, atk: 76, spAtk: 81, def: 75, spDef: 100, spd: 100});
+		this.setRandomIvs();
+		this.learnMove(new Flamethrower());	
+		this.learnMove(new QuickAttack());
+		this.learnMove(new TailWhip());
+	
+	
+	}
+}
+
+
+class Jigglypuff extends Pokimon {
+	/**
+	 * @param {*} level 
+	 */
+	constructor(level=1) {
+		super({
+			name: "Jigglypuff",
+			level: level, 
+			type1: "Normal",
+			type2: "Fairy",
+		});
+		this.setBaseStats({hp: 115, atk: 45, spAtk: 45, def: 20, spDef: 25, spd: 20});
+		this.setRandomIvs();
+		this.learnMove(new DisarmingVoice());	
+		this.learnMove(new DoubleEdge());
+		this.learnMove(new HyperVoice());
+		this.learnMove(new Pound());
+	
+	}
+}
+
+class Wigglytuff extends Pokimon {
+	/**
+	 * @param {*} level 
+	 */
+	constructor(level=1) {
+		super({
+			name: "Wigglytuff",
+			level: level, 
+			type1: "Normal",
+			type2: "Fairy",
+		});
+		this.setBaseStats({hp: 140, atk: 70, spAtk: 85, def: 45, spDef: 50, spd: 45});
+		this.setRandomIvs();
+		this.learnMove(new DisarmingVoice());	
+		this.learnMove(new DoubleEdge());
+		this.learnMove(new PlayRough());
+		this.learnMove(new BodySlam());
+	
+	}
+}
+
+
+
+class Zubat extends Pokimon {
+	/**
+	 * @param {*} level 
+	 */
+	constructor(level=1) {
+		super({
+			name: "Zubat",
+			level: level, 
+			type1: "Poison",
+			type2: "Flying",
+		});
+		this.setBaseStats({hp: 40, atk: 45, spAtk: 30, def: 35, spDef: 40, spd: 55});
+		this.setRandomIvs();
+		this.learnMove(new Astonish());	
+		this.learnMove(new Bite());
+		this.learnMove(new AirSlash());
+		this.learnMove(new Absorb());
+	
+	}
+}
+
+
+
+class Golbat extends Pokimon {
+	/**
+	 * @param {*} level 
+	 */
+	constructor(level=1) {
+		super({
+			name: "Golbat",
+			level: level, 
+			type1: "Poison",
+			type2: "Flying",
+		});
+		this.setBaseStats({hp: 75, atk: 80, spAtk: 65, def: 70, spDef: 75, spd: 90});
+		this.setRandomIvs();
+		this.learnMove(new PoisonFang());	
+		this.learnMove(new Bite());
+		this.learnMove(new AirSlash());
+		this.learnMove(new Absorb());
+	
+	}
+}
+
+
+class Oddish extends Pokimon {
+	/**
+	 * @param {*} level 
+	 */
+	constructor(level=1) {
+		super({
+			name: "Oddish",
+			level: level, 
+			type1: "Grass",
+			type2: "Poison",
+		});
+		this.setBaseStats({hp: 45, atk: 50, spAtk: 75, def: 55, spDef: 65, spd: 30});
+		this.setRandomIvs();
+		this.learnMove(new MoonBlast());	
+		this.learnMove(new Acid());
+		this.learnMove(new PoisonPowder());
+		this.learnMove(new Absorb());
+	
+	}
+}
+
+
+class Gloom extends Pokimon {
+	/**
+	 * @param {*} level 
+	 */
+	constructor(level=1) {
+		super({
+			name: "Gloom",
+			level: level, 
+			type1: "Grass",
+			type2: "Poison",
+		});
+		this.setBaseStats({hp: 60, atk: 65, spAtk: 85, def: 70, spDef: 75, spd: 40});
+		this.setRandomIvs();
+		this.learnMove(new MoonBlast());	
+		this.learnMove(new Acid());
+		this.learnMove(new PoisonPowder());
+		this.learnMove(new Absorb());
+	
+	}
+}
+
+
+class Vileplume extends Pokimon {
+	/**
+	 * @param {*} level 
+	 */
+	constructor(level=1) {
+		super({
+			name: "Vileplume",
+			level: level, 
+			type1: "Grass",
+			type2: "Poison",
+		});
+		this.setBaseStats({hp: 75, atk: 80, spAtk: 110, def: 85, spDef: 90, spd: 50});
+		this.setRandomIvs();
+		this.learnMove(new MoonBlast());	
+		this.learnMove(new Acid());
+		this.learnMove(new PoisonPowder());
+		this.learnMove(new Absorb());
+	
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -795,47 +1120,7 @@ class Eevee extends Pokimon {
 
 
 
-class Jigglypuff extends Pokimon {
-	/**
-	 * @param {*} level 
-	 */
-	constructor(level=1) {
-		super({
-			name: "Jigglypuff",
-			level: level, 
-			type1: "Normal",
-			type2: "Fairy",
-		});
-		this.setBaseStats({hp: 115, atk: 45, spAtk: 45, def: 20, spDef: 25, spd: 20});
-		this.setRandomIvs();
-		this.learnMove(new DisarmingVoice());	
-		this.learnMove(new DoubleEdge());
-		this.learnMove(new HyperVoice());
-		this.learnMove(new Pound());
-	
-	}
-}
 
-class Wigglytuff extends Pokimon {
-	/**
-	 * @param {*} level 
-	 */
-	constructor(level=1) {
-		super({
-			name: "Wigglytuff",
-			level: level, 
-			type1: "Normal",
-			type2: "Fairy",
-		});
-		this.setBaseStats({hp: 140, atk: 70, spAtk: 85, def: 45, spDef: 50, spd: 45});
-		this.setRandomIvs();
-		this.learnMove(new DisarmingVoice());	
-		this.learnMove(new DoubleEdge());
-		this.learnMove(new PlayRough());
-		this.learnMove(new BodySlam());
-	
-	}
-}
 
 class Lickitung extends Pokimon {
 	/**
@@ -1023,46 +1308,6 @@ class Wobbuffet extends Pokimon {
 
 
 
-class Clefairy extends Pokimon {
-	/**
-	 * @param {*} level 
-	 */
-	constructor(level=1) {
-		super({
-			name: "Clefairy",
-			level: level, 
-			type1: "Fairy",
-		});
-		this.setBaseStats({hp: 70, atk: 45, spAtk: 60, def: 48, spDef: 65, spd: 35});
-		this.setRandomIvs();
-		this.learnMove(new StoredPower());	
-		this.learnMove(new MeteorMash());
-		this.learnMove(new MoonBlast());
-		this.learnMove(new Pound());
-	
-	}
-}
-
-
-class Clefable  extends Pokimon {
-	/**
-	 * @param {*} level 
-	 */
-	constructor(level=1) {
-		super({
-			name: "Clefable",
-			level: level, 
-			type1: "Fairy",
-		});
-		this.setBaseStats({hp: 95, atk: 70, spAtk: 95, def: 73, spDef: 90, spd: 60});
-		this.setRandomIvs();
-		this.learnMove(new DisarmingVoice());	
-		this.learnMove(new Charm());
-		this.learnMove(new StoredPower());
-		this.learnMove(new Pound());
-	
-	}
-}
 
 
 class Geodude extends Pokimon {

@@ -277,9 +277,29 @@ function preload() {
   images["Raichu"] = loadImage("/assets/raichu.gif");
   images["Sandshrew"] = loadImage("/assets/sandshrew.gif");
   images["Sandslash"] = loadImage("/assets/sandslash.gif");
-  images["Nidoran"] = loadImage("/assets/nidoran-f.gif");
+  images["NidoranF"] = loadImage("/assets/nidoran-f.gif");
   images["Nidorina"] = loadImage("/assets/nidorina.gif");
   images["Nidoqueen"] = loadImage("/assets/nidoqueen.gif");
+  images["NidoranM"] = loadImage("/assets/nidoran-m.gif");
+  images["Nidorino"] = loadImage("/assets/nidorino.gif");
+  images["Nidoking"] = loadImage("/assets/nidoking.gif");
+  images["Clefairy"] = loadImage("/assets/clefairy.gif");
+  images["Clefable"] = loadImage("/assets/clefable.gif");
+  images["Vulpix"] = loadImage("/assets/vulpix.gif");
+  images["Ninetales"] = loadImage("/assets/ninetales.gif");
+  images["Jigglypuff"] = loadImage("/assets/jigglypuff.gif");
+  images["Wigglytuff"] = loadImage("/assets/wigglytuff.gif");
+  images["Zubat"] = loadImage("/assets/zubat.gif");
+  images["Golbat"] = loadImage("/assets/golbat.gif");
+  images["Oddish"] = loadImage("/assets/oddish.gif");
+  images["Gloom"] = loadImage("/assets/gloom.gif");
+  images["Vileplume"] = loadImage("/assets/vileplume.gif");
+
+
+
+
+
+
 
 
 
@@ -296,8 +316,7 @@ function preload() {
   
   
  
-  images["Jigglypuff"] = loadImage("/assets/jigglypuff.gif");
-  images["Wigglytuff"] = loadImage("/assets/wigglytuff.gif");
+  
   images["Lickitung"] = loadImage("/assets/lickitung.gif");
   images["Jolteon"] = loadImage("/assets/jolteon.gif");
   images["Flareon"] = loadImage("/assets/flareon.gif");
@@ -308,8 +327,7 @@ function preload() {
   images["Pichu"] = loadImage("/assets/pichu.gif");
   images["Wobbuffet"] = loadImage("/assets/wobbuffet.gif");
  
-  images["Clefairy"] = loadImage("/assets/clefairy.gif");
-  images["Clefable"] = loadImage("/assets/clefable.gif");
+  
   images["Geodude"] = loadImage("/assets/geodude.gif");
   images["Graveler"] = loadImage("/assets/graveler.gif");
   images["Golem"] = loadImage("/assets/golem.gif");

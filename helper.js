@@ -314,23 +314,57 @@ function preload() {
   images["Abra"] = loadImage("/assets/abra.gif");
   images["Kadabra"] = loadImage("/assets/kadabra.gif");
   images["Alakazam"] = loadImage("/assets/alakazam.gif");
-  images["Machop"] = loadImage("/assets/Machop.gif");
-  images["Machamp"] = loadImage("/assets/Machamp.gif");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  images["Machop"] = loadImage("/assets/machop.gif");
+  images["Machoke"] = loadImage("/assets/machoke.gif");
+  images["Machamp"] = loadImage("/assets/machamp.gif");
+  images["Bellsprout"] = loadImage("/assets/bellsprout.gif");
+  images["Weepinbell"] = loadImage("/assets/weepinbell.gif");
+  images["Victreebel"] = loadImage("/assets/victreebel.gif");
+  images["Tentacool"] = loadImage("/assets/tentacool.gif");
+  images["Tentacruel"] = loadImage("/assets/tentacruel.gif");
+  images["Geodude"] = loadImage("/assets/geodude.gif");
+  images["Graveler"] = loadImage("/assets/graveler.gif");
+  images["Golem"] = loadImage("/assets/golem.gif"); 
+  images["Ponyta"] = loadImage("/assets/ponyta.gif"); 
+  images["Rapidash"] = loadImage("/assets/rapidash.gif"); 
+  images["Slowpoke"] = loadImage("/assets/slowpoke.gif");
+  images["Slowbro"] = loadImage("/assets/slowbro.gif");
+  images["Magnemite"] = loadImage("/assets/magnemite.gif");
+  images["Magneton"] = loadImage("/assets/magneton.gif");
+  images["Farfetch'd"] = loadImage("/assets/farfetchd.gif");
+  images["Doduo"] = loadImage("/assets/doduo.gif");
+  images["Dodrio"] = loadImage("/assets/dodrio.gif");
+  images["Seel"] = loadImage("/assets/seel.gif");
+  images["Dewgong"] = loadImage("/assets/dewgong.gif");
+  images["Grimer"] = loadImage("/assets/grimer.gif");
+  images["Muk"] = loadImage("/assets/muk.gif");
+  images["Shellder"] = loadImage("/assets/shellder.gif");
+  images["Cloyster"] = loadImage("/assets/cloyster.gif");
+  images["Haunter"] = loadImage("/assets/haunter.gif");
+  images["Gastly"] = loadImage("/assets/gastly.gif");
+  images["Gengar"] = loadImage("/assets/gengar.gif");
+  images["Onix"] = loadImage("/assets/onix.gif");
+  images["Drowzee"] = loadImage("/assets/drowzee.gif");
+  images["Hypno"] = loadImage("/assets/hypno.gif");
+  images["Krabby"] = loadImage("/assets/krabby.gif");
+  images["Kingler"] = loadImage("/assets/kingler.gif");
+  images["Voltorb"] = loadImage("/assets/voltorb.gif");
+  images["Electrode"] = loadImage("/assets/electrode.gif");
+  images["Exeggcute"] = loadImage("/assets/exeggcute.gif");
+  images["Exeggutor"] = loadImage("/assets/exeggutor.gif");
+  images["Cubone"] = loadImage("/assets/cubone.gif");
+  images["Marowak"] = loadImage("/assets/marowak.gif");
+  images["Hitmonlee"] = loadImage("/assets/hitmonlee.gif");
+  images["Hitmonchan"] = loadImage("/assets/hitmonchan.gif");
+  images["Lickitung"] = loadImage("/assets/lickitung.gif");
+  images["Koffing"] = loadImage("/assets/koffing.gif");
+  images["Weezing"] = loadImage("/assets/weezing.gif");
+  images["Rhyhorn"] = loadImage("/assets/rhyhorn.gif");
+  images["Rhydon"] = loadImage("/assets/rhydon.gif");
+  images["Chansey"] = loadImage("/assets/chansey.gif");
+  images["Tangela"] = loadImage("/assets/tangela.gif");
+  images["Kangaskhan"] = loadImage("/assets/kangaskhan.gif");
+  images["Horsea"] = loadImage("/assets/horsea.gif");
 
 
 
@@ -354,7 +388,7 @@ function preload() {
   
  
   
-  images["Lickitung"] = loadImage("/assets/lickitung.gif");
+  
   images["Jolteon"] = loadImage("/assets/jolteon.gif");
   images["Flareon"] = loadImage("/assets/flareon.gif");
   images["Espeon"] = loadImage("/assets/espeon.gif");
@@ -365,28 +399,16 @@ function preload() {
   images["Wobbuffet"] = loadImage("/assets/wobbuffet.gif");
  
   
-  images["Geodude"] = loadImage("/assets/geodude.gif");
-  images["Graveler"] = loadImage("/assets/graveler.gif");
-  images["Golem"] = loadImage("/assets/golem.gif");
+  
   
  
-  images["Bellsprout"] = loadImage("/assets/bellsprout.gif");
-  images["Weepinbell"] = loadImage("/assets/weepinbell.gif");
-  images["Victreebel"] = loadImage("/assets/victreebel.gif");
-  images["Tentacool"] = loadImage("/assets/tentacool.gif");
-  images["Tentacruel"] = loadImage("/assets/tentacruel.gif");
-  images["Slowpoke"] = loadImage("/assets/slowpoke.gif");
-  images["Magnemite"] = loadImage("/assets/magnemite.gif");
-  images["Magneton"] = loadImage("/assets/magneton.gif");
-  images["Haunter"] = loadImage("/assets/haunter.gif");
-  images["Gastly"] = loadImage("/assets/gastly.gif");
-  images["Gengar"] = loadImage("/assets/gengar.gif");
-  images["Onix"] = loadImage("/assets/onix.gif");
+  
+  
+ 
+  
   images["Steelix"] = loadImage("/assets/steelix.gif");
-  images["Drowzee"] = loadImage("/assets/drowzee.gif");
-  images["Hypno"] = loadImage("/assets/hypno.gif");
-  images["Voltorb"] = loadImage("/assets/voltorb.gif");
-  images["Electrode"] = loadImage("/assets/electrode.gif");
+ 
+  
  
   
 

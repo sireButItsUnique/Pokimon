@@ -1455,6 +1455,287 @@ class LowSweep extends Move {
 }
 
 
+class FlameCharge extends Move {
+    constructor() {
+        super({
+            name: "Flame Charge",
+            type: "Fire",
+            power: 50,
+            special: false
+        });
+    }
+}
+
+
+class SmartStrike extends Move {
+    constructor() {
+        super({
+            name: "Smart Strike",
+            type: "Steel",
+            power: 70,
+            special: false
+        });
+    }
+}
+
+
+class Pluck extends Move {
+    constructor() {
+        super({
+            name: "Pluck",
+            type: "Flying",
+            power: 60,
+            special: false
+        });
+    }
+}
+
+
+class IcyWind extends Move {
+    constructor() {
+        super({
+            name: "Icy Wind",
+            type: "Ice",
+            power: 55,
+            special: true
+        });
+    }
+}
+
+class IceShard extends Move {
+    constructor() {
+        super({
+            name: "Ice Shard",
+            type: "Ice",
+            power: 40,
+            special: false
+        });
+    }
+}
+
+
+
+class Dive extends Move {
+    constructor() {
+        super({
+            name: "Dive",
+            type: "Water",
+            power: 80,
+            special: false
+        });
+    }
+}
+
+
+class Belch extends Move {
+    constructor() {
+        super({
+            name: "Belch",
+            type: "Poison",
+            power: 120,
+            special: true
+        });
+    }
+}
+
+
+class MudSlap extends Move {
+    constructor() {
+        super({
+            name: "Mud-Slap",
+            type: "Ground",
+            power: 20,
+            special: true
+        });
+    }
+}
+
+
+class GunkShot extends Move {
+    constructor() {
+        super({
+            name: "Gunk Shot",
+            type: "Poison",
+            power: 120,
+            special: false
+        });
+    }
+}
+
+
+
+class RazorShell extends Move {
+    constructor() {
+        super({
+            name: "Razor Shell",
+            type: "Water",
+            power: 75,
+            special: false
+        });
+    }
+}
+
+
+
+class IcicleCrash extends Move {
+    constructor() {
+        super({
+            name: "Icicle Crash",
+            type: "Ice",
+            power: 85,
+            special: false
+        });
+    }
+}
+
+
+class MetalClaw extends Move {
+    constructor() {
+        super({
+            name: "Metal Claw",
+            type: "Steel",
+            power: 50,
+            special: false
+        });
+    }
+}
+
+
+class HammerArm extends Move {
+    constructor() {
+        super({
+            name: "Hammer Arm",
+            type: "Fighting",
+            power: 100,
+            special: false
+        });
+    }
+}
+
+
+class BulletSeed extends Move {
+    constructor() {
+        super({
+            name: "Bullet Seed",
+            type: "Grass",
+            power: 25,
+            special: false
+        });
+    }
+}
+
+class MegaDrain extends Move {
+    constructor() {
+        super({
+            name: "Mega Drain",
+            type: "Grass",
+            power: 40,
+            special: true
+        });
+    }
+}
+
+
+
+class SeedBomb extends Move {
+    constructor() {
+        super({
+            name: "Seed Bomb",
+            type: "Grass",
+            power: 80,
+            special: false
+        });
+    }
+}
+
+
+class BoneRush extends Move {
+    constructor() {
+        super({
+            name: "Bone Rush",
+            type: "Ground",
+            power: 25,
+            special: false
+        });
+    }
+}
+
+
+class FalseSwipe extends Move {
+    constructor() {
+        super({
+            name: "False Swipe",
+            type: "Normal",
+            power: 40,
+            special: false
+        });
+    }
+}
+
+
+class Bonemerang extends Move {
+    constructor() {
+        super({
+            name: "Bonemerang",
+            type: "Ground",
+            power: 50,
+            special: false
+        });
+    }
+}
+
+class BulletPunch extends Move {
+    constructor() {
+        super({
+            name: "Bullet Punch",
+            type: "Steel",
+            power: 40,
+            special: false
+        });
+    }
+}
+
+
+
+class Covet extends Move {
+    constructor() {
+        super({
+            name: "Covet",
+            type: "Normal",
+            power: 60,
+            special: false
+        });
+    }
+}
+
+class TakeDown extends Move {
+    constructor() {
+        super({
+            name: "Take Down",
+            type: "Normal",
+            power: 90,
+            special: false
+        });
+    }
+}
+
+
+
+class Leer extends Move {
+    constructor() {
+        super({
+            name: "Leer",
+            type: "Normal",
+            power: 0,
+            special: true
+        });
+    }
+}
+
+
+
+
+
 
 
 

@@ -4,12 +4,13 @@ let characters = []; // Character feature
 class Block {
     /**
      * @description Create a block in the game map
+     * @param map Game map
      * @param x X-position of top left of block 
      * @param y Y-position of top left of block
      * @param w Width of block (multiple of 10)
      * @param h Height of block (multiple of 10)
-     * @param ghostThrough Ghost through block (boolean)
      * @param type Material of block (0: rock, 1: wood, 2: grass) 
+     * @param ghostThrough Ghost through block (boolean)
      * @param opacity Opacity (0 - 1)
      */
     constructor(x, y, w, h, type, ghostThrough=false, opacity=1) {
@@ -21,21 +22,13 @@ class Block {
         this.ghostThrough = ghostThrough;
         this.opacity = opacity;
     }
-
-    display() {
-        noStroke();
-        texture(texture[this.type]);
-        rect(this.x, this.y, this.w, this.h);
-        // tint(255, 255 * this.opacity);
-        // image(texture[this.type], this.x, this.y, this.w, this.h);
-    }
 }
 
 class GameMap {
     constructor() {
         this.playerX = -50;
         this.playerY = 0;
-        this.map = createGraphics(1200, 800, WEBGL);
+        this.mapBg = createGraphics(1200, 800, WEBGL);
         characters.push(new Character(0, 0, 100, 100, loadImage("assets/roxanne.png")));
         for (let i = 0; i < 10; i++) {
             characters.push(new Character(500, 100 + 100 * i, 80, 80, loadImage("assets/tree.png")));
@@ -44,10 +37,26 @@ class GameMap {
 
     listenMove() {
         let speed = 2;
-        if (keyIsDown(87)) this.playerY -= speed;
-        if (keyIsDown(83)) this.playerY += speed;
-        if (keyIsDown(65)) this.playerX -= speed;
-        if (keyIsDown(68)) this.playerX += speed;
+        let walking = false;
+        if (keyIsDown(87) || keyIsDown(38)) {
+            this.playerY -= speed;
+            walking = true;
+        }
+        if (keyIsDown(83) || keyIsDown(40)) {
+            this.playerY += speed;
+            walking = true;
+        }
+        if (keyIsDown(65) || keyIsDown(37)) {
+            this.playerX -= speed;
+            walking = true;
+        }
+        if (keyIsDown(68) || keyIsDown(39)) {
+            this.playerX += speed;
+            walking = true;
+        }
+        
+        if (walking) imageBounded(images["Walking"], 550, 350, 100, 100);
+        else imageBounded(images["Standing"], 550, 350, 100, 100);
     }
 
     /**
@@ -70,17 +79,20 @@ class GameMap {
     }
 
     render() {
-        this.map.tint(255, 255);
-        this.map.background(base_0);
-        // this.map.translate(-this.map.width / 50, -this.map.height / 50);
-        image(this.map, 0, 0);
-        
+        this.mapBg.background(base_0);        
+
+        // this.splitBlocks(0, 0, 200, 200, 2, true);
+        this.mapBg.noStroke();
+        this.mapBg.textureMode(NORMAL);
+        this.mapBg.textureWrap(REPEAT);
+        this.mapBg.texture(textures[2]);
+        this.mapBg.rect(0 - this.playerX, 0 - this.playerY, 800, 800);
+        image(this.mapBg, 0, 0);
+
         for (let i = 0; i < characters.length; i++) {
             characters[i].render(this.playerX, this.playerY);
         }
-        ellipse(600, 400, 100, 100);
-
-        // this.splitBlocks(0, 0, 200, 200, true, 2);
+        
 
         // for (let i = 0; i < blocks.length; i++) {
         //     blocks[i].display();

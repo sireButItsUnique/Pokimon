@@ -271,4 +271,6 @@ function preload() {
   images["Pokeball"] = loadImage("/assets/pokeball.png");
   images["Standing"] = loadImage("/assets/standing.png");
   images["Walking"] = loadImage("/assets/walking.gif");
+  images["RightWalking"] = loadImage("/assets/rightWalk.gif");
+  images["LeftWalking"] = loadImage("/assets/leftWalk.gif");
 }

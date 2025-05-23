@@ -26,9 +26,11 @@ class Block {
 
 class GameMap {
     constructor() {
-        this.playerX = -50;
+        this.playerX = 0;
         this.playerY = 0;
-        this.mapBg = createGraphics(1200, 800, WEBGL);
+        this.mapWidth = 1200;
+        this.mapHeight = 800;
+        this.mapBg = createGraphics(this.mapWidth, this.mapHeight, WEBGL);
         characters.push(new Character(0, 0, 100, 100, loadImage("assets/roxanne.png")));
         for (let i = 0; i < 10; i++) {
             characters.push(new Character(500, 100 + 100 * i, 80, 80, loadImage("assets/tree.png")));
@@ -37,26 +39,29 @@ class GameMap {
 
     listenMove() {
         let speed = 2;
-        let walking = false;
-        if (keyIsDown(87) || keyIsDown(38)) {
-            this.playerY -= speed;
-            walking = true;
-        }
-        if (keyIsDown(83) || keyIsDown(40)) {
-            this.playerY += speed;
-            walking = true;
+        let walking = 0;
+        if (keyIsDown(68) || keyIsDown(39)) {
+            this.playerX += speed;
+            walking = 1;
         }
         if (keyIsDown(65) || keyIsDown(37)) {
             this.playerX -= speed;
-            walking = true;
+            walking = 2;
         }
-        if (keyIsDown(68) || keyIsDown(39)) {
-            this.playerX += speed;
-            walking = true;
+        if (keyIsDown(87) || keyIsDown(38)) {
+            this.playerY -= speed;
+            walking = 3;
+        }
+        if (keyIsDown(83) || keyIsDown(40)) {
+            this.playerY += speed;
+            walking = 4;
         }
         
-        if (walking) imageBounded(images["Walking"], 550, 350, 100, 100);
-        else imageBounded(images["Standing"], 550, 350, 100, 100);
+        if (!walking) imageBounded(images["Standing"], 550, 350, 100, 100);
+        else if (walking == 1) imageBounded(images["RightWalking"], 550, 350, 100, 100);
+        else if (walking == 2) imageBounded(images["LeftWalking"], 550, 350, 100, 100);
+        else if (walking == 3) imageBounded(images["Walking"], 550, 350, 100, 100, -PI / 2);
+        else if (walking == 4) imageBounded(images["Walking"], 550, 350, 100, 100, PI / 2);
     }
 
     /**
@@ -78,24 +83,32 @@ class GameMap {
         }
     }
 
+    rectangle(x, y, w, h) {
+        let originX = x - 600 - this.playerX;
+        let originY = y - 400 - this.playerY;
+        let numTile = w / 40;
+
+        this.mapBg.beginShape();
+        this.mapBg.vertex(originX, originY, 0, 0, 0);
+        this.mapBg.vertex(originX + w, originY, 0, numTile, 0);
+        this.mapBg.vertex(originX + w, originY + h, 0, numTile, numTile);
+        this.mapBg.vertex(originX, originY + h, 0, 0, numTile);
+        this.mapBg.endShape(CLOSE);
+    }
+
     render() {
         this.mapBg.background(base_0);        
 
-        // this.splitBlocks(0, 0, 200, 200, 2, true);
         this.mapBg.noStroke();
         this.mapBg.textureMode(NORMAL);
         this.mapBg.textureWrap(REPEAT);
         this.mapBg.texture(textures[2]);
-        this.mapBg.rect(0 - this.playerX, 0 - this.playerY, 800, 800);
+        this.rectangle(0, 0, 1200, 800, );
+        
         image(this.mapBg, 0, 0);
 
         for (let i = 0; i < characters.length; i++) {
             characters[i].render(this.playerX, this.playerY);
         }
-        
-
-        // for (let i = 0; i < blocks.length; i++) {
-        //     blocks[i].display();
-        // }
     }
 }

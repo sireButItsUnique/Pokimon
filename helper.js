@@ -400,7 +400,7 @@ function preload() {
   images["Dragonite"] = loadImage("/assets/dragonite.gif");
   images["Mewtwo"] = loadImage("/assets/mewtwo.gif");
   images["Mew"] = loadImage("/assets/mew.gif");
-  
+  images["Treecko"] = loadImage("/assets/treecko.gif");
   
  
   

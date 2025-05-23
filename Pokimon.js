@@ -3335,6 +3335,26 @@ class Mew extends Pokimon {
 
 
 
+class Treecko extends Pokimon {
+	/**
+	 * @param {*} level 
+	 */
+	constructor(level=1) {
+		super({
+			name: "Treecko",
+			level: level, 
+			type1: "Grass",
+		});
+		this.setBaseStats({hp: 40, atk: 45, spAtk: 65, def: 35, spDef: 55, spd: 70});
+		this.setRandomIvs();
+		this.learnMove(new Leer());	
+		this.learnMove(new Pound());
+		this.learnMove(new Slam());
+		this.learnMove(new Leafage());
+	
+	}
+}
+
 
 
 

@@ -1904,6 +1904,16 @@ class AuraSphere extends Move {
 }
 
 
+class Leafage extends Move {
+    constructor() {
+        super({
+            name: "Leafage",
+            type: "Grass",
+            power: 40,
+            special: false
+        });
+    }
+}
 
 
 

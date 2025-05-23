@@ -1734,6 +1734,174 @@ class Leer extends Move {
 
 
 
+class DragonPulse extends Move {
+    constructor() {
+        super({
+            name: "Dragon Pulse",
+            type: "Dragon",
+            power: 85,
+            special: true
+        });
+    }
+}
+
+
+
+class Waterfall extends Move {
+    constructor() {
+        super({
+            name: "Waterfall",
+            type: "Water",
+            power: 80,
+            special: false
+        });
+    }
+}
+
+
+class ConfuseRay extends Move {
+    constructor() {
+        super({
+            name: "Confuse Ray",
+            type: "Ghost",
+            power: 0,
+            special: true
+        });
+    }
+}
+
+
+
+
+class DoubleHit extends Move {
+    constructor() {
+        super({
+            name: "Double Hit",
+            type: "Normal",
+            power: 35,
+            special: false
+        });
+    }
+}
+
+
+
+
+class Superpower extends Move {
+    constructor() {
+        super({
+            name: "Superpower",
+            type: "Fighting",
+            power: 120,
+            special: false
+        });
+    }
+}
+
+
+class Splash extends Move {
+    constructor() {
+        super({
+            name: "Splash",
+            type: "Normal",
+            power: 0,
+            special: true
+        });
+    }
+}
+
+
+
+class Flail extends Move {
+    constructor() {
+        super({
+            name: "Flail",
+            type: "Normal",
+            power: 0,
+            special: false
+        });
+    }
+}
+
+class IceBeam extends Move {
+    constructor() {
+        super({
+            name: "Ice Beam",
+            type: "Ice",
+            power: 90,
+            special: true
+        });
+    }
+}
+
+
+class Transform extends Move {
+    constructor() {
+        super({
+            name: "Transform",
+            type: "Normal",
+            power: 0,
+            special: true
+        });
+    }
+}
+
+
+
+
+class NightSlash extends Move {
+    constructor() {
+        super({
+            name: "Night Slash",
+            type: "Dark",
+            power: 70,
+            special: false
+        });
+    }
+}
+
+
+
+class AncientPower extends Move {
+    constructor() {
+        super({
+            name: "Ancient Power",
+            type: "Rock",
+            power: 60,
+            special: true
+        });
+    }
+}
+
+
+
+
+class Hurricane extends Move {
+    constructor() {
+        super({
+            name: "Hurricane",
+            type: "Flying",
+            power: 110,
+            special: true
+        });
+    }
+}
+
+
+
+
+
+
+class AuraSphere extends Move {
+    constructor() {
+        super({
+            name: "Aura Sphere",
+            type: "Fighting",
+            power: 80,
+            special: true
+        });
+    }
+}
 
 
 

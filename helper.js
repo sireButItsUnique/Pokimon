@@ -365,32 +365,47 @@ function preload() {
   images["Tangela"] = loadImage("/assets/tangela.gif");
   images["Kangaskhan"] = loadImage("/assets/kangaskhan.gif");
   images["Horsea"] = loadImage("/assets/horsea.gif");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  images["Vapoureon"] = loadImage("/assets/vaporeon.gif");
+  images["Seadra"] = loadImage("/assets/seadra.gif");
+  images["Goldeen"] = loadImage("/assets/goldeen.gif");
+  images["Seaking"] = loadImage("/assets/seaking.gif");
+  images["Staryu"] = loadImage("/assets/staryu.gif");
+  images["Starmie"] = loadImage("/assets/starmie.gif");
+  images["Mr. Mime"] = loadImage("/assets/mr-mime.gif");
+  images["Scyther"] = loadImage("/assets/scyther.gif");
+  images["Jynx"] = loadImage("/assets/jynx.gif");
+  images["Electrabuzz"] = loadImage("/assets/electrabuzz.gif");
+  images["Magmar"] = loadImage("/assets/magmar.gif");
+  images["Pinsir"] = loadImage("/assets/pinsir.gif");
+  images["Tauros"] = loadImage("/assets/tauros.gif");
+  images["Magikarp"] = loadImage("/assets/magikarp.gif");
+  images["Gyarados"] = loadImage("/assets/gyarados.gif");
+  images["Lapras"] = loadImage("/assets/lapras.gif");
+  images["Ditto"] = loadImage("/assets/ditto.gif");
   images["Eevee"] = loadImage("/assets/eevee.gif");
-  
-  
+  images["Vapoureon"] = loadImage("/assets/vaporeon.gif");
+  images["Jolteon"] = loadImage("/assets/jolteon.gif");
+  images["Flareon"] = loadImage("/assets/flareon.gif");
+  images["Porygon"] = loadImage("/assets/porygon.gif");
+  images["Omanyte"] = loadImage("/assets/omanyte.gif");
+  images["Omastar"] = loadImage("/assets/omastar.gif");
+  images["Kabuto"] = loadImage("/assets/kabuto.gif");
+  images["Kabutops"] = loadImage("/assets/kabutops.gif");
+  images["Aerodactyl"] = loadImage("/assets/aerodactyl.gif");
+  images["Snorlax"] = loadImage("/assets/snorlax.gif");
+  images["Articuno"] = loadImage("/assets/articuno.gif");
+  images["Zapdos"] = loadImage("/assets/zapdos.gif");
+  images["Moltres"] = loadImage("/assets/moltres.gif");
+  images["Dratini"] = loadImage("/assets/dratini.gif");
+  images["Dragonair"] = loadImage("/assets/dragonair.gif");
+  images["Dragonite"] = loadImage("/assets/dragonite.gif");
+  images["Mewtwo"] = loadImage("/assets/mewtwo.gif");
+  images["Mew"] = loadImage("/assets/mew.gif");
   
   
  
   
   
-  images["Jolteon"] = loadImage("/assets/jolteon.gif");
-  images["Flareon"] = loadImage("/assets/flareon.gif");
+ 
   images["Espeon"] = loadImage("/assets/espeon.gif");
   images["Umbreon"] = loadImage("/assets/umbreon.gif");
   images["Leafeon"] = loadImage("/assets/leafeon.gif");

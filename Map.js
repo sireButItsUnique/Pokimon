@@ -1,8 +1,7 @@
-let blocks = []; // Block feature
-let characters = []; // Character feature
+this.blocks = [];
 
 class Block {
-    /**
+     /**
      * @description Create a block in the game map
      * @param map Game map
      * @param x X-position of top left of block 
@@ -13,14 +12,21 @@ class Block {
      * @param ghostThrough Ghost through block (boolean)
      * @param opacity Opacity (0 - 1)
      */
-    constructor(x, y, w, h, type, ghostThrough=false, opacity=1) {
+    constructor(mapBg, x, y, w, h, type, ghostThrough = false, opacity = 1) {
+        this.mapBg = mapBg;
         this.x = x;
         this.y = y;
         this.w = w;
         this.h = h;
-        this.type = type;
-        this.ghostThrough = ghostThrough;
-        this.opacity = opacity;
+        
+        this.topLeftX = x;
+        this.topLeftY = y;
+        this.topRightX = x + w;
+        this.topRightY = y;
+        this.bottomRightX = x + w;
+        this.bottomRightY = y + h;
+        this.bottomLeftX = x;
+        this.bottomLeftY = y + h;
     }
 }
 
@@ -31,84 +37,111 @@ class GameMap {
         this.mapWidth = 1200;
         this.mapHeight = 800;
         this.mapBg = createGraphics(this.mapWidth, this.mapHeight, WEBGL);
-        characters.push(new Character(0, 0, 100, 100, loadImage("assets/roxanne.png")));
-        for (let i = 0; i < 10; i++) {
-            characters.push(new Character(500, 100 + 100 * i, 80, 80, loadImage("assets/tree.png")));
-        }
+        this.characters = [];
+        this.blocks = [];
+        this.blocks.push(new Block(this.mapBg, 0, 0, 1200, 800, 2, true, 0.8)); // Background block
     }
 
+    /** 
+        * @description Check if the player overlaps with an object
+        * @param obj Object to check overlap with
+        * @returns {boolean} True if overlaps, false otherwise
+        * @example
+        * let obj = {x: 100, y: 100, w: 50, h: 50};
+        * let isOverlapping = gameMap.overlaps(obj);
+        * if (isOverlapping) {
+        *   console.log("Player overlaps with the object");
+        * } else {
+        *  console.log("Player does not overlap with the object");
+        * }
+    */
+    overlaps(obj) {
+        if (obj);
+
+        let { playerX, playerY, playerW, playerH } = this;
+        playerX -= 20; // Offset for player size
+        playerW = 60;
+        playerH = 100;
+
+        return (playerX + playerW > obj.x && playerX < obj.x + obj.w && playerY + playerH > obj.y && playerY < obj.y + obj.h);
+    }
+
+    // mapSetup() {
+    //     this.blocks.push(this.block(0, 0, 1200, 800, 2, true, 0.8));
+    //     this.blocks.push(this.block(100, 100, 200, 200, 1, false, 1));
+    // }
+
     listenMove() {
-        let speed = 2;
+        let speed = 3;
         let walking = 0;
+        // console.log(this.playerX, this.playerY);
+
         if (keyIsDown(68) || keyIsDown(39)) {
-            this.playerX += speed;
+            if (playerInBoundary(this, speed, 0)) {
+                this.playerX += speed;
+            }
             walking = 1;
         }
         if (keyIsDown(65) || keyIsDown(37)) {
-            this.playerX -= speed;
+            if (playerInBoundary(this, -speed, 0)) {
+                this.playerX -= speed;
+            }
             walking = 2;
         }
         if (keyIsDown(87) || keyIsDown(38)) {
-            this.playerY -= speed;
+            if (playerInBoundary(this, 0, -speed)) {
+                this.playerY -= speed;
+            }
             walking = 3;
         }
         if (keyIsDown(83) || keyIsDown(40)) {
-            this.playerY += speed;
+            if (playerInBoundary(this, 0, speed)) {
+                this.playerY += speed;
+            }
             walking = 4;
         }
-        
+
+        fill(255)
+        rect(570, 350, 60, 100);
         if (!walking) imageBounded(images["Standing"], 550, 350, 100, 100);
         else if (walking == 1) imageBounded(images["RightWalking"], 550, 350, 100, 100);
         else if (walking == 2) imageBounded(images["LeftWalking"], 550, 350, 100, 100);
         else if (walking == 3) imageBounded(images["Walking"], 550, 350, 100, 100, -PI / 2);
         else if (walking == 4) imageBounded(images["Walking"], 550, 350, 100, 100, PI / 2);
     }
-
-    /**
-     * @description Split a large block into multiple blocks in multiples of 20px
-     * @param x Top left corner x-position
-     * @param y Top left corner y-position
-     * @param xBlocks Number of blocks in the x-axis
-     * @param yBlocks Number of blocks in the y-axis
-     * @param ghostThrough Ghost thruogh block (boolean)
-     * @param type Material of block (0: rock, 1: wood, 2: grass)
-     */
-    splitBlocks(x, y, xBlocks, yBlocks, type, ghostThrough=false, opacity=1) {
-        rectMode(CORNER);
-
-        for (let i = 0; i < xBlocks; i++) {
-            for (let j = 0; j < yBlocks; j++) {
-                blocks.push(new Block(x + i * 40, y + j * 40, 40, 40, type, ghostThrough, opacity));
-            }
-        }
-    }
-
-    rectangle(x, y, w, h) {
-        let originX = x - 600 - this.playerX;
-        let originY = y - 400 - this.playerY;
+    
+    renderBlock(block) {
+        let {x, y, w, h, type, ghostThrough, opacity} = block;
+        let originX = x - this.playerX;
+        let originY = y - this.playerY;
         let numTile = w / 40;
-
-        this.mapBg.beginShape();
-        this.mapBg.vertex(originX, originY, 0, 0, 0);
-        this.mapBg.vertex(originX + w, originY, 0, numTile, 0);
-        this.mapBg.vertex(originX + w, originY + h, 0, numTile, numTile);
-        this.mapBg.vertex(originX, originY + h, 0, 0, numTile);
-        this.mapBg.endShape(CLOSE);
-    }
-
-    render() {
-        this.mapBg.background(base_0);        
 
         this.mapBg.noStroke();
         this.mapBg.textureMode(NORMAL);
         this.mapBg.textureWrap(REPEAT);
-        this.mapBg.texture(textures[2]);
-        this.rectangle(0, 0, 1200, 800, );
-        
+        this.mapBg.tint(255, opacity * 255);
+        this.mapBg.texture(textures[type]);
+
+        this.mapBg.beginShape();
+        this.mapBg.vertex(originX, originY, 0, 0, 0); // top left
+        this.mapBg.vertex(originX + w, originY, 0, numTile, 0); // top right
+        this.mapBg.vertex(originX + w, originY + h, 0, numTile, numTile); // bottom right
+        this.mapBg.vertex(originX, originY + h, 0, 0, numTile); // bottom left
+        this.mapBg.endShape(CLOSE);
+    }
+    
+    render() {
+        this.mapBg.background(base_0);
+
+        // render blocks
+        for (block in this.blocks) {
+            this.renderBlock(block);
+        }
         image(this.mapBg, 0, 0);
 
-        for (let i = 0; i < characters.length; i++) {
-            characters[i].render(this.playerX, this.playerY);
+
+        for (let i = 0; i < this.characters.length; i++) {
+            this.characters[i].render(this.playerX, this.playerY);
         }
     }
 }

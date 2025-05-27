@@ -81,6 +81,7 @@ class Battle {
 		let { plrTeam, oppTeam } = this;
 		
 		// switch
+		console.log("defeated!")
 		if (oppIdx >= oppTeam.length - 1) {
 			state = "won";
 			return;
@@ -464,7 +465,7 @@ class Battle {
 	}
 
 	listenForMenu() {
-		let labels = ["move", "switch", "info", "run"];
+		let labels = ["move", "switch", "info", "won"];
 		for (let i = 0; i < 4; i++) {
 			if (mouseX > 145 + 230 * i && mouseX < 145 + 230 * i + 220 && mouseY > 700 && mouseY < 760) this.state = labels[i];
 		}

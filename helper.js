@@ -227,6 +227,31 @@ function getTypeEffectiveness(attacking, defending) {
   return 1; // Neutral if not explicitly defined
 }
 
+
+function playerInBoundary(gameMap, dX, dY) {
+  let {playerX, playerY, mapBg, blockVertices} = gameMap;
+
+  //console.log(blockVertices);
+
+  for (let i = 0; i < blockVertices.length; i += 9) {
+    let topLeft = [blockVertices[i], blockVertices[i + 1]];
+    let topRight = [blockVertices[i + 2], blockVertices[i + 3]];
+    let bottomRight = [blockVertices[i + 4], blockVertices[i + 5]];
+    let bottomLeft = [blockVertices[i + 6], blockVertices[i + 7]];
+    let ghostThrough = blockVertices[i + 8];
+  
+    // console.log(ghostThrough);
+
+    if (ghostThrough) return true;
+
+    if (playerX + dX > topLeft[0] || playerX + dX < topRight[0], playerY + dY > bottomLeft[1] || playerY + dY < topLeft[1]) {
+      return false;
+    }
+
+    return true;
+  }
+}
+
 function getDmg(move, attacking, defending) {
   let dmg = 0.4 * attacking.level + 2;
   dmg *= move.power;

@@ -382,7 +382,7 @@ function preload() {
   images["Lapras"] = loadImage("/assets/lapras.gif");
   images["Ditto"] = loadImage("/assets/ditto.gif");
   images["Eevee"] = loadImage("/assets/eevee.gif");
-  images["Vapoureon"] = loadImage("/assets/vaporeon.gif");
+  images["Vagipoureon"] = loadImage("/assets/vaporeon.gif");
   images["Jolteon"] = loadImage("/assets/jolteon.gif");
   images["Flareon"] = loadImage("/assets/flareon.gif");
   images["Porygon"] = loadImage("/assets/porygon.gif");
@@ -401,11 +401,58 @@ function preload() {
   images["Mewtwo"] = loadImage("/assets/mewtwo.gif");
   images["Mew"] = loadImage("/assets/mew.gif");
   images["Treecko"] = loadImage("/assets/treecko.gif");
-  
- 
-  
-  
- 
+  images["Grovyle"] = loadImage("/assets/grovyle.gif");
+  images["Sceptile"] = loadImage("/assets/sceptile.gif");
+  images["Torchic"] = loadImage("/assets/torchic.gif");
+  images["Combusken"] = loadImage("/assets/combusken.gif");
+  images["Blaziken"] = loadImage("/assets/blaziken.gif");
+  images["Mudkip"] = loadImage("/assets/mudkip.gif");
+  images["Marshtomp"] = loadImage("/assets/marshtomp.gif");
+  images["Swampert"] = loadImage("/assets/swampert.gif");
+  images["Poochyena"] = loadImage("/assets/poochyena.gif");
+  images["Mightyena"] = loadImage("/assets/mightyena.gif");
+  images["Zigzagoon"] = loadImage("/assets/zigzagoon.gif");
+  images["Linoone"] = loadImage("/assets/linoone.gif");
+  images["Wurmple"] = loadImage("/assets/wurmple.gif");
+  images["Silcoon"] = loadImage("/assets/silcoon.gif");
+  images["Beautifly"] = loadImage("/assets/beautifly.gif");
+  images["Cascoon"] = loadImage("/assets/cascoon.gif");
+  images["Dustox"] = loadImage("/assets/dustox.gif");
+  images["Lotad"] = loadImage("/assets/lotad.gif");
+  images["Lombre"] = loadImage("/assets/lombre.gif");
+  images["Ludicolo"] = loadImage("/assets/ludicolo.gif");
+  images["Seedot"] = loadImage("/assets/seedot.gif");
+  images["Nuzleaf"] = loadImage("/assets/nuzleaf.gif");
+  images["Shiftry"] = loadImage("/assets/shiftry.gif");
+  images["Taillow"] = loadImage("/assets/taillow.gif");
+  images["Swellow"] = loadImage("/assets/swellow.gif");
+  images["Wingull"] = loadImage("/assets/wingull.gif");
+  images["Pelipper"] = loadImage("/assets/pelipper.gif");
+  images["Ralts"] = loadImage("/assets/ralts.gif");
+  images["Kirlia"] = loadImage("/assets/kirlia.gif");
+  images["Gardevoir"] = loadImage("/assets/gardevoir.gif");
+  images["Surskit"] = loadImage("/assets/skurskit.gif");
+  images["Masquerain"] = loadImage("/assets/masquerain.gif");
+  images["Shroomish"] = loadImage("/assets/shroomish.gif");
+  images["Breloom"] = loadImage("/assets/breloom.gif");
+  images["Slakoth"] = loadImage("/assets/slakoth.gif");
+  images["Vigoroth"] = loadImage("/assets/vigoroth.gif");
+  images["Slaking"] = loadImage("/assets/slaking.gif");
+  images["Nincada"] = loadImage("/assets/nincada.gif");
+  images["Ninjask"] = loadImage("/assets/ninjask.gif");
+  images["Shedinja"] = loadImage("/assets/shedinja.gif");
+  images["Whismur"] = loadImage("/assets/whismur.gif");
+
+
+
+
+
+
+
+
+
+
+
   images["Espeon"] = loadImage("/assets/espeon.gif");
   images["Umbreon"] = loadImage("/assets/umbreon.gif");
   images["Leafeon"] = loadImage("/assets/leafeon.gif");

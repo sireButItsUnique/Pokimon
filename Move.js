@@ -1916,6 +1916,133 @@ class Leafage extends Move {
 }
 
 
+class LeafStorm extends Move {
+    constructor() {
+        super({
+            name: "Leaf Storm",
+            type: "Grass",
+            power: 130,
+            special: true
+        });
+    }
+}
+
+
+
+class GigaDrain extends Move {
+    constructor() {
+        super({
+            name: "Giga Drain",
+            type: "Grass",
+            power: 130,
+            special: true
+        });
+    }
+}
+
+
+class BlazeKick extends Move {
+    constructor() {
+        super({
+            name: "Blaze Kick",
+            type: "Fire",
+            power: 85,
+            special: false
+        });
+    }
+}
+
+
+
+class SandAttack extends Move {
+    constructor() {
+        super({
+            name: "Sand Attack",
+            type: "Ground",
+            power: 0,
+            special: true
+        });
+    }
+}
+
+class AirCutter extends Move {
+    constructor() {
+        super({
+            name: "Air Cutter",
+            type: "Flying",
+            power: 60,
+            special: true
+        });
+    }
+}
+
+
+
+class SunnyDay extends Move {
+    constructor() {
+        super({
+            name: "Sunny Day",
+            type: "Fire",
+            power: 0,
+            special: true
+        });
+    }
+}
+
+
+class MysticalFire extends Move {
+    constructor() {
+        super({
+            name: "Mystical Fire",
+            type: "Fire",
+            power: 75,
+            special: true
+        });
+    }
+}
+
+
+
+
+class Soak extends Move {
+    constructor() {
+        super({
+            name: "Soak",
+            type: "Water",
+            power: 0,
+            special: false
+        });
+    }
+}
+
+
+
+class ThroatChop extends Move {
+    constructor() {
+        super({
+            name: "Throat Chop",
+            type: "Dark",
+            power: 80,
+            special: false
+        });
+    }
+}
+
+
+
+class EchoedVoice extends Move {
+    constructor() {
+        super({
+            name: "Echoed Voice",
+            type: "Normal",
+            power: 40,
+            special: true
+        });
+    }
+}
+
+
+
 
 
 

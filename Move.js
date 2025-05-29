@@ -2043,15 +2043,103 @@ class EchoedVoice extends Move {
 
 
 
+class FakeOut extends Move {
+    constructor() {
+        super({
+            name: "Fake Out",
+            type: "Normal",
+            power: 40,
+            special: false
+        });
+    }
+}
+
+
+class ArmThrust extends Move {
+    constructor() {
+        super({
+            name: "Arm Thrust",
+            type: "Fighting",
+            power: 15,
+            special: false
+        });
+    }
+}
+
+
+
+class FairyWind extends Move {
+    constructor() {
+        super({
+            name: "Fairy Wind",
+            type: "Fairy",
+            power: 40,
+            special: true
+        });
+    }
+}
 
 
 
 
+class IronHead extends Move {
+    constructor() {
+        super({
+            name: "Iron Head",
+            type: "Steel",
+            power: 80,
+            special: false
+        });
+    }
+}
+
+
+class Feint extends Move {
+    constructor() {
+        super({
+            name: "Feint",
+            type: "Normal",
+            power: 30,
+            special: false
+        });
+    }
+}
+
+
+class ElectroBall extends Move {
+    constructor() {
+        super({
+            name: "Electro Ball",
+            type: "Electric",
+            power: 0,
+            special: true
+        });
+    }
+}
 
 
 
+class AcidSpray extends Move {
+    constructor() {
+        super({
+            name: "Acid Spray",
+            type: "Poison",
+            power: 40,
+            special: true
+        });
+    }
+}
 
-
+class Sludge extends Move {
+    constructor() {
+        super({
+            name: "Sludge",
+            type: "Poison",
+            power: 65,
+            special: true
+        });
+    }
+}
 
 
 

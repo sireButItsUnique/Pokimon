@@ -442,6 +442,58 @@ function preload() {
   images["Ninjask"] = loadImage("/assets/ninjask.gif");
   images["Shedinja"] = loadImage("/assets/shedinja.gif");
   images["Whismur"] = loadImage("/assets/whismur.gif");
+  images["Loudred"] = loadImage("/assets/loudred.gif");
+  images["Exploud"] = loadImage("/assets/exploud.gif");
+  images["Makuhita"] = loadImage("/assets/makuhita.gif");
+  images["Hariyama"] = loadImage("/assets/hariyama.gif");
+  images["Azurill"] = loadImage("/assets/azurill.gif");
+  images["Nosepass"] = loadImage("/assets/nosepass.gif");
+  images["Skitty"] = loadImage("/assets/skitty.gif");
+  images["Delcatty"] = loadImage("/assets/delcatty.gif");
+  images["Sableye"] = loadImage("/assets/sableye.gif");
+  images["Mawile"] = loadImage("/assets/mawile.gif");
+  images["Anon"] = loadImage("/assets/anon.gif");
+  images["Lairon"] = loadImage("/assets/lairon.gif");
+  images["Aggron"] = loadImage("/assets/aggron.gif");
+  images["Meditite"] = loadImage("/assets/meditite.gif");
+  images["Medicham"] = loadImage("/assets/medicham.gif");
+  images["Electrike"] = loadImage("/assets/electrike.gif");
+  images["Manectric"] = loadImage("/assets/manectric.gif");
+  images["Plusle"] = loadImage("/assets/plusle.gif");
+  images["Minun"] = loadImage("/assets/minun.gif");
+  images["Volbeat"] = loadImage("/assets/volbeat.gif");
+  images["Illumise"] = loadImage("/assets/illumise.gif");
+  images["Roselia"] = loadImage("/assets/roselia.gif");
+  images["Gulpin"] = loadImage("/assets/gulpin.gif");
+  images["Swalot"] = loadImage("/assets/swalot.gif");
+  images["Carvanha"] = loadImage("/assets/carvanha.gif");
+  images["Sharpedo"] = loadImage("/assets/sharpedo.gif");
+  images["Wailmer"] = loadImage("/assets/wailmer.gif");
+  images["Wailord"] = loadImage("/assets/wailord.gif");
+  images["Numel"] = loadImage("/assets/numel.gif");
+  images["Camerupt"] = loadImage("/assets/camerupt.gif");
+  images["Torkoal"] = loadImage("/assets/torkoal.gif");
+  images["Spoink"] = loadImage("/assets/spoink.gif");
+  images["Grumpig"] = loadImage("/assets/grumpig.gif");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

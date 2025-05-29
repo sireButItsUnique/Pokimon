@@ -228,29 +228,23 @@ function getTypeEffectiveness(attacking, defending) {
 }
 
 
-function playerInBoundary(gameMap, dX, dY) {
-  let {playerX, playerY, mapBg, blockVertices} = gameMap;
+// function playerInBoundary(gameMap, blocks, dX, dY) {
+//   let {playerX, playerY, playerW, playerH } = gameMap;
+//   playerX -= 20;
 
-  //console.log(blockVertices);
+//   // conso
 
-  for (let i = 0; i < blockVertices.length; i += 9) {
-    let topLeft = [blockVertices[i], blockVertices[i + 1]];
-    let topRight = [blockVertices[i + 2], blockVertices[i + 3]];
-    let bottomRight = [blockVertices[i + 4], blockVertices[i + 5]];
-    let bottomLeft = [blockVertices[i + 6], blockVertices[i + 7]];
-    let ghostThrough = blockVertices[i + 8];
-  
-    // console.log(ghostThrough);
+//   for (let block of blocks) {
+//     if (block.ghostThrough) continue;
 
-    if (ghostThrough) return true;
+//     if (playerX + playerW + dX > block.topLeftX || playerX + dX < block.topRightX, playerY + dY > block.bottomLeftY || playerY + playerH + dY < block.topLeftY) {
+//       console.log("yerrr");
+//       return false;
+//     }
+//   }
 
-    if (playerX + dX > topLeft[0] || playerX + dX < topRight[0], playerY + dY > bottomLeft[1] || playerY + dY < topLeft[1]) {
-      return false;
-    }
-
-    return true;
-  }
-}
+//   return true;
+// }
 
 function getDmg(move, attacking, defending) {
   let dmg = 0.4 * attacking.level + 2;

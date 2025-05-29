@@ -74,6 +74,11 @@ class Battle {
 			else this.plrTeam[plrIdx].curHp -= getDmg(move, oppActive, plrActive);
 			return;
 		}
+
+		if (type == "endbattle") {
+			this.state = "won";
+			return;
+		}
 	}
 
 	pushOppSub() {
@@ -82,8 +87,16 @@ class Battle {
 		
 		// switch
 		console.log("defeated!")
+		console.log(this.actionQueue)
 		if (oppIdx >= oppTeam.length - 1) {
-			state = "won";
+			this.actionQueue.push({
+				type: "text",
+				txt: `You have defeated ${this.opp.name}!`,
+			});
+			this.actionQueue.push({
+				type: "endbattle",
+				txt: `Won`,
+			});
 			return;
 		}
 		this.actionQueue.push({

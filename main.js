@@ -2,10 +2,12 @@ let gameMap, battle;
 let state = "map";
 let player = new Trainer({
 	name: "sire",
-	team: [new Blastoise(100), new Charizard(50), new Pikachew(61), new Pikachew(42), new Pikachew(64), new Pikachew(32)],
+	// team: [new Blastoise(100), new Charizard(50), new Pikachew(61), new Pikachew(42), new Pikachew(64), new Pikachew(32)],
+	team: [new Bulbasaur(4)],
 	img: "191.PNG"
 });
 let gui = new Gui(player);
+let result = new Results({plr: player, opp: null, rewardExp: 50});
 
 function setup() {
 	createCanvas(1200, 800);
@@ -22,13 +24,13 @@ function setup() {
 }
 
 function draw() {
+	result.render();
 	if (state == "battle") {
 		battle.render();
 
-		if (battle.state == "won") {
-			console.log("Battle won!");
-			gameMap.playerX = 10;
-			gameMap.playerY = 10;
+		if (battle.state == "end") {
+			gameMap.playerX = battle.exitX;
+			gameMap.playerY = battle.exitY;
 			state = "map";
 		}
 	}
@@ -42,7 +44,9 @@ function draw() {
 			if (gameMap.overlaps(c) && c.canBattle) {
 				battle = new Battle({
 					plr: player,
-					opp: c.trainer
+					opp: c.trainer,
+					exitX: c.x - 80,
+					exitY: gameMap.playerY,
 				});
 				
 				state = "battle";

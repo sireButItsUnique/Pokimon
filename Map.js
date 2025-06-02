@@ -35,29 +35,35 @@ class GameMap {
         this.playerY = 0;
         this.playerW = 60;
         this.playerH = 100;
-        this.mapWidth = 1200;
-        this.mapHeight = 800;
-        this.mapBg = createGraphics(this.mapWidth, this.mapHeight, WEBGL);
+        this.mapBg = createGraphics(1200, 800, WEBGL);
         this.characters = [];
         this.blocks = [];
-        this.blocks.push(new Block(0, 0, 1200, 800, 2, true, 0.8)); // Background block
-        this.blocks.push(new Block(50, 50, 200, 200, 1));
+
+        this.blocks.push(new Block(0, 0, 800, 600, 2, true, 1)); // start
+
+        this.blocks.push(new Block(200, 600, 400, 1000, 1, true, 1)); // path 1
+        this.blocks.push(new Block(600, 1200, 1000, 400, 1, true, 1));
+
+        this.blocks.push(new Block(1600, 800, 1000, 1200, 0, true, 1)); // gym 1 area; exit right; ends x = 2600; ymid = 1400
+
+        this.blocks.push(new Block(2600, 1200, 1600, 400, 2, true, 1)); // path 2; ends x = 4200; ymid = 1400
+
+        this.blocks.push(new Block(4200, 1200, 400, 2000, 1, true, 1)); // gym 2 area; exit bottom; ends xmid = 4400; y = 3200
+
+        this.blocks.push(new Block(4300, 3200, 200, 600, 0, true, 1)); // path 3
+        this.blocks.push(new Block(4500, 3600, 1000, 200, 0, true, 1));
+
+        this.blocks.push(new Block(5500, 2000, 400, 1800, 2, true, 1)); // gym 3 area; exit top; ends xmid = 5700; y = 2000
+
+        this.blocks.push(new Block(5500, 1800, 1000, 200, 0, true, 1)); // path 4
+        this.blocks.push(new Block(6300, 1000, 200, 800, 0, true, 1));
+    
+        this.blocks.push(new Block(4300, 600, 2200, 400, 1, true, 1)); // gym 4 area; exit left; ends x = 4300, ymid = 800
+
+        this.blocks.push(new Block(3300, 700, 1000, 200, 2, true, 1)); // path 5 (back to start area)
+        this.blocks.push(new Block(3300, 100, 200, 600, 2, true, 1));
+        this.blocks.push(new Block(800, 100, 2500, 200, 0, true, 1));
     }
-
-    // playerInBoundary(dX, dY) {
-    //     for (let block of this.blocks) {
-    //         if (block.ghostThrough) continue;
-
-    //         console.log(block.topLeftX, block.topRightX, block.topLeftY, block.bottomLeftY);
-    //         console.log(this.playerX - 20, this.playerY);
-
-    //         if ((this.playerX - 20 + this.playerW + dX) > block.topLeftX && (this.playerX - 20 + dX) < block.topRightX && (this.playerY + dY) < block.bottomLeftY && (this.playerY + this.playerH + dY) > block.topLeftY) {
-    //             return false;
-    //         }
-    //     }
-
-    //     return true;
-    // }
 
     playerInBoundary() {
         let inside = false;
@@ -89,20 +95,19 @@ class GameMap {
     */
     overlaps(obj) {
         let { playerX, playerY, playerW, playerH } = this;
-        playerX -= 20; // Offset for player size
 
         return (playerX + playerW > obj.x && playerX < obj.x + obj.w && playerY + playerH > obj.y && playerY < obj.y + obj.h);
     }
 
     listenMove() {
-        let speed = 3;
+        let speed = 25;
         let walking = 0;
 
         if (keyIsDown(68) || keyIsDown(39)) {
             this.playerX += speed;
             if (!this.playerInBoundary()) this.playerX -= speed;
             // if (this.playerInBoundary(speed, 0)) {
-                walking = 1;
+            walking = 1;
             // }
         }
         if (keyIsDown(65) || keyIsDown(37)) {
@@ -110,7 +115,7 @@ class GameMap {
             if (!this.playerInBoundary()) this.playerX += speed;
 
             // if (this.playerInBoundary(-speed, 0)) {
-                walking = 2;
+            walking = 2;
             // }
         }
         if (keyIsDown(87) || keyIsDown(38)) {
@@ -118,7 +123,7 @@ class GameMap {
             if (!this.playerInBoundary()) this.playerY += speed;
 
             // if (this.playerInBoundary(0, -speed)) {
-                walking = 3;
+            walking = 3;
             // }
         }
         if (keyIsDown(83) || keyIsDown(40)) {
@@ -126,11 +131,13 @@ class GameMap {
             if (!this.playerInBoundary()) this.playerY -= speed;
 
             // if (this.playerInBoundary(0, speed)) {
-                walking = 4;
+            walking = 4;
             // }
         }
 
-        fill(255)
+        fill(255, 0)
+        strokeWeight(1);
+        stroke(255)
         rect(570, 350, 60, 100);
         if (!walking) imageBounded(images["Standing"], 550, 350, 100, 100);
         else if (walking == 1) imageBounded(images["RightWalking"], 550, 350, 100, 100);
@@ -141,8 +148,8 @@ class GameMap {
 
     renderBlock(block) {
         let { x, y, w, h, type, ghostThrough, opacity } = block;
-        let originX = x - this.playerX;
-        let originY = y - this.playerY;
+        let originX = x - this.playerX - 30;
+        let originY = y - this.playerY - 50;
         let numTile = w / 40;
 
         this.mapBg.noStroke();

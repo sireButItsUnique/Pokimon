@@ -12,7 +12,7 @@ class Character {
     
     render(mapX, mapY) {
         fill(255)
-        rect(this.x + 600 - mapX, this.y + 400 - mapY, this.w, this.h);
-        imageBounded(this.img, this.x + 600 - mapX - 20, this.y + 400 - mapY, this.w + 40, this.h);
+        //rect(this.x + 600 - mapX - 30, this.y + 400 - mapY - 50, this.w, this.h);
+        imageBounded(this.img, this.x + 600 - mapX - 50, this.y + 400 - mapY - 60, this.w + 40, this.h);
     }
 }

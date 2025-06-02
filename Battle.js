@@ -23,7 +23,7 @@ class Action {
 }
 
 class Battle {
-	constructor({plr, opp}) {
+	constructor({plr, opp, exitX, exitY}) {
 		this.plr = plr;
 		this.opp = opp;
 		this.plrTeam = plr.team;
@@ -34,6 +34,8 @@ class Battle {
 		this.oppIdx = 0;
 		this.actionQueue = [];
 		this.actions = [];
+		this.exitX = exitX;
+		this.exitY = exitY;
 		for (let i = 0; i < this.plrTeam.length; i++) {
 			this.plrTeam[i].curHp = this.plrTeam[i].getStats().hp;
 			this.plrTeam[i].maxHp = this.plrTeam[i].getStats().hp;
@@ -76,7 +78,17 @@ class Battle {
 		}
 
 		if (type == "endbattle") {
-			this.state = "won";
+			// calc reward exp
+			this.rewardExp = 0;
+			for (let i = 0; i < this.oppTeam.length; i++) {
+				if (this.oppTeam[i].curHp > 0) continue; // don't reward for alive pokimon
+				let xp = this.oppTeam[i].level * 67;
+				xp /= 7;
+				xp *= 1.5;
+				this.rewardExp += Math.floor(xp);
+			}
+
+			this.state = "end";
 			return;
 		}
 	}
@@ -158,6 +170,23 @@ class Battle {
 					type: "text",
 					txt: `${plrActive.name} has fainted!`
 				});
+
+				let alive = 0;
+				for (let i = 0; i < this.plrTeam.length; i++) {
+					if (this.plrTeam[i].curHp > 0) {
+						alive++;
+					}
+				}
+				if (alive <= 1) {
+					this.actionQueue.push({
+						type: "text",
+						txt: `You have lost the battle!`
+					});
+					this.actionQueue.push({
+						type: "endbattle",
+						txt: `Lost`
+					});
+				}
 				this.runAction();
 				return;
 			}
@@ -173,9 +202,27 @@ class Battle {
 					type: "text",
 					txt: `${plrActive.name} has fainted!`
 				});
+				let alive = 0;
+				for (let i = 0; i < this.plrTeam.length; i++) {
+					if (this.plrTeam[i].curHp > 0) {
+						alive++;
+					}
+				}
+				if (alive <= 1) {
+					this.actionQueue.push({
+						type: "text",
+						txt: `You have lost the battle!`
+					});
+					this.actionQueue.push({
+						type: "endbattle",
+						txt: `Lost`
+					});
+				}
+
 				this.runAction();
 				return;
 			}
+			
 			
 			// plr move
 			this.pushAttack(plrActive, oppActive, plrMove);
@@ -478,9 +525,24 @@ class Battle {
 	}
 
 	listenForMenu() {
-		let labels = ["move", "switch", "info", "won"];
+		let labels = ["move", "switch", "info", "end"];
 		for (let i = 0; i < 4; i++) {
 			if (mouseX > 145 + 230 * i && mouseX < 145 + 230 * i + 220 && mouseY > 700 && mouseY < 760) this.state = labels[i];
 		}
+	}
+}
+
+class Results {
+	constructor({plr, opp, rewardExp}) {
+		this.plr = plr;
+		this.opp = opp;
+		this.rewardExp = rewardExp;
+		this.text = `You have defeated ${opp.name}!`;
+		this.expText = `You earned ${rewardExp} EXP!`;
+	}
+
+	render() {
+		fill(tone_1)
+        rect(600 - 250, 100, 500, 600, 10);
 	}
 }

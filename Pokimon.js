@@ -7,6 +7,7 @@ class Pokimon {
 		this.type1 = type1;
 		this.type2 = type2;
 		this.moves = [];
+		this.xp = 0;
 	}
 
 	// Base stats
@@ -56,6 +57,16 @@ class Pokimon {
 			spDef: Math.floor((2 * this.spDefBASE + this.spDefIV) * (level / 100)) + 5,
 			spd: Math.floor((2 * this.spdBASE + this.spdIV) * (level / 100)) + 5,
 		};
+	}
+
+	levelUp() {
+		let req = ((this.level ** 3) * (150 - this.level)) / 100; // XP required to level up
+		while (this.xp >= req) {
+			this.level += 1;
+			this.xp -= req;
+			req = ((this.level ** 3) * (150 - this.level)) / 100;
+		}
+		this.level = Math.min(this.level, 100); // max level is 100
 	}
 }
 

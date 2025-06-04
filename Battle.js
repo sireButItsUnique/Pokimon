@@ -45,12 +45,18 @@ class Battle {
 			this.oppTeam[i].maxHp = this.oppTeam[i].getStats().hp;
 		}
 		this.state = "move";
+		this.resultData= {
+			plr: plr,
+			opp: opp,
+			rewardExp: 0,
+			won: false
+		}
 	}
 	
 	runAction() {
 		if (this.actionQueue.length <= 0) return;
 		
-		let {plrActive, oppActive, plrIdx, oppIdx} = this;
+		let {plrActive, oppActive, plrIdx, oppIdx, res} = this;
 		let {pokimon, move, type, newIdx} = this.actionQueue[0];
 		
 		if (type == "switch") {
@@ -79,15 +85,16 @@ class Battle {
 
 		if (type == "endbattle") {
 			// calc reward exp
-			this.rewardExp = 0;
+			this.resultData.rewardExp = 0;
 			for (let i = 0; i < this.oppTeam.length; i++) {
 				if (this.oppTeam[i].curHp > 0) continue; // don't reward for alive pokimon
 				let xp = this.oppTeam[i].level * 67;
 				xp /= 7;
 				xp *= 1.5;
-				this.rewardExp += Math.floor(xp);
+				this.resultData.rewardExp += Math.floor(xp);
 			}
-
+			if (res == "Won") this.resultData.won = true;
+			
 			this.state = "end";
 			return;
 		}
@@ -107,7 +114,7 @@ class Battle {
 			});
 			this.actionQueue.push({
 				type: "endbattle",
-				txt: `Won`,
+				res: `Won`,
 			});
 			return;
 		}
@@ -184,7 +191,7 @@ class Battle {
 					});
 					this.actionQueue.push({
 						type: "endbattle",
-						txt: `Lost`
+						res: `Lost`
 					});
 				}
 				this.runAction();
@@ -215,7 +222,7 @@ class Battle {
 					});
 					this.actionQueue.push({
 						type: "endbattle",
-						txt: `Lost`
+						res: `Lost`
 					});
 				}
 
@@ -528,21 +535,46 @@ class Battle {
 		let labels = ["move", "switch", "info", "end"];
 		for (let i = 0; i < 4; i++) {
 			if (mouseX > 145 + 230 * i && mouseX < 145 + 230 * i + 220 && mouseY > 700 && mouseY < 760) this.state = labels[i];
+			if (this.state == "end") this.resultData.won = false;
 		}
 	}
 }
 
 class Results {
-	constructor({plr, opp, rewardExp}) {
+	constructor({plr, opp, won=true, rewardExp}) {
 		this.plr = plr;
 		this.opp = opp;
+		this.won = won;
 		this.rewardExp = rewardExp;
-		this.text = `You have defeated ${opp.name}!`;
-		this.expText = `You earned ${rewardExp} EXP!`;
+		this.show = true;
 	}
 
 	render() {
-		fill(tone_1)
-        rect(600 - 250, 100, 500, 600, 10);
+		let {rewardExp, plr, opp, won} = this;
+		let startX = 600 - 250;
+		let c = color(tone_1);
+		c.setAlpha(120);
+		fill(c)
+		
+        rect(startX, 100, 500, 600, 10);
+		fill(highlight_1)
+		textAlign(CENTER, CENTER);
+		textSize(40);
+		text("X", startX , 110, 50, 50);
+		
+		fill(255)
+		textAlign(CENTER, CENTER);
+		textSize(30);
+		text(`You have ${won ? "defeated" : "been defeated by"} ${opp.name}!`, startX, 175, 500, 50);
+
+		fill(highlight_3)
+		textAlign(CENTER, CENTER);
+		textSize(20);
+		text(`Your entire team has earned ${rewardExp} EXP!`, startX + 250, 250); // Adjust position if necessary
+	}
+
+	listen() {
+		let startX = 600 - 250;
+		if (mouseX > startX && mouseX < startX + 50 && mouseY > 100 && mouseY < 150) this.show = false;
 	}
 }

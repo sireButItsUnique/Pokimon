@@ -7,7 +7,8 @@ let player = new Trainer({
 	img: "191.PNG"
 });
 let gui = new Gui(player);
-let result = new Results({plr: player, opp: null, rewardExp: 50});
+let result = new Results({plr: player, opp: player, rewardExp: 50});
+result.show = false;
 
 function setup() {
 	createCanvas(1200, 800);
@@ -24,19 +25,22 @@ function setup() {
 }
 
 function draw() {
-	result.render();
 	if (state == "battle") {
 		battle.render();
 
+		// battle end, create results
 		if (battle.state == "end") {
 			gameMap.playerX = battle.exitX;
 			gameMap.playerY = battle.exitY;
+			result = new Results(battle.resultData);
 			state = "map";
 		}
 	}
+	
 	if (state == "map") {
 		gameMap.render();
 		gameMap.listenMove();
+		gameMap.listenThrowBall();
 		gui.render();
 		
 		// battle collision
@@ -52,6 +56,8 @@ function draw() {
 				state = "battle";
 			}
 		}
+
+		if (result.show) result.render();
 	}
 }
 
@@ -61,6 +67,10 @@ function mouseClicked() {
 		if (battle.state == "switch") battle.listenForSwitch();
 		if (battle.state == "turn") battle.listenForTurn();
 		if (battle.state != "turn") battle.listenForMenu();
+	}
+
+	if (state == "map") {
+		result.listen();
 	}
 }
 

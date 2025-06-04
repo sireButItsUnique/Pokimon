@@ -17,15 +17,15 @@ class Block {
         this.type = type; // 0: rock, 1: wood, 2: grass
         this.ghostThrough = ghostThrough; // Can ghost through block
         this.opacity = opacity; // 0 - 1
+    }
+}
 
-        this.topLeftX = x;
-        this.topLeftY = y;
-        this.topRightX = x + w;
-        this.topRightY = y;
-        this.bottomRightX = x + w;
-        this.bottomRightY = y + h;
-        this.bottomLeftX = x;
-        this.bottomLeftY = y + h;
+class SpawnData {
+    constructor(name, poki, x, y) {
+        this.img = images[name];
+        this.poki = poki;
+        this.x = x;
+        this.y = y;
     }
 }
 
@@ -36,8 +36,17 @@ class GameMap {
         this.playerW = 60;
         this.playerH = 100;
         this.mapBg = createGraphics(1200, 800, WEBGL);
+        this.caughtStarter = false;
+        this.gymsCompleted = false;
         this.characters = [];
         this.blocks = [];
+        this.pokimonSpawn = [];
+
+        this.pokimonSpawn.push(new SpawnData("Bulbasaur", new Bulbasaur(1), 300, 300));
+
+        // walls
+        this.blocks.push(new Block(800, 100, 1, 200, 3)); // completion path wall (keep at index 0)
+        this.blocks.push(new Block(200, 600, 400, 1, 3)); // beginning wall (keep at index 1);
 
         this.blocks.push(new Block(0, 0, 800, 600, 2, true, 1)); // start
 
@@ -98,6 +107,20 @@ class GameMap {
 
         return (playerX + playerW > obj.x && playerX < obj.x + obj.w && playerY + playerH > obj.y && playerY < obj.y + obj.h);
     }
+    
+    listenThrowBall() {
+        let speed = 20;
+        let originX = 600 - this.playerX; 
+        let originY = 400 - this.playerY;
+        let finalX = mouseX;
+        let finalY = mouseY;
+
+        if (keyIsDown(32)) {
+            console.log(finalX, finalY);
+            image(images["Pokeball"], originX, originY, 20, 20);
+        }
+
+    }
 
     listenMove() {
         let speed = 25;
@@ -144,6 +167,8 @@ class GameMap {
         else if (walking == 2) imageBounded(images["LeftWalking"], 550, 350, 100, 100);
         else if (walking == 3) imageBounded(images["Walking"], 550, 350, 100, 100, -PI / 2);
         else if (walking == 4) imageBounded(images["Walking"], 550, 350, 100, 100, PI / 2);
+
+        if (this.gymsCompleted) this.blocks[0].ghostThrough = true;
     }
 
     renderBlock(block) {
@@ -156,7 +181,8 @@ class GameMap {
         this.mapBg.textureMode(NORMAL);
         this.mapBg.textureWrap(REPEAT);
         this.mapBg.tint(255, opacity * 255);
-        this.mapBg.texture(textures[type]);
+        
+        if (type <= textures.length - 1) this.mapBg.texture(textures[type]);
 
         this.mapBg.beginShape();
         this.mapBg.vertex(originX, originY, 0, 0, 0); // top left
@@ -164,6 +190,14 @@ class GameMap {
         this.mapBg.vertex(originX + w, originY + h, 0, numTile, numTile); // bottom right
         this.mapBg.vertex(originX, originY + h, 0, 0, numTile); // bottom left
         this.mapBg.endShape(CLOSE);
+    }
+
+    renderPokimon(pokimon) {
+        let { img, x, y } = pokimon;
+        let originX = x + 600 - this.playerX - 30; 
+        let originY = y + 400 - this.playerY - 50;
+
+        image(img, originX, originY);
     }
 
     render() {
@@ -175,15 +209,12 @@ class GameMap {
         }
 
         image(this.mapBg, 0, 0);
-
-        // for (let block of this.blocks) {
-        //     let { x, y, w, h, type, ghostThrough, opacity } = block;
-        //     let originX = x - this.playerX;
-        //     let originY = y - this.playerY;
-        //     fill(255);
-        //     rect(originX + 600, originY + 400, w, h);
-        // }
-
+        
+        // render pokimon
+        for (let pokimon of this.pokimonSpawn) {
+            this.renderPokimon(pokimon);
+        }
+        
         for (let i = 0; i < this.characters.length; i++) {
             this.characters[i].render(this.playerX, this.playerY);
         }

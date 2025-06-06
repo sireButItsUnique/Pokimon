@@ -889,6 +889,15 @@ class NidoranF extends Pokimon {
 		this.learnMove(new Bite());
 		this.learnMove(new Crunch());
 	
+
+		this.evoLvl = 16;
+		this.evo = (new Nidorina());
+		this.movePool = [
+			{level: 1, move: new PoisonSting()},
+			{level: 5, move: new Scratch()},
+			{level: 30, move: new Bite()},
+			{level: 50, move: new Crunch()},
+		];
 	}
 }
 
@@ -909,6 +918,13 @@ class Nidorina extends Pokimon {
 		this.learnMove(new Bite());
 		this.learnMove(new Crunch());
 	
+		
+		this.movePool = [
+			{level: 15, move: new FurySwipes()},
+			{level: 1, move: new Scratch()},
+			{level: 36, move: new Bite()},
+			{level: 64, move: new Crunch()},
+		];
 	}
 }
 
@@ -932,6 +948,15 @@ class Nidoqueen extends Pokimon {
 		this.learnMove(new Bite());
 		this.learnMove(new Crunch());
 	
+
+		this.evoLvl = 32;
+		this.evo = (new Nidoqueen());
+		this.movePool = [
+			{level: 1, move: new EarthPower()},
+			{level: 1, move: new Scratch()},
+			{level: 1, move: new Bite()},
+			{level: 1, move: new Crunch()},
+		];
 	}
 }
 
@@ -953,6 +978,16 @@ class NidoranM extends Pokimon {
 		this.learnMove(new Peck());
 		this.learnMove(new FuryAttack());
 		this.learnMove(new PoisonJab());
+
+
+		this.evoLvl = 16;
+		this.evo = (new Nidorino());
+		this.movePool = [
+			{level: 1, move: new PoisonSting()},
+			{level: 1, move: new Peck()},
+			{level: 15, move: new FuryAttack()},
+			{level: 50, move: new PoisonJab()},
+		];
 	
 	}
 }
@@ -975,6 +1010,14 @@ class Nidorino extends Pokimon {
 		this.learnMove(new FuryAttack());
 		this.learnMove(new PoisonJab());
 	
+		this.evoLvl = 32;
+		this.evo = (new Nidoking());
+		this.movePool = [
+			{level: 29, move: new DoubleKick()},
+			{level: 1, move: new Peck()},
+			{level: 15, move: new FuryAttack()},
+			{level: 64, move: new PoisonJab()},
+		];
 	}
 }
 
@@ -997,6 +1040,14 @@ class Nidoking extends Pokimon {
 		this.learnMove(new Peck());
 		this.learnMove(new FuryAttack());
 		this.learnMove(new PoisonJab());
+
+	
+		this.movePool = [
+			{level: 1, move: new HornAttack()},
+			{level: 1, move: new Peck()},
+			{level: 1, move: new FuryAttack()},
+			{level: 1, move: new PoisonJab()},
+		];
 	
 	}
 }
@@ -1018,6 +1069,14 @@ class Clefairy extends Pokimon {
 		this.learnMove(new MoonBlast());
 		this.learnMove(new Pound());
 	
+		this.evoLvl = 20;
+		this.evo = (new Clefable());
+		this.movePool = [
+			{level: 4, move: new StoredPower()},
+			{level: 32, move: new MeteorMash()},
+			{level: 44, move: new MoonBlast()},
+			{level: 1, move: new Pound()},
+		];
 	}
 }
 
@@ -1039,6 +1098,13 @@ class Clefable  extends Pokimon {
 		this.learnMove(new StoredPower());
 		this.learnMove(new Pound());
 	
+	
+		this.movePool = [
+			{level: 1, move: new DisarmingVoice()},
+			{level: 1, move: new Charm()},
+			{level: 1, move: new StoredPower()},
+			{level: 1, move: new Pound()},
+		];
 	}
 }
 
@@ -1061,6 +1127,15 @@ class Vulpix  extends Pokimon {
 		this.learnMove(new Inferno());
 		this.learnMove(new TailWhip());
 	
+
+		this.evoLvl = 16;
+		this.evo = (new Ninetales());
+		this.movePool = [
+			{level: 1, move: new Ember()},
+			{level: 8, move: new QuickAttack()},
+			{level: 48, move: new Inferno()},
+			{level: 1, move: new TailWhip()},
+		];
 	}
 }
 
@@ -1082,7 +1157,11 @@ class Ninetales  extends Pokimon {
 		this.learnMove(new QuickAttack());
 		this.learnMove(new TailWhip());
 	
-	
+		this.movePool = [
+			{level: 1, move: new Flamethrower()},
+			{level: 1, move: new QuickAttack()},
+			{level: 1, move: new TailWhip()},
+		];
 	}
 }
 
@@ -1105,6 +1184,14 @@ class Jigglypuff extends Pokimon {
 		this.learnMove(new HyperVoice());
 		this.learnMove(new Pound());
 	
+		this.evoLvl = 16;
+		this.evo = (new Wigglytuff());
+		this.movePool = [
+			{level: 1, move: new DisarmingVoice()},
+			{level: 44, move: new DoubleEdge()},
+			{level: 36, move: new HyperVoice()},
+			{level: 1, move: new Pound()},
+		];
 	}
 }
 
@@ -1126,6 +1213,13 @@ class Wigglytuff extends Pokimon {
 		this.learnMove(new PlayRough());
 		this.learnMove(new BodySlam());
 	
+		
+		this.movePool = [
+			{level: 1, move: new DisarmingVoice()},
+			{level: 1, move: new DoubleEdge()},
+			{level: 5, move: new PlayRough()},
+			{level: 1, move: new BodySlam()},
+		];
 	}
 }
 
@@ -1149,6 +1243,15 @@ class Zubat extends Pokimon {
 		this.learnMove(new AirSlash());
 		this.learnMove(new Absorb());
 	
+
+		this.evoLvl = 22;
+		this.evo = (new Golbat());
+		this.movePool = [
+			{level: 5, move: new Astonish()},
+			{level: 30, move: new Bite()},
+			{level: 50, move: new AirSlash()},
+			{level: 1, move: new Absorb()},
+		];
 	}
 }
 
@@ -1172,6 +1275,14 @@ class Golbat extends Pokimon {
 		this.learnMove(new AirSlash());
 		this.learnMove(new Absorb());
 	
+
+
+		this.movePool = [
+			{level: 15, move: new PoisonFang()},
+			{level: 34, move: new Bite()},
+			{level: 62, move: new AirSlash()},
+			{level: 1, move: new Absorb()},
+		];
 	}
 }
 
@@ -1194,6 +1305,15 @@ class Oddish extends Pokimon {
 		this.learnMove(new PoisonPowder());
 		this.learnMove(new Absorb());
 	
+
+		this.evoLvl = 21;
+		this.evo = (new Gloom());
+		this.movePool = [
+			{level: 36, move: new MoonBlast()},
+			{level: 4, move: new Acid()},
+			{level: 14, move: new PoisonPowder()},
+			{level: 1, move: new Absorb()},
+		];
 	}
 }
 
@@ -1215,6 +1335,15 @@ class Gloom extends Pokimon {
 		this.learnMove(new Acid());
 		this.learnMove(new PoisonPowder());
 		this.learnMove(new Absorb());
+
+		this.evoLvl = 32;
+		this.evo = (new Vileplume());
+		this.movePool = [
+			{level: 32, move: new MoonBlast()},
+			{level: 1, move: new Acid()},
+			{level: 14, move: new PoisonPowder()},
+			{level: 1, move: new Absorb()},
+		];
 	
 	}
 }
@@ -1237,6 +1366,15 @@ class Vileplume extends Pokimon {
 		this.learnMove(new Acid());
 		this.learnMove(new PoisonPowder());
 		this.learnMove(new Absorb());
+
+
+	
+		this.movePool = [
+			{level: 1, move: new MoonBlast()},
+			{level: 1, move: new Acid()},
+			{level: 1, move: new PoisonPowder()},
+			{level: 1, move: new Absorb()},
+		];
 	
 	}
 }

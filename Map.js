@@ -112,8 +112,8 @@ class GameMap {
     listenThrowBall() {
         let speed = 15;
         let { playerX, playerY, playerW, playerH } = this;
-        let x = playerX;
-        let y = playerY;
+        this.ballX = playerX;
+        this.ballY = playerY;
         let finalX = mouseX - 570 + playerX;
         let finalY = mouseY - 350 + playerY;
 
@@ -125,12 +125,9 @@ class GameMap {
             return;
         }
 
-        image(images["Pokeball"], x + 600 - playerX - 50 + playerW / 2 + 10, y + 400 - playerY - 60 + playerH / 2, 20, 20);
+        image(images["Pokeball"], 550 + playerW / 2 + 10, 340 + playerH / 2, 20, 20);
 
-        let ballX = x;
-        let ballY = y;
-
-        while (ballX < finalX && ballY < finalY) {
+        while (this.ballX < finalX && this.ballY < finalY) {
             let dx = finalX - x;
             let dy = finalY - y;
             let angle = Math.atan(dy / dx);

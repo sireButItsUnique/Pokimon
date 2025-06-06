@@ -81,6 +81,10 @@ class Pokimon {
 		}
 		this.level = Math.min(this.level, 100); // max level is 100
 	}
+
+	display() {
+
+	}
 }
 
 // Pokimons

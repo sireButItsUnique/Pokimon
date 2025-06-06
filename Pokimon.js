@@ -7,6 +7,7 @@ class Pokimon {
 		this.type1 = type1;
 		this.type2 = type2;
 		this.moves = [];
+		this.movePool = [];
 	}
 
 	// Base stats
@@ -76,7 +77,14 @@ class Bulbasaur extends Pokimon {
 		this.learnMove(new SolarBeam());
 		this.learnMove(new SweetScent());
 		this.learnMove(new PoisonPowder());
-	
+		this.evoLvl = 16;
+		this.evo = (new Ivysaur());
+		this.movePool = [
+			{level: 3, move: new VineWhip()},
+			{level: 36, move: new SolarBeam()},
+			{level: 24, move: new SweetScent()},
+			{level: 15, move: new PoisonPowder()},
+		];
 	}
 }
 
@@ -99,6 +107,14 @@ class Ivysaur extends Pokimon {
 		this.learnMove(new SweetScent());
 		this.learnMove(new PoisonPowder());
 		this.learnMove(new PowerWhip());
+		this.evoLvl = 32;
+		this.evo = (new Venusaur());
+		this.movePool = [
+			{level: 3, move: new VineWhip()},
+			{level: 45, move: new PowerWhip()},
+			{level: 24, move: new SweetScent()},
+			{level: 15, move: new PoisonPowder()},
+		];
 	
 	}
 }
@@ -122,6 +138,12 @@ class Venusaur extends Pokimon {
 		this.learnMove(new PetalDance());
 		this.learnMove(new PowerWhip());
 	
+		this.movePool = [
+			{level: 3, move: new VineWhip()},
+			{level: 45, move: new PowerWhip()},
+			{level: 24, move: new SweetScent()},
+			{level: 1, move: new PetalDance()},
+		];
 	}
 }
 
@@ -143,6 +165,17 @@ class Charmander extends Pokimon {
 		this.learnMove(new Flamethrower());
 		this.learnMove(new Inferno());
 	
+		this.evoLvl = 16;
+		this.evo = (new Charmeleon());
+		this.movePool = [
+			{level: 4, move: new Ember()},
+			{level: 12, move: new DragonBreath()},
+			{level: 24, move: new Flamethrower()},
+			{level: 36, move: new Inferno()},
+		];
+
+
+
 	}
 }
 
@@ -163,6 +196,16 @@ class Charmeleon extends Pokimon {
 		this.learnMove(new FlareBlitz());
 		this.learnMove(new FireFang());
 	
+
+
+		this.evoLvl = 36;
+		this.evo = (new Charizard());
+		this.movePool = [
+			{level: 1, move: new Ember()},
+			{level: 12, move: new DragonBreath()},
+			{level: 54, move: new FlareBlitz()},
+			{level: 19, move: new FireFang()},
+		];
 	}
 }
 
@@ -183,6 +226,12 @@ class Charizard extends Pokimon {
 		this.learnMove(new FlareBlitz());
 		this.learnMove(new FireFang());
 	
+		this.movePool = [
+			{level: 1, move: new HeatWave()},
+			{level: 12, move: new DragonBreath()},
+			{level: 54, move: new FlareBlitz()},
+			{level: 19, move: new FireFang()},
+		];
 	}
 }
 
@@ -204,6 +253,16 @@ class Squirtle extends Pokimon {
 		this.learnMove(new HydroPump());
 		this.learnMove(new Bite());
 	
+
+
+		this.evoLvl = 16;
+		this.evo = (new Wartortle());
+		this.movePool = [
+			{level: 24, move: new AquaTail()},
+			{level: 36, move: new WaveCrash()},
+			{level: 33, move: new HydroPump()},
+			{level: 12, move: new Bite()},
+		];
 	}
 }
 
@@ -225,6 +284,15 @@ class Wartortle extends Pokimon {
 		this.learnMove(new RapidSpin());
 		this.learnMove(new Bite());
 	
+
+		this.evoLvl = 36;
+		this.evo = (new Blastoise());
+		this.movePool = [
+			{level: 15, move: new WaterPulse()},
+			{level: 50, move: new WaveCrash()},
+			{level: 9, move: new RapidSpin()},
+			{level: 12, move: new Bite()},
+		];
 	}
 }
 
@@ -245,6 +313,12 @@ class Blastoise extends Pokimon {
 		this.learnMove(new Tackle());
 		this.learnMove(new Bite());
 	
+		this.movePool = [
+			{level: 15, move: new WaterPulse()},
+			{level: 56, move: new WaveCrash()},
+			{level: 1, move: new Tackle()},
+			{level: 12, move: new Bite()},
+		];
 	}
 }
 
@@ -266,6 +340,13 @@ class Caterpie extends Pokimon {
 		this.learnMove(new BugBite());
 
 	
+		this.evoLvl = 7;
+		this.evo = (new Metapod());
+		this.movePool = [
+			{level: 1, move: new StringShot()},
+			{level: 1, move: new Tackle()},
+			{level: 9, move: new BugBite()},
+		];
 	}
 }
 
@@ -285,7 +366,11 @@ class Metapod extends Pokimon {
 		this.setRandomIvs();
 		this.learnMove(new Harden());	
 
-	
+		this.evoLvl = 10;
+		this.evo = (new Butterfree());
+		this.movePool = [
+			{level: 1, move: new Harden()},
+		]
 	}
 }
 
@@ -309,7 +394,12 @@ class Butterfree extends Pokimon {
 		this.learnMove(new Tackle());	
 		this.learnMove(new Confusion());	
 
-	
+		this.movePool = [
+			{level: 1, move: new BugBite()},
+			{level: 16, move: new Psybeam()},
+			{level: 1, move: new Tackle()},
+			{level: 8, move: new Confusion()},
+		];
 	}
 }
 
@@ -332,7 +422,13 @@ class Weedle extends Pokimon {
 		this.learnMove(new StringShot());	
 		this.learnMove(new BugBite());	
 		
-
+		this.evoLvl = 7;
+		this.evo = (new Kakuna());
+		this.movePool = [
+			{level: 1, move: new PoisonSting()},
+			{level: 1, move: new StringShot()},
+			{level: 9, move: new BugBite()},
+		];
 	
 	}
 }
@@ -353,7 +449,11 @@ class Kakuna extends Pokimon {
 		this.setRandomIvs();
 		this.learnMove(new Harden());	
 		
-
+		this.evoLvl = 10;
+		this.evo = (new Beedrill());
+		this.movePool = [
+			{level: 1, move: new Harden()},
+		]
 	
 	}
 }
@@ -377,7 +477,13 @@ class Beedrill extends Pokimon {
 		this.learnMove(new PoisonSting());	
 		this.learnMove(new FuryCutter());	
 		this.learnMove(new PinMissle());	
-		
+	
+		this.movePool = [
+			{level: 1, move: new BugBite()},
+			{level: 17, move: new PoisonSting()},
+			{level: 11, move: new FuryCutter()},
+			{level: 32, move: new PinMissle()},
+		];
 
 	
 	}
@@ -401,6 +507,15 @@ class Pidgey extends Pokimon {
 		this.learnMove(new WingAttack());
 		this.learnMove(new AerialAce());
 	
+
+		this.evoLvl = 18;
+		this.evo = (new Pidgeotto());
+		this.movePool = [
+			{level: 9, move: new Gust()},
+			{level: 1, move: new Tackle()},
+			{level: 33, move: new WingAttack()},
+			{level: 45, move: new AerialAce()},
+		];
 	}
 }
 
@@ -423,6 +538,14 @@ class Pidgeotto extends Pokimon {
 		this.learnMove(new WingAttack());
 		this.learnMove(new AerialAce());
 	
+		this.evoLvl = 36;
+		this.evo = (new Pidgeot());
+		this.movePool = [
+			{level: 57, move: new AirSlash()},
+			{level: 1, move: new Tackle()},
+			{level: 37, move: new WingAttack()},
+			{level: 52, move: new AerialAce()},
+		];
 	}
 }
 
@@ -445,6 +568,14 @@ class Pidgeot extends Pokimon {
 		this.learnMove(new Twister());
 		this.learnMove(new AerialAce());
 	
+
+		
+		this.movePool = [
+			{level: 57, move: new AirSlash()},
+			{level: 1, move: new Tackle()},
+			{level: 22, move: new Twister()},
+			{level: 52, move: new AerialAce()},
+		];
 	}
 }
 
@@ -464,6 +595,16 @@ class Rattata extends Pokimon {
 		this.learnMove(new QuickAttack());
 		this.learnMove(new SuckerPunch());
 		this.learnMove(new Crunch());
+
+
+		this.evoLvl = 20;
+		this.evo = (new Raticate());
+		this.movePool = [
+			{level: 1, move: new Tackle()},
+			{level: 4, move: new QuickAttack()},
+			{level: 25, move: new SuckerPunch()},
+			{level: 22, move: new Crunch()},
+		];
 	}
 }
 
@@ -484,6 +625,15 @@ class Raticate extends Pokimon {
 		this.learnMove(new QuickAttack());
 		this.learnMove(new SuckerPunch());
 		this.learnMove(new Crunch());
+
+
+	
+		this.movePool = [
+			{level: 10, move: new Bite()},
+			{level: 1, move: new QuickAttack()},
+			{level: 29, move: new SuckerPunch()},
+			{level: 24, move: new Crunch()},
+		];
 	}
 }
 
@@ -505,6 +655,16 @@ class Spearow extends Pokimon {
 		this.learnMove(new AerialAce());
 		this.learnMove(new WingAttack());
 		this.learnMove(new FuryAttack());
+
+
+		this.evoLvl = 20;
+		this.evo = (new Fearow());
+		this.movePool = [
+			{level: 1, move: new Peck()},
+			{level: 15, move: new AerialAce()},
+			{level: 18, move: new WingAttack()},
+			{level: 11, move: new FuryAttack()},
+		];
 	}
 }
 
@@ -527,6 +687,15 @@ class Fearow extends Pokimon {
 		this.learnMove(new DrillRun());
 		this.learnMove(new WingAttack());
 		this.learnMove(new FuryAttack());
+
+
+
+		this.movePool = [
+			{level: 8, move: new Assurance()},
+			{level: 1, move: new DrillRun()},
+			{level: 18, move: new WingAttack()},
+			{level: 11, move: new FuryAttack()},
+		];
 	}
 }
 
@@ -547,6 +716,16 @@ class Ekans extends Pokimon {
 		this.learnMove(new Bite());
 		this.learnMove(new Acid());
 		this.learnMove(new Wrap());
+
+
+		this.evoLvl = 22;
+		this.evo = (new Arbok());
+		this.movePool = [
+			{level: 4, move: new PoisonSting()},
+			{level: 9, move: new Bite()},
+			{level: 20, move: new Acid()},
+			{level: 1, move: new Wrap()},
+		];
 	}
 }
 
@@ -567,6 +746,13 @@ class Arbok extends Pokimon {
 		this.learnMove(new Bite());
 		this.learnMove(new IceFang());
 		this.learnMove(new Acid());
+
+		this.movePool = [
+			{level: 1, move: new FireFang()},
+			{level: 1, move: new Bite()},
+			{level: 1, move: new IceFang()},
+			{level: 20, move: new Acid()},
+		];
 	}
 }
 
@@ -587,6 +773,16 @@ class Pikachu extends Pokimon {
 		this.learnMove(new Agility());
 		this.learnMove(new ThunderShock());
 		this.learnMove(new ThunderBolt());
+
+
+		this.evoLvl = 30;
+		this.evo = (new Raichu());
+		this.movePool = [
+			{level: 1, move: new QuickAttack()},
+			{level: 24, move: new Agility()},
+			{level: 1, move: new ThunderShock()},
+			{level: 36, move: new ThunderBolt()},
+		];
 	}
 }
 
@@ -607,6 +803,14 @@ class Raichu extends Pokimon {
 		this.learnMove(new IronTail());
 		this.learnMove(new ThunderShock());
 	
+
+
+		this.movePool = [
+			{level: 1, move: new Discharge()},
+			{level: 5, move: new ThunderBolt()},
+			{level: 1, move: new IronTail()},
+			{level: 1, move: new ThunderShock()},
+		];
 	}
 }
 
@@ -626,6 +830,15 @@ class Sandshrew extends Pokimon {
 		this.learnMove(new Swift());
 		this.learnMove(new Dig());
 		this.learnMove(new Scratch());
+
+		this.evoLvl = 22;
+		this.evo = (new Sandslash());
+		this.movePool = [
+			{level: 45, move: new Earthquake()},
+			{level: 21, move: new Swift()},
+			{level: 33, move: new Dig()},
+			{level: 1, move: new Scratch()},
+		];
 	
 	}
 }
@@ -646,6 +859,13 @@ class Sandslash extends Pokimon {
 		this.learnMove(new Bulldoze());
 		this.learnMove(new CrushClaw());
 		this.learnMove(new Scratch());
+
+		this.movePool = [
+			{level: 36, move: new Slash()},
+			{level: 18, move: new Bulldoze()},
+			{level: 1, move: new CrushClaw()},
+			{level: 1, move: new Scratch()},
+		];
 	
 	}
 }

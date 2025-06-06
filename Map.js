@@ -38,6 +38,7 @@ class GameMap {
         this.mapBg = createGraphics(1200, 800, WEBGL);
         this.caughtStarter = false;
         this.gymsCompleted = false;
+        this.ballThrown = false;
         this.characters = [];
         this.blocks = [];
         this.pokimonSpawn = [];
@@ -66,7 +67,7 @@ class GameMap {
 
         this.blocks.push(new Block(5500, 1800, 1000, 200, 0, true, 1)); // path 4
         this.blocks.push(new Block(6300, 1000, 200, 800, 0, true, 1));
-    
+
         this.blocks.push(new Block(4300, 600, 2200, 400, 1, true, 1)); // gym 4 area; exit left; ends x = 4300, ymid = 800
 
         this.blocks.push(new Block(3300, 700, 1000, 200, 2, true, 1)); // path 5 (back to start area)
@@ -107,19 +108,38 @@ class GameMap {
 
         return (playerX + playerW > obj.x && playerX < obj.x + obj.w && playerY + playerH > obj.y && playerY < obj.y + obj.h);
     }
-    
-    listenThrowBall() {
-        let speed = 20;
-        let originX = 600 - this.playerX; 
-        let originY = 400 - this.playerY;
-        let finalX = mouseX;
-        let finalY = mouseY;
 
-        if (keyIsDown(32)) {
-            console.log(finalX, finalY);
-            image(images["Pokeball"], originX, originY, 20, 20);
+    listenThrowBall() {
+        let speed = 15;
+        let { playerX, playerY, playerW, playerH } = this;
+        let x = playerX;
+        let y = playerY;
+        let finalX = mouseX - 570 + playerX;
+        let finalY = mouseY - 350 + playerY;
+
+        if (keyIsDown(CONTROL)) {
+            this.ballThrown = true;
         }
 
+        if (!this.ballThrown) {
+            return;
+        }
+
+        image(images["Pokeball"], x + 600 - playerX - 50 + playerW / 2 + 10, y + 400 - playerY - 60 + playerH / 2, 20, 20);
+
+        let ballX = x;
+        let ballY = y;
+
+        while (ballX < finalX && ballY < finalY) {
+            let dx = finalX - x;
+            let dy = finalY - y;
+            let angle = Math.atan(dy / dx);
+            let xSpeed = speed * Math.cos(angle);
+            let ySpeed = speed * Math.sin(angle);
+
+            ballX += xSpeed;
+            ballY += ySpeed;
+        }
     }
 
     listenMove() {
@@ -181,7 +201,7 @@ class GameMap {
         this.mapBg.textureMode(NORMAL);
         this.mapBg.textureWrap(REPEAT);
         this.mapBg.tint(255, opacity * 255);
-        
+
         if (type <= textures.length - 1) this.mapBg.texture(textures[type]);
 
         this.mapBg.beginShape();
@@ -194,7 +214,7 @@ class GameMap {
 
     renderPokimon(pokimon) {
         let { img, x, y } = pokimon;
-        let originX = x + 600 - this.playerX - 30; 
+        let originX = x + 600 - this.playerX - 30;
         let originY = y + 400 - this.playerY - 50;
 
         image(img, originX, originY);
@@ -209,12 +229,12 @@ class GameMap {
         }
 
         image(this.mapBg, 0, 0);
-        
+
         // render pokimon
         for (let pokimon of this.pokimonSpawn) {
             this.renderPokimon(pokimon);
         }
-        
+
         for (let i = 0; i < this.characters.length; i++) {
             this.characters[i].render(this.playerX, this.playerY);
         }

@@ -13,9 +13,9 @@ class Action {
 		this.y = randInt(350, 400);
 		this.speed = speed;
 	}
-	
+
 	render() {
-		let {x, y, col, speed} = this;
+		let { x, y, col, speed } = this;
 		fill(col);
 		circle(x, y, 50);
 		this.x += speed;
@@ -23,7 +23,7 @@ class Action {
 }
 
 class Battle {
-	constructor({plr, opp, exitX, exitY}) {
+	constructor({ plr, opp, exitX, exitY }) {
 		this.plr = plr;
 		this.opp = opp;
 		this.plrTeam = plr.team;
@@ -45,20 +45,20 @@ class Battle {
 			this.oppTeam[i].maxHp = this.oppTeam[i].getStats().hp;
 		}
 		this.state = "move";
-		this.resultData= {
+		this.resultData = {
 			plr: plr,
 			opp: opp,
 			rewardExp: 0,
 			won: false
 		}
 	}
-	
+
 	runAction() {
 		if (this.actionQueue.length <= 0) return;
-		
-		let {plrActive, oppActive, plrIdx, oppIdx, res} = this;
-		let {pokimon, move, type, newIdx} = this.actionQueue[0];
-		
+
+		let { plrActive, oppActive, plrIdx, oppIdx } = this;
+		let { pokimon, move, type, newIdx, res } = this.actionQueue[0];
+
 		if (type == "switch") {
 			this.plrActive = this.plrTeam[newIdx];
 			this.plrIdx = newIdx;
@@ -94,7 +94,7 @@ class Battle {
 				this.resultData.rewardExp += Math.floor(xp);
 			}
 			if (res == "Won") this.resultData.won = true;
-			
+
 			this.state = "end";
 			return;
 		}
@@ -103,7 +103,7 @@ class Battle {
 	pushOppSub() {
 		let { plrActive, oppActive, plrIdx, oppIdx } = this;
 		let { plrTeam, oppTeam } = this;
-		
+
 		// switch
 		console.log("defeated!")
 		console.log(this.actionQueue)
@@ -114,7 +114,7 @@ class Battle {
 			});
 			this.actionQueue.push({
 				type: "endbattle",
-				res: `Won`,
+				res: "Won",
 			});
 			return;
 		}
@@ -124,9 +124,9 @@ class Battle {
 			newIdx: oppIdx + 1
 		});
 	}
-	
+
 	pushAttack(attacking, defending, move) {
-		
+
 		// move
 		this.actionQueue.push({
 			type: "move",
@@ -148,15 +148,15 @@ class Battle {
 			})
 		}
 	}
-	
+
 	pushRound(plrMove, oppMove, plrGoesFirst) {
-		let {plrActive, oppActive, plrIdx, oppIdx} = this;
-		
+		let { plrActive, oppActive, plrIdx, oppIdx } = this;
+
 		if (plrGoesFirst) {
-			
+
 			// plr move
 			this.pushAttack(plrActive, oppActive, plrMove);
-			
+
 			// fainted
 			if (getDmg(plrMove, plrActive, oppActive) >= this.oppTeam[oppIdx].curHp) {
 				this.actionQueue.push({
@@ -167,10 +167,10 @@ class Battle {
 				this.runAction();
 				return;
 			}
-			
+
 			// opp move
 			this.pushAttack(oppActive, plrActive, oppMove);
-			
+
 			// fainted
 			if (getDmg(oppMove, oppActive, plrActive) >= this.plrTeam[plrIdx].curHp) {
 				this.actionQueue.push({
@@ -197,12 +197,12 @@ class Battle {
 				this.runAction();
 				return;
 			}
-			
+
 		} else {
-			
+
 			// opp move
 			this.pushAttack(oppActive, plrActive, oppMove);
-			
+
 			// fainted
 			if (getDmg(oppMove, oppActive, plrActive) >= this.plrTeam[plrIdx].curHp) {
 				this.actionQueue.push({
@@ -229,11 +229,11 @@ class Battle {
 				this.runAction();
 				return;
 			}
-			
-			
+
+
 			// plr move
 			this.pushAttack(plrActive, oppActive, plrMove);
-			
+
 			// fainted
 			if (getDmg(plrMove, plrActive, oppActive) >= this.oppTeam[oppIdx].curHp) {
 				this.actionQueue.push({
@@ -245,7 +245,7 @@ class Battle {
 				return;
 			}
 		}
-		
+
 		// start thing
 		this.runAction();
 	}
@@ -254,7 +254,7 @@ class Battle {
 		let { plrActive, oppActive, plrTeam, oppTeam } = this;
 		let plrStats = plrActive.getStats();
 		let oppStats = oppActive.getStats();
-		
+
 		// order moves correctly in queue
 		let oppMove = randInt(0, oppActive.moves.length - 1);
 		if (plrActive.moves[idx].priority > oppActive.moves[oppMove].priority) {
@@ -272,8 +272,8 @@ class Battle {
 	}
 
 	makeSwitch(idx) {
-		let { plrActive, oppActive, plrTeam, oppTeam } = this;	
-		
+		let { plrActive, oppActive, plrTeam, oppTeam } = this;
+
 		// switching
 		this.actionQueue.push({
 			type: "text",
@@ -288,7 +288,7 @@ class Battle {
 		// opp move
 		let oppMove = randInt(0, oppActive.moves.length - 1);
 		this.pushAttack(oppActive, plrTeam[idx], oppActive.moves[oppMove]);
-			
+
 		// fainted
 		if (getDmg(oppActive.moves[oppMove], oppActive, plrTeam[idx]) >= this.plrTeam[idx].curHp) {
 			this.actionQueue.push({
@@ -302,9 +302,9 @@ class Battle {
 			this.state = "turn";
 		}, 100);
 	}
-	
+
 	renderMove() {
-		
+
 		// force switch if fainted
 		if (this.plrActive.curHp <= 0) {
 			this.state = "switch";
@@ -314,7 +314,7 @@ class Battle {
 		// draw moves
 		for (let i = 0; i < this.plrActive.moves.length; i++) {
 			let move = this.plrActive.moves[i];
-			
+
 			// bg
 			strokeWeight(1);
 			stroke(tone_1);
@@ -322,7 +322,7 @@ class Battle {
 			fill(typeColor[move.type]);
 			rect(145 + 230 * i, 620, 220, 60, 5);
 			strokeWeight(0);
-			
+
 			// text
 			fill(base_2);
 			textAlign(CENTER, TOP);
@@ -332,16 +332,16 @@ class Battle {
 			textSize(15)
 			text(move.type, 150 + 230 * i, 650, 220, 30)
 		}
-		
+
 		// draw empty moves
 		for (let i = this.plrActive.moves.length; i < 4; i++) {
-			
+
 			// bg
 			strokeWeight(1)
 			stroke(highlight_2)
 			fill(0, 0, 0, 0);
 			rect(145 + 230 * i, 620, 220, 60, 5);
-			
+
 			// text
 			strokeWeight(0)
 			fill(highlight_2);
@@ -350,14 +350,14 @@ class Battle {
 			text("None", 145 + 230 * i, 630, 220, 60);
 		}
 	}
-	
+
 	renderTurn() {
 		if (this.actionQueue.length <= 0) {
 			this.state = "move";
 			return;
 		}
 		let { pokimon, move, txt } = this.actionQueue[0];
-		
+
 		// turn text
 		fill(255);
 		textAlign(LEFT, CENTER);
@@ -366,7 +366,7 @@ class Battle {
 		strokeWeight(0);
 		textSize(15);
 		text("(Click anywhere to continue)", 145, 650, 600, 60);
-		
+
 		// turn animations
 		for (let i = 0; i < this.actions.length; i++) {
 			this.actions[i].render();
@@ -376,37 +376,37 @@ class Battle {
 			}
 		}
 	}
-	
+
 	renderSwitch() {
-		let {plrTeam} = this;
-		
+		let { plrTeam } = this;
+
 		// text
 		fill(255);
 		textAlign(LEFT, CENTER);
 		textSize(25);
 		text("Choose a Pokimon to switch to:", 145, 620, 600, 60);
-		
+
 		// bg
 		strokeWeight(1);
 		stroke(255);
 		fill(tone_1);
 		rect(100, 100, 1000, 380, 10);
-		
+
 		// team
 		for (let i = 0; i < plrTeam.length; i++) {
 			let x1 = 135 + (i % 2) * 480;
 			let y1 = 120 + floor(i / 2) * 120;
-			
+
 			fill(base_1);
 			strokeWeight(1);
 			stroke(255);
 			if (mouseX > x1 && mouseX < x1 + 450 && mouseY > y1 && mouseY < y1 + 100) stroke(highlight_2);
 			rect(x1, y1, 450, 100, 10);
-			
+
 			if (plrTeam[i].curHp <= 0) tint(255, 100);
 			imageBounded(images[plrTeam[i].name], x1 + 10, y1 + 10, 80, 80);
 			tint(255, 255);
-			
+
 			strokeWeight(0)
 			fill(255);
 			textAlign(LEFT, TOP);
@@ -418,18 +418,18 @@ class Battle {
 			if (plrTeam[i].curHp > 0) rect(x1 + 102.5, y1 + 52.5, 295 * (plrTeam[i].curHp / plrTeam[i].maxHp), 20, 15);
 		}
 	}
-	
+
 	/**
 	 * Render the battle screen.
 	 * @description This function renders the battle screen, including the player's and opponent's Pokemon, their health bars, and the GUI for moves and actions.
 	 */
 	render() {
 		let { state, plrActive, oppActive, plrTeam, oppTeam, plrIdx, oppIdx } = this;
-		
+
 		background(base_0);
 		fill(255);
 		let imgWidth = 300;
-		
+
 		// player pokemon
 		if (plrTeam[plrIdx].curHp > 0) {
 			push();
@@ -454,8 +454,8 @@ class Battle {
 				tint(255, 255);
 			}
 		}
-		
-		
+
+
 		// opp pokemon
 		if (oppTeam[oppIdx].curHp > 0) {
 			imageBounded(images[oppActive.name], 1200 - imgWidth - 100, 250, imgWidth, 300);
@@ -476,7 +476,7 @@ class Battle {
 				tint(255, 255);
 			}
 		}
-		
+
 		// draw gui
 		strokeWeight(1);
 		stroke(255);
@@ -487,14 +487,14 @@ class Battle {
 		if (state == "switch") this.renderSwitch();
 		let labels = ["Move", "Switch", "Info", "Run"];
 		for (let i = 0; i < 4; i++) {
-			
+
 			// bg
 			strokeWeight(1);
 			stroke(255);
 			if (mouseX > 145 + 230 * i && mouseX < 145 + 230 * i + 220 && mouseY > 700 && mouseY < 760) stroke(highlight_2);
 			fill(base_1);
 			rect(145 + 230 * i, 700, 220, 60, 5);
-			
+
 			// text
 			strokeWeight(0);
 			fill(255);
@@ -512,14 +512,14 @@ class Battle {
 			if (mouseX > x && mouseX < x + 220 && mouseY > y && mouseY < y + 60) this.makeMove(i);
 		}
 	}
-	
+
 	listenForTurn() {
 		this.actionQueue.shift();
 		this.runAction();
 	}
-	
+
 	listenForSwitch() {
-		let {plrTeam} = this;
+		let { plrTeam } = this;
 		for (let i = 0; i < plrTeam.length; i++) {
 			let x1 = 135 + (i % 2) * 480;
 			let y1 = 120 + floor(i / 2) * 120;
@@ -535,42 +535,57 @@ class Battle {
 		let labels = ["move", "switch", "info", "end"];
 		for (let i = 0; i < 4; i++) {
 			if (mouseX > 145 + 230 * i && mouseX < 145 + 230 * i + 220 && mouseY > 700 && mouseY < 760) this.state = labels[i];
-			if (this.state == "end") this.resultData.won = false;
 		}
 	}
 }
 
 class Results {
-	constructor({plr, opp, won=true, rewardExp}) {
+	constructor({ plr, opp, won = true, rewardExp }) {
 		this.plr = plr;
 		this.opp = opp;
 		this.won = won;
 		this.rewardExp = rewardExp;
 		this.show = true;
+
+		this.oldTeam = plr.team.map(p => ({ ...p })); // Store old team for comparison
+		let { team } = plr;
+		for (let i = 0; i < team.length; i++) {
+			team[i].xp += rewardExp;
+			team[i].levelUp();
+		}
+		this.newTeam = team;
 	}
 
 	render() {
-		let {rewardExp, plr, opp, won} = this;
+		let { rewardExp, plr, opp, won } = this;
 		let startX = 600 - 250;
 		let c = color(tone_1);
 		c.setAlpha(120);
 		fill(c)
-		
-        rect(startX, 100, 500, 600, 10);
+
+		rect(startX, 100, 500, 600, 10);
 		fill(highlight_1)
 		textAlign(CENTER, CENTER);
 		textSize(40);
-		text("X", startX , 110, 50, 50);
-		
+		text("X", startX, 110, 50, 50);
+
 		fill(255)
 		textAlign(CENTER, CENTER);
-		textSize(30);
+		textSize(25);
 		text(`You have ${won ? "defeated" : "been defeated by"} ${opp.name}!`, startX, 175, 500, 50);
 
 		fill(highlight_3)
 		textAlign(CENTER, CENTER);
 		textSize(20);
 		text(`Your entire team has earned ${rewardExp} EXP!`, startX + 250, 250); // Adjust position if necessary
+
+		fill(255);
+		text(`Your team:`, startX + 250, 300);
+		fill(highlight_3)
+		for (let i = 0; i < plr.team.length; i++) {
+			let p = this.oldTeam[i];
+			text(`${p.name} - Lvl ${p.level} -> ${this.newTeam[i].level}`, startX + 250, 330 + i * 30);
+		}
 	}
 
 	listen() {

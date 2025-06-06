@@ -2,12 +2,11 @@ let gameMap, battle;
 let state = "map";
 let player = new Trainer({
 	name: "sire",
-	// team: [new Blastoise(100), new Charizard(50), new Pikachew(61), new Pikachew(42), new Pikachew(64), new Pikachew(32)],
-	team: [new Bulbasaur(4)],
+	team: [new Blastoise(100), new Charizard(50), new Pikachu(61), new Pikachu(42), new Pikachu(64), new Pikachu(1)],
 	img: "191.PNG"
 });
 let gui = new Gui(player);
-let result = new Results({plr: player, opp: player, rewardExp: 50});
+let result = new Results({ plr: player, opp: player, rewardExp: 50 });
 result.show = false;
 
 function setup() {
@@ -18,7 +17,7 @@ function setup() {
 	// loading map data
 	let opp = new Trainer({
 		name: "Roxanne",
-		team: [new Pikachew(30), new Charizard(50)],
+		team: [new Pikachu(30), new Charizard(50)],
 		img: "191.PNG"
 	})
 	gameMap.characters.push(new Character(500, 0, loadImage("assets/roxanne.png"), opp));
@@ -36,13 +35,13 @@ function draw() {
 			state = "map";
 		}
 	}
-	
+
 	if (state == "map") {
 		gameMap.render();
 		gameMap.listenMove();
 		gameMap.listenThrowBall();
 		gui.render();
-		
+
 		// battle collision
 		for (c of gameMap.characters) {
 			if (gameMap.overlaps(c) && c.canBattle) {
@@ -52,7 +51,7 @@ function draw() {
 					exitX: c.x - 80,
 					exitY: gameMap.playerY,
 				});
-				
+
 				state = "battle";
 			}
 		}

@@ -49,8 +49,8 @@ class Battle {
 			plr: plr,
 			opp: opp,
 			rewardExp: 0,
-			won: false
-		}
+			won: false,
+		};
 	}
 
 	runAction() {
@@ -89,7 +89,7 @@ class Battle {
 			for (let i = 0; i < this.oppTeam.length; i++) {
 				if (this.oppTeam[i].curHp > 0) continue; // don't reward for alive pokimon
 				let xp = this.oppTeam[i].level * 67;
-				xp /= 7;
+				xp /= 2;
 				xp *= 1.5;
 				this.resultData.rewardExp += Math.floor(xp);
 			}
@@ -105,8 +105,8 @@ class Battle {
 		let { plrTeam, oppTeam } = this;
 
 		// switch
-		console.log("defeated!")
-		console.log(this.actionQueue)
+		console.log("defeated!");
+		console.log(this.actionQueue);
 		if (oppIdx >= oppTeam.length - 1) {
 			this.actionQueue.push({
 				type: "text",
@@ -121,19 +121,18 @@ class Battle {
 		this.actionQueue.push({
 			type: "sub",
 			txt: `Go ${oppTeam[oppIdx + 1].name}!`,
-			newIdx: oppIdx + 1
+			newIdx: oppIdx + 1,
 		});
 	}
 
 	pushAttack(attacking, defending, move) {
-
 		// move
 		this.actionQueue.push({
 			type: "move",
 			pokimon: attacking,
 			move: move,
-			txt: `${attacking.name} used ${move.name}!`
-		})
+			txt: `${attacking.name} used ${move.name}!`,
+		});
 
 		// type effectiveness
 		let effectiveness = getTypeEffectiveness(move.type, defending.type1);
@@ -144,8 +143,8 @@ class Battle {
 			if (effectiveness > 1) text = "It was super effective!";
 			this.actionQueue.push({
 				type: "text",
-				txt: text
-			})
+				txt: text,
+			});
 		}
 	}
 
@@ -153,7 +152,6 @@ class Battle {
 		let { plrActive, oppActive, plrIdx, oppIdx } = this;
 
 		if (plrGoesFirst) {
-
 			// plr move
 			this.pushAttack(plrActive, oppActive, plrMove);
 
@@ -161,7 +159,7 @@ class Battle {
 			if (getDmg(plrMove, plrActive, oppActive) >= this.oppTeam[oppIdx].curHp) {
 				this.actionQueue.push({
 					type: "text",
-					txt: `${oppActive.name} has fainted!`
+					txt: `${oppActive.name} has fainted!`,
 				});
 				this.pushOppSub();
 				this.runAction();
@@ -175,7 +173,7 @@ class Battle {
 			if (getDmg(oppMove, oppActive, plrActive) >= this.plrTeam[plrIdx].curHp) {
 				this.actionQueue.push({
 					type: "text",
-					txt: `${plrActive.name} has fainted!`
+					txt: `${plrActive.name} has fainted!`,
 				});
 
 				let alive = 0;
@@ -187,19 +185,17 @@ class Battle {
 				if (alive <= 1) {
 					this.actionQueue.push({
 						type: "text",
-						txt: `You have lost the battle!`
+						txt: `You have lost the battle!`,
 					});
 					this.actionQueue.push({
 						type: "endbattle",
-						res: `Lost`
+						res: `Lost`,
 					});
 				}
 				this.runAction();
 				return;
 			}
-
 		} else {
-
 			// opp move
 			this.pushAttack(oppActive, plrActive, oppMove);
 
@@ -207,7 +203,7 @@ class Battle {
 			if (getDmg(oppMove, oppActive, plrActive) >= this.plrTeam[plrIdx].curHp) {
 				this.actionQueue.push({
 					type: "text",
-					txt: `${plrActive.name} has fainted!`
+					txt: `${plrActive.name} has fainted!`,
 				});
 				let alive = 0;
 				for (let i = 0; i < this.plrTeam.length; i++) {
@@ -218,18 +214,17 @@ class Battle {
 				if (alive <= 1) {
 					this.actionQueue.push({
 						type: "text",
-						txt: `You have lost the battle!`
+						txt: `You have lost the battle!`,
 					});
 					this.actionQueue.push({
 						type: "endbattle",
-						res: `Lost`
+						res: `Lost`,
 					});
 				}
 
 				this.runAction();
 				return;
 			}
-
 
 			// plr move
 			this.pushAttack(plrActive, oppActive, plrMove);
@@ -238,7 +233,7 @@ class Battle {
 			if (getDmg(plrMove, plrActive, oppActive) >= this.oppTeam[oppIdx].curHp) {
 				this.actionQueue.push({
 					type: "text",
-					txt: `${oppActive.name} has fainted!`
+					txt: `${oppActive.name} has fainted!`,
 				});
 				this.pushOppSub();
 				this.runAction();
@@ -277,12 +272,12 @@ class Battle {
 		// switching
 		this.actionQueue.push({
 			type: "text",
-			txt: `Come back, ${plrActive.name}!`
+			txt: `Come back, ${plrActive.name}!`,
 		});
 		this.actionQueue.push({
 			type: "switch",
 			txt: `Go ${plrTeam[idx].name}!`,
-			newIdx: idx
+			newIdx: idx,
 		});
 
 		// opp move
@@ -293,7 +288,7 @@ class Battle {
 		if (getDmg(oppActive.moves[oppMove], oppActive, plrTeam[idx]) >= this.plrTeam[idx].curHp) {
 			this.actionQueue.push({
 				type: "text",
-				txt: `${plrTeam[idx].name} has fainted!`
+				txt: `${plrTeam[idx].name} has fainted!`,
 			});
 		}
 		this.runAction();
@@ -304,7 +299,6 @@ class Battle {
 	}
 
 	renderMove() {
-
 		// force switch if fainted
 		if (this.plrActive.curHp <= 0) {
 			this.state = "switch";
@@ -318,7 +312,8 @@ class Battle {
 			// bg
 			strokeWeight(1);
 			stroke(tone_1);
-			if (mouseX > 145 + 230 * i && mouseX < 145 + 230 * i + 220 && mouseY > 620 && mouseY < 680) stroke(highlight_2);
+			if (mouseX > 145 + 230 * i && mouseX < 145 + 230 * i + 220 && mouseY > 620 && mouseY < 680)
+				stroke(highlight_2);
 			fill(typeColor[move.type]);
 			rect(145 + 230 * i, 620, 220, 60, 5);
 			strokeWeight(0);
@@ -329,21 +324,20 @@ class Battle {
 			textSize(25);
 			text(move.name, 145 + 230 * i, 630, 220, 60);
 			textAlign(LEFT, BOTTOM);
-			textSize(15)
-			text(move.type, 150 + 230 * i, 650, 220, 30)
+			textSize(15);
+			text(move.type, 150 + 230 * i, 650, 220, 30);
 		}
 
 		// draw empty moves
 		for (let i = this.plrActive.moves.length; i < 4; i++) {
-
 			// bg
-			strokeWeight(1)
-			stroke(highlight_2)
+			strokeWeight(1);
+			stroke(highlight_2);
 			fill(0, 0, 0, 0);
 			rect(145 + 230 * i, 620, 220, 60, 5);
 
 			// text
-			strokeWeight(0)
+			strokeWeight(0);
 			fill(highlight_2);
 			textAlign(CENTER, TOP);
 			textSize(25);
@@ -407,7 +401,7 @@ class Battle {
 			imageBounded(images[plrTeam[i].name], x1 + 10, y1 + 10, 80, 80);
 			tint(255, 255);
 
-			strokeWeight(0)
+			strokeWeight(0);
 			fill(255);
 			textAlign(LEFT, TOP);
 			if (plrTeam[i].curHp <= 0) text(`${plrTeam[i].name} - Fainted`, x1 + 100, y1 + 20);
@@ -445,7 +439,7 @@ class Battle {
 			rect(105, 232.5, 390 * (plrTeam[plrIdx].curHp / plrTeam[plrIdx].maxHp), 10, 15);
 			fill(255);
 			textAlign(LEFT, CENTER);
-			textSize(20)
+			textSize(20);
 			text(`${plrActive.name} - Lvl ${plrActive.level}`, 100, 200, 1500, 25);
 
 			for (let i = 0; i < plrTeam.length; i++) {
@@ -454,7 +448,6 @@ class Battle {
 				tint(255, 255);
 			}
 		}
-
 
 		// opp pokemon
 		if (oppTeam[oppIdx].curHp > 0) {
@@ -467,7 +460,7 @@ class Battle {
 			rect(1200 - 105 - 390, 232.5, 390 * (oppTeam[oppIdx].curHp / oppTeam[oppIdx].maxHp), 10, 15);
 			fill(255);
 			textAlign(RIGHT, CENTER);
-			textSize(20)
+			textSize(20);
 			text(`${oppActive.name} - Lvl ${oppActive.level}`, 1200 - 100 - 1500, 200, 1500, 25);
 
 			for (let i = 0; i < oppTeam.length; i++) {
@@ -487,11 +480,11 @@ class Battle {
 		if (state == "switch") this.renderSwitch();
 		let labels = ["Move", "Switch", "Info", "Run"];
 		for (let i = 0; i < 4; i++) {
-
 			// bg
 			strokeWeight(1);
 			stroke(255);
-			if (mouseX > 145 + 230 * i && mouseX < 145 + 230 * i + 220 && mouseY > 700 && mouseY < 760) stroke(highlight_2);
+			if (mouseX > 145 + 230 * i && mouseX < 145 + 230 * i + 220 && mouseY > 700 && mouseY < 760)
+				stroke(highlight_2);
 			fill(base_1);
 			rect(145 + 230 * i, 700, 220, 60, 5);
 
@@ -534,7 +527,8 @@ class Battle {
 	listenForMenu() {
 		let labels = ["move", "switch", "info", "end"];
 		for (let i = 0; i < 4; i++) {
-			if (mouseX > 145 + 230 * i && mouseX < 145 + 230 * i + 220 && mouseY > 700 && mouseY < 760) this.state = labels[i];
+			if (mouseX > 145 + 230 * i && mouseX < 145 + 230 * i + 220 && mouseY > 700 && mouseY < 760)
+				this.state = labels[i];
 		}
 	}
 }
@@ -547,11 +541,12 @@ class Results {
 		this.rewardExp = rewardExp;
 		this.show = true;
 
-		this.oldTeam = plr.team.map(p => ({ ...p })); // Store old team for comparison
+		this.oldTeam = plr.team.map((p) => ({ ...p })); // Store old team for comparison
 		let { team } = plr;
 		for (let i = 0; i < team.length; i++) {
 			team[i].xp += rewardExp;
 			team[i].levelUp();
+			if (team[i].evoLvl != undefined && team[i].level >= team[i].evoLvl) team[i] = team[i].evolution();
 		}
 		this.newTeam = team;
 	}
@@ -561,30 +556,34 @@ class Results {
 		let startX = 600 - 250;
 		let c = color(tone_1);
 		c.setAlpha(120);
-		fill(c)
+		fill(c);
 
 		rect(startX, 100, 500, 600, 10);
-		fill(highlight_1)
+		fill(highlight_1);
 		textAlign(CENTER, CENTER);
 		textSize(40);
 		text("X", startX, 110, 50, 50);
 
-		fill(255)
+		fill(255);
 		textAlign(CENTER, CENTER);
 		textSize(25);
 		text(`You have ${won ? "defeated" : "been defeated by"} ${opp.name}!`, startX, 175, 500, 50);
 
-		fill(highlight_3)
+		fill(highlight_3);
 		textAlign(CENTER, CENTER);
 		textSize(20);
 		text(`Your entire team has earned ${rewardExp} EXP!`, startX + 250, 250); // Adjust position if necessary
 
 		fill(255);
 		text(`Your team:`, startX + 250, 300);
-		fill(highlight_3)
+		fill(highlight_3);
 		for (let i = 0; i < plr.team.length; i++) {
 			let p = this.oldTeam[i];
-			text(`${p.name} - Lvl ${p.level} -> ${this.newTeam[i].level}`, startX + 250, 330 + i * 30);
+			text(
+				`${p.name} - Lvl ${p.level} -> ${this.newTeam[i].name} - Lvl ${this.newTeam[i].level}`,
+				startX + 250,
+				330 + i * 30
+			);
 		}
 	}
 

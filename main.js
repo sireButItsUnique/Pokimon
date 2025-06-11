@@ -2,8 +2,15 @@ let gameMap, battle;
 let state = "map";
 let player = new Trainer({
 	name: "sire",
-	team: [new Blastoise(100), new Charizard(50), new Pikachu(61), new Pikachu(42), new Pikachu(64), new Pikachu(1)],
-	img: "191.PNG"
+	team: [
+		new Blastoise(100),
+		new Charizard(50),
+		new Bulbasaur(10),
+		new Bulbasaur(10),
+		new Bulbasaur(10),
+		new Bulbasaur(10),
+	],
+	img: "191.PNG",
 });
 let gui = new Gui(player);
 let result = new Results({ plr: player, opp: player, rewardExp: 50 });
@@ -17,10 +24,59 @@ function setup() {
 	// loading map data
 	let opp = new Trainer({
 		name: "Roxanne",
-		team: [new Pikachu(30), new Charizard(50)],
-		img: "191.PNG"
-	})
-	gameMap.characters.push(new Character(500, 0, loadImage("assets/roxanne.png"), opp));
+		team: [new Charmander(90), new Charmander(90), new Charmander(90)],
+		img: "191.PNG",
+	});
+	let bugOpp = new Trainer({
+		name: "Buggy Duggy",
+		team: [new Caterpie(20), new Metapod(40), new Butterfree(50)],
+		img: "buggyduggy.png",
+	});
+	let bugOppLeader = new Trainer({
+		name: "Katy",
+		team: [new Beedrill(50), new Parasect(80), new Kakuna(90)],
+		img: "katy.png",
+	});
+	let grassOpp = new Trainer({
+		name: "Grassy the First",
+		team: [new Bulbasaur(40), new Ivysaur(50), new Bulbasaur(80)],
+		img: "brock.png",
+	});
+	let grassOppLeader = new Trainer({
+		name: "Cynthia",
+		team: [new Ivysaur(80), new Venusaur(80), new Gloom(80)],
+		img: "cynthia.png",
+	});
+	let waterOpp = new Trainer({
+		name: "Mr. Oily",
+		team: [new Wartortle(70), new Psyduck(80), new Squirtle(90)],
+		img: "mroily.png",
+	});
+	let waterOppLeader = new Trainer({
+		name: "Misty",
+		team: [new Wartortle(80), new Blastoise(80), new Golduck(80)],
+		img: "misty.png",
+	});
+	let fireOpp = new Trainer({
+		name: "Mr. Fired Up",
+		team: [new Charmeleon(80), new Charmander(90), new Vulpix(90)],
+		img: "mrfiredup.png",
+	});
+	let fireOppLeader = new Trainer({
+		name: "Flint",
+		team: [new Charizard(100), new Ninetales(100), new Charmeleon(100)],
+		img: "flint.png",
+	});
+
+	gameMap.characters.push(new Character(500, 150, loadImage("assets/roxanne.png"), opp, 80, 0));
+	gameMap.characters.push(new Character(1900, 900, loadImage("assets/buggyduggy.png"), bugOpp, 80, 0));
+	gameMap.characters.push(new Character(2200, 1800, loadImage("assets/katy.png"), bugOppLeader, 80, 0));
+	gameMap.characters.push(new Character(4380, 2000, loadImage("assets/mroily.png"), waterOpp, 0, 120));
+	gameMap.characters.push(new Character(4380, 2800, loadImage("assets/misty.png"), waterOppLeader, 0, 120));
+	gameMap.characters.push(new Character(5700, 3000, loadImage("assets/brock.png"), grassOpp, 0, -120));
+	gameMap.characters.push(new Character(5700, 2500, loadImage("assets/cynthia.png"), grassOppLeader, 0, -120));
+	gameMap.characters.push(new Character(4800, 630, loadImage("assets/mrfiredup.png"), fireOpp, -80, 0));
+	gameMap.characters.push(new Character(5800, 900, loadImage("assets/flint.png"), fireOppLeader, -80, 0));
 }
 
 function draw() {
@@ -57,6 +113,7 @@ function draw() {
 		}
 
 		if (result.show) result.render();
+		if (gui.showTeam) gui.renderTeam(player.team);
 	}
 }
 
@@ -70,6 +127,8 @@ function mouseClicked() {
 
 	if (state == "map") {
 		result.listen();
+		gui.listen();
+		if (gui.showTeam) gui.listenForTeam(player.team);
 	}
 }
 

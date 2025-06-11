@@ -1,24 +1,24 @@
 function randInt(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+	return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 function imageBounded(img, x, y, boxW, boxH) {
-  let imgRatio = img.width / img.height;
-  let boxRatio = boxW / boxH;
+	let imgRatio = img.width / img.height;
+	let boxRatio = boxW / boxH;
 
-  let w = boxW;
-  let h = boxH;
+	let w = boxW;
+	let h = boxH;
 
-  if (imgRatio > boxRatio) {
-    // Wider image
-    h = boxW / imgRatio;
-  } else {
-    // Taller image
-    w = boxH * imgRatio;
-  }
+	if (imgRatio > boxRatio) {
+		// Wider image
+		h = boxW / imgRatio;
+	} else {
+		// Taller image
+		w = boxH * imgRatio;
+	}
 
-  // Center the image in the box
-  image(img, x + (boxW - w) / 2, y + (boxH - h) / 2, w, h);
+	// Center the image in the box
+	image(img, x + (boxW - w) / 2, y + (boxH - h) / 2, w, h);
 }
 
 const base_0 = "#171717";
@@ -43,472 +43,304 @@ const highlight_4 = "#a7d4e8";
 const highlight_5 = "#badded";
 
 const typeColor = {
-  Normal: "#A8A77A",
-  Fire: "#EE8130",
-  Water: "#6390F0",
-  Electric: "#F7D02C",
-  Grass: "#7AC74C",
-  Ice: "#96D9D6",
-  Fighting: "#C22E28",
-  Poison: "#A33EA1",
-  Ground: "#E2BF65",
-  Flying: "#A98FF3",
-  Psychic: "#F95587",
-  Bug: "#A6B91A",
-  Rock: "#B6A136",
-  Ghost: "#735797",
-  Dragon: "#6F35FC",
-  Dark: "#705746",
-  Steel: "#B7B7CE",
-  Fairy: "#D685AD"
+	Normal: "#A8A77A",
+	Fire: "#EE8130",
+	Water: "#6390F0",
+	Electric: "#F7D02C",
+	Grass: "#7AC74C",
+	Ice: "#96D9D6",
+	Fighting: "#C22E28",
+	Poison: "#A33EA1",
+	Ground: "#E2BF65",
+	Flying: "#A98FF3",
+	Psychic: "#F95587",
+	Bug: "#A6B91A",
+	Rock: "#B6A136",
+	Ghost: "#735797",
+	Dragon: "#6F35FC",
+	Dark: "#705746",
+	Steel: "#B7B7CE",
+	Fairy: "#D685AD",
 };
 
 const typeMult = {
-  Normal: {
-    Rock: 0.5,
-    Ghost: 0,
-    Steel: 0.5
-  },
-  Fire: {
-    Grass: 2,
-    Ice: 2,
-    Bug: 2,
-    Steel: 2,
-    Fire: 0.5,
-    Water: 0.5,
-    Rock: 0.5,
-    Dragon: 0.5
-  },
-  Water: {
-    Fire: 2,
-    Ground: 2,
-    Rock: 2,
-    Water: 0.5,
-    Grass: 0.5,
-    Dragon: 0.5
-  },
-  Electric: {
-    Water: 2,
-    Flying: 2,
-    Electric: 0.5,
-    Grass: 0.5,
-    Dragon: 0.5,
-    Ground: 0
-  },
-  Grass: {
-    Water: 2,
-    Ground: 2,
-    Rock: 2,
-    Fire: 0.5,
-    Grass: 0.5,
-    Poison: 0.5,
-    Flying: 0.5,
-    Bug: 0.5,
-    Dragon: 0.5,
-    Steel: 0.5
-  },
-  Ice: {
-    Grass: 2,
-    Ground: 2,
-    Flying: 2,
-    Dragon: 2,
-    Fire: 0.5,
-    Water: 0.5,
-    Ice: 0.5,
-    Steel: 0.5
-  },
-  Fighting: {
-    Normal: 2,
-    Ice: 2,
-    Rock: 2,
-    Dark: 2,
-    Steel: 2,
-    Poison: 0.5,
-    Flying: 0.5,
-    Psychic: 0.5,
-    Bug: 0.5,
-    Fairy: 0.5,
-    Ghost: 0
-  },
-  Poison: {
-    Grass: 2,
-    Fairy: 2,
-    Poison: 0.5,
-    Ground: 0.5,
-    Rock: 0.5,
-    Ghost: 0.5,
-    Steel: 0
-  },
-  Ground: {
-    Fire: 2,
-    Electric: 2,
-    Poison: 2,
-    Rock: 2,
-    Steel: 2,
-    Grass: 0.5,
-    Bug: 0.5,
-    Flying: 0
-  },
-  Flying: {
-    Grass: 2,
-    Fighting: 2,
-    Bug: 2,
-    Electric: 0.5,
-    Rock: 0.5,
-    Steel: 0.5
-  },
-  Psychic: {
-    Fighting: 2,
-    Poison: 2,
-    Psychic: 0.5,
-    Steel: 0.5,
-    Dark: 0
-  },
-  Bug: {
-    Grass: 2,
-    Psychic: 2,
-    Dark: 2,
-    Fire: 0.5,
-    Fighting: 0.5,
-    Poison: 0.5,
-    Flying: 0.5,
-    Ghost: 0.5,
-    Steel: 0.5,
-    Fairy: 0.5
-  },
-  Rock: {
-    Fire: 2,
-    Ice: 2,
-    Flying: 2,
-    Bug: 2,
-    Fighting: 0.5,
-    Ground: 0.5,
-    Steel: 0.5
-  },
-  Ghost: {
-    Psychic: 2,
-    Ghost: 2,
-    Dark: 0.5,
-    Normal: 0
-  },
-  Dragon: {
-    Dragon: 2,
-    Steel: 0.5,
-    Fairy: 0
-  },
-  Dark: {
-    Psychic: 2,
-    Ghost: 2,
-    Fighting: 0.5,
-    Dark: 0.5,
-    Fairy: 0.5
-  },
-  Steel: {
-    Ice: 2,
-    Rock: 2,
-    Fairy: 2,
-    Fire: 0.5,
-    Water: 0.5,
-    Electric: 0.5,
-    Steel: 0.5
-  },
-  Fairy: {
-    Fighting: 2,
-    Dragon: 2,
-    Dark: 2,
-    Fire: 0.5,
-    Poison: 0.5,
-    Steel: 0.5
-  }
+	Normal: {
+		Rock: 0.5,
+		Ghost: 0,
+		Steel: 0.5,
+	},
+	Fire: {
+		Grass: 2,
+		Ice: 2,
+		Bug: 2,
+		Steel: 2,
+		Fire: 0.5,
+		Water: 0.5,
+		Rock: 0.5,
+		Dragon: 0.5,
+	},
+	Water: {
+		Fire: 2,
+		Ground: 2,
+		Rock: 2,
+		Water: 0.5,
+		Grass: 0.5,
+		Dragon: 0.5,
+	},
+	Electric: {
+		Water: 2,
+		Flying: 2,
+		Electric: 0.5,
+		Grass: 0.5,
+		Dragon: 0.5,
+		Ground: 0,
+	},
+	Grass: {
+		Water: 2,
+		Ground: 2,
+		Rock: 2,
+		Fire: 0.5,
+		Grass: 0.5,
+		Poison: 0.5,
+		Flying: 0.5,
+		Bug: 0.5,
+		Dragon: 0.5,
+		Steel: 0.5,
+	},
+	Ice: {
+		Grass: 2,
+		Ground: 2,
+		Flying: 2,
+		Dragon: 2,
+		Fire: 0.5,
+		Water: 0.5,
+		Ice: 0.5,
+		Steel: 0.5,
+	},
+	Fighting: {
+		Normal: 2,
+		Ice: 2,
+		Rock: 2,
+		Dark: 2,
+		Steel: 2,
+		Poison: 0.5,
+		Flying: 0.5,
+		Psychic: 0.5,
+		Bug: 0.5,
+		Fairy: 0.5,
+		Ghost: 0,
+	},
+	Poison: {
+		Grass: 2,
+		Fairy: 2,
+		Poison: 0.5,
+		Ground: 0.5,
+		Rock: 0.5,
+		Ghost: 0.5,
+		Steel: 0,
+	},
+	Ground: {
+		Fire: 2,
+		Electric: 2,
+		Poison: 2,
+		Rock: 2,
+		Steel: 2,
+		Grass: 0.5,
+		Bug: 0.5,
+		Flying: 0,
+	},
+	Flying: {
+		Grass: 2,
+		Fighting: 2,
+		Bug: 2,
+		Electric: 0.5,
+		Rock: 0.5,
+		Steel: 0.5,
+	},
+	Psychic: {
+		Fighting: 2,
+		Poison: 2,
+		Psychic: 0.5,
+		Steel: 0.5,
+		Dark: 0,
+	},
+	Bug: {
+		Grass: 2,
+		Psychic: 2,
+		Dark: 2,
+		Fire: 0.5,
+		Fighting: 0.5,
+		Poison: 0.5,
+		Flying: 0.5,
+		Ghost: 0.5,
+		Steel: 0.5,
+		Fairy: 0.5,
+	},
+	Rock: {
+		Fire: 2,
+		Ice: 2,
+		Flying: 2,
+		Bug: 2,
+		Fighting: 0.5,
+		Ground: 0.5,
+		Steel: 0.5,
+	},
+	Ghost: {
+		Psychic: 2,
+		Ghost: 2,
+		Dark: 0.5,
+		Normal: 0,
+	},
+	Dragon: {
+		Dragon: 2,
+		Steel: 0.5,
+		Fairy: 0,
+	},
+	Dark: {
+		Psychic: 2,
+		Ghost: 2,
+		Fighting: 0.5,
+		Dark: 0.5,
+		Fairy: 0.5,
+	},
+	Steel: {
+		Ice: 2,
+		Rock: 2,
+		Fairy: 2,
+		Fire: 0.5,
+		Water: 0.5,
+		Electric: 0.5,
+		Steel: 0.5,
+	},
+	Fairy: {
+		Fighting: 2,
+		Dragon: 2,
+		Dark: 2,
+		Fire: 0.5,
+		Poison: 0.5,
+		Steel: 0.5,
+	},
 };
 
 function getTypeEffectiveness(attacking, defending) {
-  if (typeMult[attacking] && typeMult[attacking][defending] !== undefined) return typeMult[attacking][defending];
-  return 1; // Neutral if not explicitly defined
+	if (typeMult[attacking] && typeMult[attacking][defending] !== undefined) return typeMult[attacking][defending];
+	return 1; // Neutral if not explicitly defined
 }
 
+function pickSpawnPokimon() {
+	let spawnLvl = Math.floor(Math.random(0, 1) * 100);
+	// let list = [
+	// 	["Bulbasaur", new Bulbasaur(spawnLvl)],
+	// 	["Butterfree", new Butterfree(spawnLvl)],
+	// 	["Charizard", new Charizard(spawnLvl)],
+	// 	["Clefairy", new Clefairy(spawnLvl)],
+	// 	["Beedrill", new Beedrill(spawnLvl)],
+	// 	["Venomoth", new Venomoth(spawnLvl)],
+	// 	["Machoke", new Machoke(spawnLvl)],
+	// 	["Cubone", new Cubone(spawnLvl)],
+	// 	["Aerodactyl", new Aerodactyl(spawnLvl)],
+	// 	["Shedinja", new Shedinja(spawnLvl)],
+	// 	["Espeon", new Espeon(spawnLvl)],
+	// ];
 
-// function playerInBoundary(gameMap, blocks, dX, dY) {
-//   let {playerX, playerY, playerW, playerH } = gameMap;
-//   playerX -= 20;
+	let list = [
+		["Bulbasaur", new Bulbasaur(spawnLvl)],
+		["Ivysaur", new Ivysaur(spawnLvl)],
+		["Charmander", new Charmander(spawnLvl)],
+		["Caterpie", new Caterpie(spawnLvl)],
+	];
 
-//   // conso
-
-//   for (let block of blocks) {
-//     if (block.ghostThrough) continue;
-
-//     if (playerX + playerW + dX > block.topLeftX || playerX + dX < block.topRightX, playerY + dY > block.bottomLeftY || playerY + playerH + dY < block.topLeftY) {
-//       console.log("yerrr");
-//       return false;
-//     }
-//   }
-
-//   return true;
-// }
+	return list[Math.floor(Math.random(0, 1) * list.length)];
+}
 
 function getDmg(move, attacking, defending) {
-  let dmg = 0.4 * attacking.level + 2;
-  dmg *= move.power;
+	let dmg = 0.4 * attacking.level + 2;
+	dmg *= move.power;
 
-  let { atk, spAtk } = attacking.getStats();
-  let { def, spDef } = defending.getStats();
-  if (move.special) dmg *= (spAtk / spDef);
-  else dmg *= (atk / def);
+	let { atk, spAtk } = attacking.getStats();
+	let { def, spDef } = defending.getStats();
+	if (move.special) dmg *= spAtk / spDef;
+	else dmg *= atk / def;
 
-  dmg /= 50;
-  dmg + 2;
-  dmg = Math.floor(dmg);
+	dmg /= 50;
+	dmg + 2;
+	dmg = Math.floor(dmg);
 
-  dmg *= getTypeEffectiveness(move.type, defending.type1);
-  dmg *= getTypeEffectiveness(move.type, defending.type2);
-  return dmg;
+	dmg *= getTypeEffectiveness(move.type, defending.type1);
+	dmg *= getTypeEffectiveness(move.type, defending.type2);
+	return dmg;
 }
 
 let images = {};
 const textures = [];
 
 function preload() {
-  textures.push(loadImage("assets/texture_rock.jpg"));
-  textures.push(loadImage("assets/texture_wood.png"));
-  textures.push(loadImage("assets/texture_grass.jpg"));
+	textures.push(loadImage("assets/texture_rock.jpg"));
+	textures.push(loadImage("assets/texture_wood.png"));
+	textures.push(loadImage("assets/texture_grass.jpg"));
 
-  images["Bulbasaur"] = loadImage("assets/bulbasaur.gif");
-  images["Ivysaur"] = loadImage("assets/ivysaur.gif");
-  images["Venusaur"] = loadImage("assets/venusaur.gif");
-  images["Charmander"] = loadImage("assets/charmander.gif");
-  images["Charmeleon"] = loadImage("assets/charmeleon.gif");
-  images["Charizard"] = loadImage("assets/charizard.gif");
-  images["Squirtle"] = loadImage("assets/squirtle.gif");
-  images["Wartortle"] = loadImage("assets/wartortle.gif");
-  images["Blastoise"] = loadImage("assets/blastoise.gif");
-  images["Caterpie"] = loadImage("assets/caterpie.gif");
-  images["Metapod"] = loadImage("assets/metapod.gif");
-  images["Butterfree"] = loadImage("assets/butterfree.gif");
-  images["Weedle"] = loadImage("assets/weedle.gif");
-  images["Kakuna"] = loadImage("assets/kakuna.gif");
-  images["Beedrill"] = loadImage("assets/beedrill.gif");
-  images["Pidgey"] = loadImage("assets/pidgey.gif");
-  images["Pidgeotto"] = loadImage("assets/pidgeotto.gif");
-  images["Pidgeot"] = loadImage("assets/pidgeot.gif");
-  images["Rattata"] = loadImage("assets/rattata.gif");
-  images["Raticate"] = loadImage("assets/raticate.gif");
-  images["Spearow"] = loadImage("assets/spearow.gif");
-  images["Fearow"] = loadImage("assets/fearow.gif");
-  images["Ekans"] = loadImage("assets/ekans.gif");
-  images["Arbok"] = loadImage("assets/arbok.gif");
-  images["Pikachu"] = loadImage("assets/pikachu.gif");
-  images["Raichu"] = loadImage("assets/raichu.gif");
-  images["Sandshrew"] = loadImage("assets/sandshrew.gif");
-  images["Sandslash"] = loadImage("assets/sandslash.gif");
-  images["NidoranF"] = loadImage("assets/nidoran-f.gif");
-  images["Nidorina"] = loadImage("assets/nidorina.gif");
-  images["Nidoqueen"] = loadImage("assets/nidoqueen.gif");
-  images["NidoranM"] = loadImage("assets/nidoran-m.gif");
-  images["Nidorino"] = loadImage("assets/nidorino.gif");
-  images["Nidoking"] = loadImage("assets/nidoking.gif");
-  images["Clefairy"] = loadImage("assets/clefairy.gif");
-  images["Clefable"] = loadImage("assets/clefable.gif");
-  images["Vulpix"] = loadImage("assets/vulpix.gif");
-  images["Ninetales"] = loadImage("assets/ninetales.gif");
-  images["Jigglypuff"] = loadImage("assets/jigglypuff.gif");
-  images["Wigglytuff"] = loadImage("assets/wigglytuff.gif");
-  images["Zubat"] = loadImage("assets/zubat.gif");
-  images["Golbat"] = loadImage("assets/golbat.gif");
-  images["Oddish"] = loadImage("assets/oddish.gif");
-  images["Gloom"] = loadImage("assets/gloom.gif");
-  images["Vileplume"] = loadImage("assets/vileplume.gif");
-  images["Paras"] = loadImage("assets/paras.gif");
-  images["Parasect"] = loadImage("assets/parasect.gif");
-  images["Venonat"] = loadImage("assets/venonat.gif");
-  images["Venomoth"] = loadImage("assets/venomoth.gif");
-  images["Diglett"] = loadImage("assets/diglett.gif");
-  images["Dugtrio"] = loadImage("assets/dugtrio.gif");
-  images["Meowth"] = loadImage("assets/meowth.gif");
-  images["Persian"] = loadImage("assets/persian.gif");
-  images["Psyduck"] = loadImage("assets/psyduck.gif");
-  images["Golduck"] = loadImage("assets/golduck.gif");
-  images["Mankey"] = loadImage("assets/mankey.gif");
-  images["Primeape"] = loadImage("assets/primeape.gif");
-  images["Growlithe"] = loadImage("assets/growlithe.gif");
-  images["Arcanine"] = loadImage("assets/arcanine.gif");
-  images["Poliwag"] = loadImage("assets/poliwag.gif");
-  images["Poliwhirl"] = loadImage("assets/poliwhirl.gif");
-  images["Poliwrath"] = loadImage("assets/poliwrath.gif");
-  images["Abra"] = loadImage("assets/abra.gif");
-  images["Kadabra"] = loadImage("assets/kadabra.gif");
-  images["Alakazam"] = loadImage("assets/alakazam.gif");
-  images["Machop"] = loadImage("assets/machop.gif");
-  images["Machoke"] = loadImage("assets/machoke.gif");
-  images["Machamp"] = loadImage("assets/machamp.gif");
-  images["Bellsprout"] = loadImage("assets/bellsprout.gif");
-  images["Weepinbell"] = loadImage("assets/weepinbell.gif");
-  images["Victreebel"] = loadImage("assets/victreebel.gif");
-  images["Tentacool"] = loadImage("assets/tentacool.gif");
-  images["Tentacruel"] = loadImage("assets/tentacruel.gif");
-  images["Geodude"] = loadImage("assets/geodude.gif");
-  images["Graveler"] = loadImage("assets/graveler.gif");
-  images["Golem"] = loadImage("assets/golem.gif");
-  images["Ponyta"] = loadImage("assets/ponyta.gif");
-  images["Rapidash"] = loadImage("assets/rapidash.gif");
-  images["Slowpoke"] = loadImage("assets/slowpoke.gif");
-  images["Slowbro"] = loadImage("assets/slowbro.gif");
-  images["Magnemite"] = loadImage("assets/magnemite.gif");
-  images["Magneton"] = loadImage("assets/magneton.gif");
-  images["Farfetch'd"] = loadImage("assets/farfetchd.gif");
-  images["Doduo"] = loadImage("assets/doduo.gif");
-  images["Dodrio"] = loadImage("assets/dodrio.gif");
-  images["Seel"] = loadImage("assets/seel.gif");
-  images["Dewgong"] = loadImage("assets/dewgong.gif");
-  images["Grimer"] = loadImage("assets/grimer.gif");
-  images["Muk"] = loadImage("assets/muk.gif");
-  images["Shellder"] = loadImage("assets/shellder.gif");
-  images["Cloyster"] = loadImage("assets/cloyster.gif");
-  images["Haunter"] = loadImage("assets/haunter.gif");
-  images["Gastly"] = loadImage("assets/gastly.gif");
-  images["Gengar"] = loadImage("assets/gengar.gif");
-  images["Onix"] = loadImage("assets/onix.gif");
-  images["Drowzee"] = loadImage("assets/drowzee.gif");
-  images["Hypno"] = loadImage("assets/hypno.gif");
-  images["Krabby"] = loadImage("assets/krabby.gif");
-  images["Kingler"] = loadImage("assets/kingler.gif");
-  images["Voltorb"] = loadImage("assets/voltorb.gif");
-  images["Electrode"] = loadImage("assets/electrode.gif");
-  images["Exeggcute"] = loadImage("assets/exeggcute.gif");
-  images["Exeggutor"] = loadImage("assets/exeggutor.gif");
-  images["Cubone"] = loadImage("assets/cubone.gif");
-  images["Marowak"] = loadImage("assets/marowak.gif");
-  images["Hitmonlee"] = loadImage("assets/hitmonlee.gif");
-  images["Hitmonchan"] = loadImage("assets/hitmonchan.gif");
-  images["Lickitung"] = loadImage("assets/lickitung.gif");
-  images["Koffing"] = loadImage("assets/koffing.gif");
-  images["Weezing"] = loadImage("assets/weezing.gif");
-  images["Rhyhorn"] = loadImage("assets/rhyhorn.gif");
-  images["Rhydon"] = loadImage("assets/rhydon.gif");
-  images["Chansey"] = loadImage("assets/chansey.gif");
-  images["Tangela"] = loadImage("assets/tangela.gif");
-  images["Kangaskhan"] = loadImage("assets/kangaskhan.gif");
-  images["Horsea"] = loadImage("assets/horsea.gif");
-  images["Seadra"] = loadImage("assets/seadra.gif");
-  images["Goldeen"] = loadImage("assets/goldeen.gif");
-  images["Seaking"] = loadImage("assets/seaking.gif");
-  images["Staryu"] = loadImage("assets/staryu.gif");
-  images["Starmie"] = loadImage("assets/starmie.gif");
-  images["Mr. Mime"] = loadImage("assets/mr-mime.gif");
-  images["Scyther"] = loadImage("assets/scyther.gif");
-  images["Jynx"] = loadImage("assets/jynx.gif");
-  images["Electabuzz"] = loadImage("assets/electabuzz.gif");
-  images["Magmar"] = loadImage("assets/magmar.gif");
-  images["Pinsir"] = loadImage("assets/pinsir.gif");
-  images["Tauros"] = loadImage("assets/tauros.gif");
-  images["Magikarp"] = loadImage("assets/magikarp.gif");
-  images["Gyarados"] = loadImage("assets/gyarados.gif");
-  images["Lapras"] = loadImage("assets/lapras.gif");
-  images["Ditto"] = loadImage("assets/ditto.gif");
-  images["Eevee"] = loadImage("assets/eevee.gif");
-  images["Vagipoureon"] = loadImage("assets/vaporeon.gif");
-  images["Jolteon"] = loadImage("assets/jolteon.gif");
-  images["Flareon"] = loadImage("assets/flareon.gif");
-  images["Porygon"] = loadImage("assets/porygon.gif");
-  images["Omanyte"] = loadImage("assets/omanyte.gif");
-  images["Omastar"] = loadImage("assets/omastar.gif");
-  images["Kabuto"] = loadImage("assets/kabuto.gif");
-  images["Kabutops"] = loadImage("assets/kabutops.gif");
-  images["Aerodactyl"] = loadImage("assets/aerodactyl.gif");
-  images["Snorlax"] = loadImage("assets/snorlax.gif");
-  images["Articuno"] = loadImage("assets/articuno.gif");
-  images["Zapdos"] = loadImage("assets/zapdos.gif");
-  images["Moltres"] = loadImage("assets/moltres.gif");
-  images["Dratini"] = loadImage("assets/dratini.gif");
-  images["Dragonair"] = loadImage("assets/dragonair.gif");
-  images["Dragonite"] = loadImage("assets/dragonite.gif");
-  images["Mewtwo"] = loadImage("assets/mewtwo.gif");
-  images["Mew"] = loadImage("assets/mew.gif");
-  images["Treecko"] = loadImage("assets/treecko.gif");
-  images["Grovyle"] = loadImage("assets/grovyle.gif");
-  images["Sceptile"] = loadImage("assets/sceptile.gif");
-  images["Torchic"] = loadImage("assets/torchic.gif");
-  images["Combusken"] = loadImage("assets/combusken.gif");
-  images["Blaziken"] = loadImage("assets/blaziken.gif");
-  images["Mudkip"] = loadImage("assets/mudkip.gif");
-  images["Marshtomp"] = loadImage("assets/marshtomp.gif");
-  images["Swampert"] = loadImage("assets/swampert.gif");
-  images["Poochyena"] = loadImage("assets/poochyena.gif");
-  images["Mightyena"] = loadImage("assets/mightyena.gif");
-  images["Zigzagoon"] = loadImage("assets/zigzagoon.gif");
-  images["Linoone"] = loadImage("assets/linoone.gif");
-  images["Wurmple"] = loadImage("assets/wurmple.gif");
-  images["Silcoon"] = loadImage("assets/silcoon.gif");
-  images["Beautifly"] = loadImage("assets/beautifly.gif");
-  images["Cascoon"] = loadImage("assets/cascoon.gif");
-  images["Dustox"] = loadImage("assets/dustox.gif");
-  images["Lotad"] = loadImage("assets/lotad.gif");
-  images["Lombre"] = loadImage("assets/lombre.gif");
-  images["Ludicolo"] = loadImage("assets/ludicolo.gif");
-  images["Seedot"] = loadImage("assets/seedot.gif");
-  images["Nuzleaf"] = loadImage("assets/nuzleaf.gif");
-  images["Shiftry"] = loadImage("assets/shiftry.gif");
-  images["Taillow"] = loadImage("assets/taillow.gif");
-  images["Swellow"] = loadImage("assets/swellow.gif");
-  images["Wingull"] = loadImage("assets/wingull.gif");
-  images["Pelipper"] = loadImage("assets/pelipper.gif");
-  images["Ralts"] = loadImage("assets/ralts.gif");
-  images["Kirlia"] = loadImage("assets/kirlia.gif");
-  images["Gardevoir"] = loadImage("assets/gardevoir.gif");
-  images["Surskit"] = loadImage("assets/surskit.gif");
-  images["Masquerain"] = loadImage("assets/masquerain.gif");
-  images["Shroomish"] = loadImage("assets/shroomish.gif");
-  images["Breloom"] = loadImage("assets/breloom.gif");
-  images["Slakoth"] = loadImage("assets/slakoth.gif");
-  images["Vigoroth"] = loadImage("assets/vigoroth.gif");
-  images["Slaking"] = loadImage("assets/slaking.gif");
-  images["Nincada"] = loadImage("assets/nincada.gif");
-  images["Ninjask"] = loadImage("assets/ninjask.gif");
-  images["Shedinja"] = loadImage("assets/shedinja.gif");
-  images["Whismur"] = loadImage("assets/whismur.gif");
-  images["Loudred"] = loadImage("assets/loudred.gif");
-  images["Exploud"] = loadImage("assets/exploud.gif");
-  images["Makuhita"] = loadImage("assets/makuhita.gif");
-  images["Hariyama"] = loadImage("assets/hariyama.gif");
-  images["Azurill"] = loadImage("assets/azurill.gif");
-  images["Nosepass"] = loadImage("assets/nosepass.gif");
-  images["Skitty"] = loadImage("assets/skitty.gif");
-  images["Delcatty"] = loadImage("assets/delcatty.gif");
-  images["Sableye"] = loadImage("assets/sableye.gif");
-  images["Mawile"] = loadImage("assets/mawile.gif");
-  images["Aron"] = loadImage("assets/aron.gif");
-  images["Lairon"] = loadImage("assets/lairon.gif");
-  images["Aggron"] = loadImage("assets/aggron.gif");
-  images["Meditite"] = loadImage("assets/meditite.gif");
-  images["Medicham"] = loadImage("assets/medicham.gif");
-  images["Electrike"] = loadImage("assets/electrike.gif");
-  images["Manectric"] = loadImage("assets/manectric.gif");
-  images["Plusle"] = loadImage("assets/plusle.gif");
-  images["Minun"] = loadImage("assets/minun.gif");
-  images["Volbeat"] = loadImage("assets/volbeat.gif");
-  images["Illumise"] = loadImage("assets/illumise.gif");
-  images["Roselia"] = loadImage("assets/roselia.gif");
-  images["Gulpin"] = loadImage("assets/gulpin.gif");
-  images["Swalot"] = loadImage("assets/swalot.gif");
-  images["Carvanha"] = loadImage("assets/carvanha.gif");
-  images["Sharpedo"] = loadImage("assets/sharpedo.gif");
-  images["Wailmer"] = loadImage("assets/wailmer.gif");
-  images["Wailord"] = loadImage("assets/wailord.gif");
-  images["Numel"] = loadImage("assets/numel.gif");
-  images["Camerupt"] = loadImage("assets/camerupt.gif");
-  images["Torkoal"] = loadImage("assets/torkoal.gif");
-  images["Spoink"] = loadImage("assets/spoink.gif");
-  images["Grumpig"] = loadImage("assets/grumpig.gif");
-  images["Espeon"] = loadImage("assets/espeon.gif");
-  images["Umbreon"] = loadImage("assets/umbreon.gif");
-  images["Leafeon"] = loadImage("assets/leafeon.gif");
-  images["Glaceon"] = loadImage("assets/glaceon.gif");
-  images["Pichu"] = loadImage("assets/pichu.gif");
-  images["Wobbuffet"] = loadImage("assets/wobbuffet.gif");
-  images["Steelix"] = loadImage("assets/steelix.gif");
+	images["Bulbasaur"] = loadImage("assets/bulbasaur.gif");
+	images["Ivysaur"] = loadImage("assets/ivysaur.gif");
+	images["Venusaur"] = loadImage("assets/venusaur.gif");
+	images["Charmander"] = loadImage("assets/charmander.gif");
+	images["Charmeleon"] = loadImage("assets/charmeleon.gif");
+	images["Charizard"] = loadImage("assets/charizard.gif");
+	images["Squirtle"] = loadImage("assets/squirtle.gif");
+	images["Wartortle"] = loadImage("assets/wartortle.gif");
+	images["Blastoise"] = loadImage("assets/blastoise.gif");
+	images["Caterpie"] = loadImage("assets/caterpie.gif");
+	images["Metapod"] = loadImage("assets/metapod.gif");
+	images["Butterfree"] = loadImage("assets/butterfree.gif");
+	images["Weedle"] = loadImage("assets/weedle.gif");
+	images["Kakuna"] = loadImage("assets/kakuna.gif");
+	images["Beedrill"] = loadImage("assets/beedrill.gif");
+	images["Pidgey"] = loadImage("assets/pidgey.gif");
+	images["Pidgeotto"] = loadImage("assets/pidgeotto.gif");
+	images["Pidgeot"] = loadImage("assets/pidgeot.gif");
+	images["Rattata"] = loadImage("assets/rattata.gif");
+	images["Raticate"] = loadImage("assets/raticate.gif");
+	images["Spearow"] = loadImage("assets/spearow.gif");
+	images["Fearow"] = loadImage("assets/fearow.gif");
+	images["Ekans"] = loadImage("assets/ekans.gif");
+	images["Arbok"] = loadImage("assets/arbok.gif");
+	images["Pikachu"] = loadImage("assets/pikachu.gif");
+	images["Raichu"] = loadImage("assets/raichu.gif");
+	images["Sandshrew"] = loadImage("assets/sandshrew.gif");
+	images["Sandslash"] = loadImage("assets/sandslash.gif");
+	images["NidoranF"] = loadImage("assets/nidoran-f.gif");
+	images["Nidorina"] = loadImage("assets/nidorina.gif");
+	images["Nidoqueen"] = loadImage("assets/nidoqueen.gif");
+	images["NidoranM"] = loadImage("assets/nidoran-m.gif");
+	images["Nidorino"] = loadImage("assets/nidorino.gif");
+	images["Nidoking"] = loadImage("assets/nidoking.gif");
+	images["Clefairy"] = loadImage("assets/clefairy.gif");
+	images["Clefable"] = loadImage("assets/clefable.gif");
+	images["Vulpix"] = loadImage("assets/vulpix.gif");
+	images["Ninetales"] = loadImage("assets/ninetales.gif");
+	images["Jigglypuff"] = loadImage("assets/jigglypuff.gif");
+	images["Wigglytuff"] = loadImage("assets/wigglytuff.gif");
+	images["Zubat"] = loadImage("assets/zubat.gif");
+	images["Golbat"] = loadImage("assets/golbat.gif");
+	images["Oddish"] = loadImage("assets/oddish.gif");
+	images["Gloom"] = loadImage("assets/gloom.gif");
+	images["Vileplume"] = loadImage("assets/vileplume.gif");
+	images["Paras"] = loadImage("assets/paras.gif");
+	images["Parasect"] = loadImage("assets/parasect.gif");
+	images["Venonat"] = loadImage("assets/venonat.gif");
+	images["Venomoth"] = loadImage("assets/venomoth.gif");
+	images["Diglett"] = loadImage("assets/diglett.gif");
+	images["Dugtrio"] = loadImage("assets/dugtrio.gif");
+	images["Meowth"] = loadImage("assets/meowth.gif");
+	images["Persian"] = loadImage("assets/persian.gif");
+	images["Psyduck"] = loadImage("assets/psyduck.gif");
+	images["Golduck"] = loadImage("assets/golduck.gif");
+	images["Dratini"] = loadImage("assets/dratini.gif");
+	images["Dragonair"] = loadImage("assets/dragonair.gif");
+	images["Dragonite"] = loadImage("assets/dragonite.gif");
 
-  images["Pokeball"] = loadImage("assets/pokeball.png");
-  images["Standing"] = loadImage("assets/standing.png");
-  images["Walking"] = loadImage("assets/walking.gif");
-  images["RightWalking"] = loadImage("assets/rightWalk.gif");
-  images["LeftWalking"] = loadImage("assets/leftWalk.gif");
+	images["Pokeball"] = loadImage("assets/pokeball.png");
+	images["Standing"] = loadImage("assets/standing.png");
+	images["Walking"] = loadImage("assets/walking.gif");
+	images["RightWalking"] = loadImage("assets/rightWalk.gif");
+	images["LeftWalking"] = loadImage("assets/leftWalk.gif");
 }

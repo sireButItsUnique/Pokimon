@@ -60,9 +60,20 @@ class GameMap {
 		this.blocks.push(new Block(200, 600, 400, 1, 3)); // beginning wall (keep at index 1);
 
 		this.blocks.push(new Block(0, 0, 800, 600, 2, true, 1)); // start
+        // get walls for start area
+        this.blocks.push(new Block(0, -40, 800, 40, 0, false)); // wall
+        this.blocks.push(new Block(800, 0, 40, 600, 0, false)); // wall
+        this.blocks.push(new Block(0, 600, 200, 40, 0, false)); // wall
+        this.blocks.push(new Block(600, 600, 200, 40, 0, false)); // wall
+        this.blocks.push(new Block(-40, 0, 40, 600, 0, false)); // wall
 
 		this.blocks.push(new Block(200, 600, 400, 1000, 1, true, 1)); // path 1
 		this.blocks.push(new Block(600, 1200, 1000, 400, 1, true, 1));
+        this.blocks.push(new Block(600, 600, 40, 600, 0, false)); // wall
+        this.blocks.push(new Block(160, 600, 40, 1000, 0, false)); // wall
+        this.blocks.push(new Block(160, 1600, 1440, 40, 0, false)); // wall
+        this.blocks.push(new Block(600, 1160, 1000, 40, 0, false)); // wall
+
 		this.blocks.push(new Block(250, 1000, 250, 300, 2, true, 0.7)); // grass
 
 		this.blocks.push(new Block(1600, 800, 1000, 1200, 0, true, 1)); // gym 1 area; exit right; ends x = 2600; ymid = 1400
@@ -163,67 +174,85 @@ class GameMap {
 	}
 
 	listenThrowBall() {
-		let { playerW, playerH } = this;
-		let finalX = mouseX;
-		let finalY = mouseY;
-		this.ballX = 550 + playerW / 2 + 10;
-		this.ballY = 340 + playerH / 2;
 
-		if (keyIsDown(CONTROL)) {
-			console.log("yes");
+        if (this.ballThrown) return; // prevent throwing ball if already thrown
 
-			this.ballThrown = true;
+		let { playerW, playerH, playerX, playerY } = this;
+		this.ballFinalX = playerX - 600 + 30 + mouseX;
+		this.ballFinalY = playerY - 400 + 50 + mouseY;
+		this.ballX = playerX + 30;
+		this.ballY = playerY + 50;
 
-			let speed = 5;
-
-			let dx = finalX - this.ballX;
-			let dy = finalY - this.ballY;
-			let angle = Math.atan(dy / dx);
-			let xSpeed = speed * Math.cos(angle);
-			let ySpeed = speed * Math.sin(angle);
-
-			this.ballX += xSpeed;
-			this.ballY += ySpeed;
-		}
-		// else {
-		// 	this.ballThrown = false;
-		// }
+		let speed = 8;
+        let dx = this.ballFinalX - this.ballX;
+        let dy = this.ballFinalY - this.ballY;
+        let angle = Math.atan(dy / dx);
+        this.ballXSpeed = speed * Math.cos(angle);
+        this.ballYSpeed = speed * Math.sin(angle);
+        if (this.ballFinalX < this.ballX) this.ballXSpeed *= -1; // adjust speed based on direction
+        if (this.ballFinalX < this.ballX && this.ballFinalY < this.ballY) this.ballYSpeed *= -1; // adjust speed based on direction
+        if (this.ballFinalX < this.ballX && this.ballFinalY > this.ballY) this.ballYSpeed *= -1; // adjust speed based on direction
+        console.log(this.ballXSpeed, this.ballYSpeed);
+        this.balltimer = millis();
+        this.ballThrown = true;
 	}
 
+    listenBall(team) {
+        if (this.ballThrown) {
+            this.ballX += this.ballXSpeed;
+            this.ballY += this.ballYSpeed;
+
+            if (millis() - this.balltimer > 1000) {
+                this.ballThrown = false;
+            }
+
+            // check if ball hits pokimon
+            for (let i = 0; i < this.pokimonSpawn.length; i++) {
+                let pokimon = this.pokimonSpawn[i];
+                let pokiX = pokimon.x;
+                let pokiY = pokimon.y;
+
+                if (
+                    this.ballX > pokiX &&
+                    this.ballX < pokiX + 100 &&
+                    this.ballY > pokiY &&
+                    this.ballY < pokiY + 100
+                ) {
+                    // caught the pokimon
+                    console.log(`Caught ${pokimon.poki.name}!`);
+                    if (team.length < 6) team.push(pokimon.poki); // add pokimon to team if team is not full
+                    this.pokimonSpawn.splice(i, 1); // remove the pokimon from the map
+                    this.ballThrown = false; // reset ball thrown state
+                    break; // exit loop after catching one pokimon
+                }
+            }
+        }
+    }
+
+
 	listenMove() {
-		let speed = 3;
+		let speed = 4;
 		let walking = 0;
 
 		if (keyIsDown(68) || keyIsDown(39)) {
 			this.playerX += speed;
 			if (!this.playerInBoundary()) this.playerX -= speed;
-			// if (this.playerInBoundary(speed, 0)) {
 			walking = 1;
-			// }
 		}
 		if (keyIsDown(65) || keyIsDown(37)) {
 			this.playerX -= speed;
 			if (!this.playerInBoundary()) this.playerX += speed;
-
-			// if (this.playerInBoundary(-speed, 0)) {
 			walking = 2;
-			// }
 		}
 		if (keyIsDown(87) || keyIsDown(38)) {
 			this.playerY -= speed;
 			if (!this.playerInBoundary()) this.playerY += speed;
-
-			// if (this.playerInBoundary(0, -speed)) {
 			walking = 3;
-			// }
 		}
 		if (keyIsDown(83) || keyIsDown(40)) {
 			this.playerY += speed;
 			if (!this.playerInBoundary()) this.playerY -= speed;
-
-			// if (this.playerInBoundary(0, speed)) {
 			walking = 4;
-			// }
 		}
 
 		fill(255, 0);
@@ -269,6 +298,11 @@ class GameMap {
 		image(img, originX, originY);
 	}
 
+    renderBall() {
+        // draw ball
+		if (this.ballThrown) imageBounded(images["Pokeball"], this.ballX + 600 - this.playerX - 50, this.ballY + 400 - this.playerY - 60, 20, 20);
+    }
+
 	render() {
 		this.mapBg.background(base_0);
 
@@ -284,10 +318,7 @@ class GameMap {
 			this.renderPokimon(pokimon);
 		}
 
-		if (this.ballThrown) image(images["Pokeball"], this.ballX, this.ballY, 20, 20);
-
 		for (let i = 0; i < this.characters.length; i++) {
-			//console.log(characters[i]);
 			this.characters[i].render(this.playerX, this.playerY);
 		}
 	}

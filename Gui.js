@@ -4,14 +4,17 @@ class Gui {
 		this.height = 800;
 		this.player = player;
 		this.showTeam = false;
+		this.showSaved = false;
+		this.showInfo = false;
 		this.showIdx = -1;
+		this.playerPos = []; // x, y
 	}
 
 	render() {
 		fill(tone_1);
 		rect(0, 100, 100, 600, 0, 10, 10, 0);
 
-		let labels = ["Team", "Save"];
+		let labels = ["Team", "Save", "Info"];
 		for (let i = 0; i < labels.length; i++) {
 			fill(tone_2);
 			stroke(highlight_2);
@@ -23,6 +26,12 @@ class Gui {
 			strokeWeight(0);
 			text(labels[i], 50, 130 + i * 50);
 		}
+	}
+
+	pushPlayerPos(x, y) {
+		this.playerPos = [];
+		this.playerPos.push(x);
+		this.playerPos.push(y);
 	}
 
 	renderTeam(team) {
@@ -141,11 +150,58 @@ class Gui {
 		}
 	}
 
+	renderSaved() {
+		strokeWeight(1);
+		stroke(255);
+		fill(tone_1);
+		rect(100, 150, 300, 100, 10);
+		textSize(30);
+		noStroke();
+		fill("#eee");
+		text("Game saved!", 250, 200);
+	}
+
+	renderInfo() {
+		strokeWeight(1);
+		stroke(255);
+		fill(tone_1);
+		rect(100, 200, 1000, 300, 10);
+		textSize(30);
+		noStroke();
+		fill("#eee");
+		textAlign(LEFT);
+		text("Instructions:", 110, 210);
+	}
+
 	listen() {
 		if (mouseX > 10 && mouseX < 90 && mouseY > 110 && mouseY < 150) {
 			this.showTeam = !this.showTeam;
 			this.showIdx = -1;
 		}
+
+		if (mouseX > 10 && mouseX < 90 && mouseY > 160 && mouseY < 200) {
+			this.showSaved = !this.showSaved;
+			this.saveGame();
+		}
+
+		if (mouseX > 10 && mouseX < 90 && mouseY > 210 && mouseY < 250) {
+			this.showInfo = !this.showInfo;
+			
+			if (this.showInfo) {
+				this.renderInfo();
+			}
+		}
+	}
+
+	saveGame() {
+		let team = this.player.team;
+		let arr = [
+			{team: team},
+			{pos: this.playerPos}
+		];
+
+		localStorage.clear();
+		localStorage.setItem("data", JSON.stringify(arr));
 	}
 
 	listenForTeam(team) {

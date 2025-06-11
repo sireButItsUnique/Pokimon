@@ -8,7 +8,6 @@ let player = new Trainer({
 		new Bulbasaur(10),
 		new Bulbasaur(10),
 		new Bulbasaur(10),
-		new Bulbasaur(10),
 	],
 	img: "191.PNG",
 });
@@ -20,6 +19,17 @@ function setup() {
 	createCanvas(1200, 800);
 	background(255);
 	gameMap = new GameMap();
+
+	if (localStorage.key("data")) {
+		let savedTeam = JSON.parse(localStorage.getItem("data"))[0].team;
+		for (let i = 0; i < savedTeam.length; i++) {
+			savedTeam[i] = new DataLoad(savedTeam[i]);
+		}
+		let savedPos = JSON.parse(localStorage.getItem("data"))[1].pos;
+		player.team = savedTeam;
+		gameMap.playerX = savedPos[0];
+		gameMap.playerY = savedPos[1];
+	}
 
 	// loading map data
 	let opp = new Trainer({
@@ -95,7 +105,8 @@ function draw() {
 	if (state == "map") {
 		gameMap.render();
 		gameMap.listenMove();
-		gameMap.listenThrowBall();
+		gameMap.listenBall(player.team);
+		gameMap.renderBall();
 		gui.render();
 
 		// battle collision
@@ -115,6 +126,7 @@ function draw() {
 
 		if (result.show) result.render();
 		if (gui.showTeam) gui.renderTeam(player.team);
+		if (gui.showSaved) gui.renderSaved();
 	}
 }
 
@@ -128,8 +140,10 @@ function mouseClicked() {
 
 	if (state == "map") {
 		result.listen();
+		gui.pushPlayerPos(gameMap.playerX, gameMap.playerY);
 		gui.listen();
 		if (gui.showTeam) gui.listenForTeam(player.team);
+		if (!gui.showTeam) gameMap.listenThrowBall();
 	}
 }
 

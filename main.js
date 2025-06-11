@@ -104,8 +104,9 @@ function draw() {
 				battle = new Battle({
 					plr: player,
 					opp: c.trainer,
-					exitX: c.x - 80,
-					exitY: gameMap.playerY,
+					exitX: c.exitX ? c.x + c.exitX : c.x,
+					// exitY: c.exitY ? gameMap.playerY + c.exitY : gameMap.playerY,
+					exitY: c.exitY ? c.y + c.exitY : c.y,
 				});
 
 				state = "battle";

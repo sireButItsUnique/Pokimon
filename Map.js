@@ -191,7 +191,7 @@ class GameMap {
 	}
 
 	listenMove() {
-		let speed = 25;
+		let speed = 3;
 		let walking = 0;
 
 		if (keyIsDown(68) || keyIsDown(39)) {

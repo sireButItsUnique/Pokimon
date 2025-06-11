@@ -43,7 +43,9 @@ class GameMap {
 		this.blocks = [];
 		this.pokimonSpawn = [];
 
-		this.pokimonSpawn.push(new SpawnData("Bulbasaur", new Bulbasaur(1), 300, 300));
+		this.pokimonSpawn.push(new SpawnData("Bulbasaur", new Bulbasaur(10), 20, 100));
+		this.pokimonSpawn.push(new SpawnData("Squirtle", new Squirtle(10), 80, 100));
+		this.pokimonSpawn.push(new SpawnData("Charmander", new Charmander(10), 140, 100));
 		let randomPoki = pickSpawnPokimon();
 		this.pokimonSpawn.push(new SpawnData(randomPoki[0], randomPoki[1], 350, 1150));
 		randomPoki = pickSpawnPokimon();

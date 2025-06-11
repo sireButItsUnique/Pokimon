@@ -764,7 +764,7 @@ class Pikachu extends Pokimon {
 		this.learnMove(new ThunderShock());
 		this.learnMove(new ThunderBolt());
 
-		this.evoLvl = 30;
+		this.evoLvl = 36;
 		this.movePool = [
 			{ level: 1, move: new QuickAttack() },
 			{ level: 24, move: new Agility() },

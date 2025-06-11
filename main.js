@@ -3,11 +3,7 @@ let state = "map";
 let player = new Trainer({
 	name: "sire",
 	team: [
-		new Blastoise(100),
-		new Charizard(50),
-		new Bulbasaur(10),
-		new Bulbasaur(10),
-		new Bulbasaur(10),
+		new Pikachu(30),
 	],
 	img: "191.PNG",
 });
@@ -34,17 +30,17 @@ function setup() {
 	// loading map data
 	let opp = new Trainer({
 		name: "Roxanne",
-		team: [new Charmander(90), new Charmander(90), new Charmander(90)],
+		team: [new Metapod(100), new Metapod(100), new Metapod(100), new Metapod(100)],
 		img: "191.PNG",
 	});
 	let bugOpp = new Trainer({
 		name: "Buggy Duggy",
-		team: [new Caterpie(20), new Metapod(40), new Butterfree(50)],
+		team: [new Caterpie(20), new Metapod(30), new Butterfree(40)],
 		img: "buggyduggy.png",
 	});
 	let bugOppLeader = new Trainer({
 		name: "Katy",
-		team: [new Beedrill(50), new Parasect(80), new Kakuna(90)],
+		team: [new Beedrill(50), new Parasect(50), new Kakuna(50)],
 		img: "katy.png",
 	});
 	let grassOpp = new Trainer({
@@ -78,7 +74,7 @@ function setup() {
 		img: "flint.png",
 	});
 
-	gameMap.characters.push(new Character(500, 150, loadImage("assets/roxanne.png"), opp, 80, 0));
+	gameMap.characters.push(new Character(700, 150, loadImage("assets/roxanne.png"), opp, -80, 0));
 	gameMap.characters.push(new Character(1900, 900, loadImage("assets/buggyduggy.png"), bugOpp, 80, 0));
 	gameMap.characters.push(new Character(2200, 1800, loadImage("assets/katy.png"), bugOppLeader, 80, 0));
 	gameMap.characters.push(new Character(4380, 2000, loadImage("assets/mroily.png"), waterOpp, 0, 120));

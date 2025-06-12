@@ -14,7 +14,8 @@ class Gui {
 		fill(tone_1);
 		rect(0, 100, 100, 600, 0, 10, 10, 0);
 
-		let labels = ["Team", "Save", "Info"];
+		// let labels = ["Team", "Save", "Info"];
+		let labels = ["Team", "Save"];
 		for (let i = 0; i < labels.length; i++) {
 			fill(tone_2);
 			stroke(highlight_2);
@@ -184,21 +185,18 @@ class Gui {
 			this.saveGame();
 		}
 
-		if (mouseX > 10 && mouseX < 90 && mouseY > 210 && mouseY < 250) {
-			this.showInfo = !this.showInfo;
-			
-			if (this.showInfo) {
-				this.renderInfo();
-			}
-		}
+		// if (mouseX > 10 && mouseX < 90 && mouseY > 210 && mouseY < 250) {
+		// 	this.showInfo = !this.showInfo;
+
+		// 	if (this.showInfo) {
+		// 		this.renderInfo();
+		// 	}
+		// }
 	}
 
 	saveGame() {
 		let team = this.player.team;
-		let arr = [
-			{team: team},
-			{pos: this.playerPos}
-		];
+		let arr = [{ team: team }, { pos: this.playerPos }];
 
 		localStorage.clear();
 		localStorage.setItem("data", JSON.stringify(arr));
